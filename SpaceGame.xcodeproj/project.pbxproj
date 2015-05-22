@@ -21,6 +21,9 @@
 		13D1BCEA1B0E5F9F003E596F /* Control.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13D1BCE91B0E5F9F003E596F /* Control.swift */; };
 		13D1BCEC1B0E5FDB003E596F /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13D1BCEB1B0E5FDB003E596F /* Button.swift */; };
 		13D1BCEE1B0E5FFB003E596F /* Switch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13D1BCED1B0E5FFB003E596F /* Switch.swift */; };
+		13D29B921B0FA1CF00AED094 /* MemoryCard.plist in Resources */ = {isa = PBXBuildFile; fileRef = 13D29B911B0FA1CF00AED094 /* MemoryCard.plist */; };
+		13D29B941B0FA4FA00AED094 /* MemoryCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13D29B931B0FA4FA00AED094 /* MemoryCard.swift */; };
+		13D29B961B0FB30D00AED094 /* PlayerShip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13D29B951B0FB30D00AED094 /* PlayerShip.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +55,9 @@
 		13D1BCE91B0E5F9F003E596F /* Control.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Control.swift; sourceTree = "<group>"; };
 		13D1BCEB1B0E5FDB003E596F /* Button.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
 		13D1BCED1B0E5FFB003E596F /* Switch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Switch.swift; sourceTree = "<group>"; };
+		13D29B911B0FA1CF00AED094 /* MemoryCard.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = MemoryCard.plist; sourceTree = "<group>"; };
+		13D29B931B0FA4FA00AED094 /* MemoryCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemoryCard.swift; sourceTree = "<group>"; };
+		13D29B951B0FB30D00AED094 /* PlayerShip.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerShip.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +108,7 @@
 				13C13B921B0CB01A00E6AC5E /* Images.xcassets */,
 				13C13B941B0CB01A00E6AC5E /* LaunchScreen.xib */,
 				13C13B851B0CB01A00E6AC5E /* Supporting Files */,
+				13D29B911B0FA1CF00AED094 /* MemoryCard.plist */,
 			);
 			path = SpaceGame;
 			sourceTree = "<group>";
@@ -148,6 +155,8 @@
 				13D1BCE91B0E5F9F003E596F /* Control.swift */,
 				13D1BCEB1B0E5FDB003E596F /* Button.swift */,
 				13D1BCED1B0E5FFB003E596F /* Switch.swift */,
+				13D29B931B0FA4FA00AED094 /* MemoryCard.swift */,
+				13D29B951B0FB30D00AED094 /* PlayerShip.swift */,
 			);
 			name = src;
 			sourceTree = "<group>";
@@ -232,6 +241,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				13D29B921B0FA1CF00AED094 /* MemoryCard.plist in Resources */,
 				13C13B961B0CB01A00E6AC5E /* LaunchScreen.xib in Resources */,
 				13C13B931B0CB01A00E6AC5E /* Images.xcassets in Resources */,
 				13C13B8A1B0CB01A00E6AC5E /* GameScene.sks in Resources */,
@@ -257,10 +267,12 @@
 				13D1BCEE1B0E5FFB003E596F /* Switch.swift in Sources */,
 				13D1BCE81B0E5EF6003E596F /* MainMenuScene.swift in Sources */,
 				13C13B8C1B0CB01A00E6AC5E /* GameScene.swift in Sources */,
+				13D29B941B0FA4FA00AED094 /* MemoryCard.swift in Sources */,
 				13D1BCE61B0E5ECA003E596F /* Config.swift in Sources */,
 				13C13B8E1B0CB01A00E6AC5E /* GameViewController.swift in Sources */,
 				13C13B881B0CB01A00E6AC5E /* AppDelegate.swift in Sources */,
 				130E88701B0F75A00030FA7A /* NewGame.swift in Sources */,
+				13D29B961B0FB30D00AED094 /* PlayerShip.swift in Sources */,
 				13D1BCEA1B0E5F9F003E596F /* Control.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
