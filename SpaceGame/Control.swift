@@ -55,6 +55,7 @@ class Control: SKNode {
         Control.locations.addObject(name)
         self.sketchPosition = CGPoint(x: x, y: y)
         self.align = alignments.center
+        self.zPosition = Config.HUDZPosition/2
         
         let texture = SKTexture(imageNamed: textureName)
         let spriteNode = SKSpriteNode(texture: texture, color: nil, size: texture.size())
