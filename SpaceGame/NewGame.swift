@@ -14,6 +14,8 @@ class NewGame: Control {
         
         self.addChild(Button(name: "buttonNewGame", x:289, y:241))
         self.addChild(Button(name: "buttonBack", x:81, y:633, align:alignments.left))
+        self.addChild(Button(name: "buttonLeft", x:549, y:241))
+        self.addChild(Button(name: "buttonRight", x:663, y:241))
         
         self.hidden = false
     }
