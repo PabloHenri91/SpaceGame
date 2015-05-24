@@ -42,36 +42,19 @@ class Button: Control {
         })
     }
     
-    class func touchesBegan(scene: SKNode, touches: Set<UITouch>) {
+    class func update(scene: SKNode) {
         scene.enumerateChildNodesWithName("button*", usingBlock: { (node:SKNode!, stop:UnsafeMutablePointer<ObjCBool>) -> Void in
-            for touch in touches {
+            var i = 0
+            for touch in Control.touchesArray {
                 let location = touch.locationInNode(node.parent)
                 if node.containsPoint(location) {
-                    (node as! Button).buttonPressed()
+                    i++
                 }
             }
-        })
-    }
-    
-    class func touchesMoved(scene: SKNode, touches: Set<UITouch>) {
-        scene.enumerateChildNodesWithName("button*", usingBlock: { (node:SKNode!, stop:UnsafeMutablePointer<ObjCBool>) -> Void in
-            (node as! Button).buttonReleased()
-            for touch in touches {
-                let location = touch.locationInNode(node.parent)
-                if node.containsPoint(location) {
-                    (node as! Button).buttonPressed()
-                }
-            }
-        })
-    }
-    
-    class func touchesEnded(scene: SKNode, touches: Set<UITouch>) {
-        scene.enumerateChildNodesWithName("button*", usingBlock: { (node:SKNode!, stop:UnsafeMutablePointer<ObjCBool>) -> Void in
-            for touch in touches {
-                let location = touch.locationInNode(node.parent)
-                if node.containsPoint(location) {
-                    (node as! Button).buttonReleased()
-                }
+            if(i > 0){
+                (node as! Button).buttonPressed()
+            } else {
+                (node as! Button).buttonReleased()
             }
         })
     }

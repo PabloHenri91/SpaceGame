@@ -77,15 +77,15 @@ class MainMenuScene: SKScene {
     }
     
     override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
-        Button.touchesBegan(self, touches: touches as! Set<UITouch>)
+        Control.touchesBegan(self, touches: touches as! Set<UITouch>)
     }
     
     override func touchesMoved(touches: Set<NSObject>, withEvent event: UIEvent) {
-        Button.touchesMoved(self, touches: touches as! Set<UITouch>)
+        Control.touchesMoved(self)
     }
     
     override func touchesEnded(touches: Set<NSObject>, withEvent event: UIEvent) {
-        Button.touchesEnded(self, touches: touches as! Set<UITouch>)
+        Control.touchesEnded(self, touches: touches as! Set<UITouch>)
         
         if (self.state == self.nextState) {
             switch (self.state) {
@@ -111,6 +111,6 @@ class MainMenuScene: SKScene {
     }
     
     override func touchesCancelled(touches: Set<NSObject>!, withEvent event: UIEvent!) {
-        Button.touchesEnded(self, touches: touches as! Set<UITouch>)
+        Control.touchesEnded(self, touches: touches as! Set<UITouch>)
     }
 }

@@ -34,7 +34,7 @@ class Config: NSObject {
         var scale = min(xScale, yScale)
         
         Config.translate = CGPoint(x: ((skViewBoundsSize.width - (sceneSize.width * scale))/2)/scale,
-            y: ((skViewBoundsSize.height - (sceneSize.height * scale))/2)/scale)
+                                   y: ((skViewBoundsSize.height - (sceneSize.height * scale))/2)/scale)
         
         return CGSize(width: skViewBoundsSize.width / scale, height: skViewBoundsSize.height / scale)
     }

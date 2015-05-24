@@ -12,10 +12,10 @@ class NewGame: Control {
     init(){
         super.init(name: "NewGame", textureName: "newGameBackground", x: 0, y: 0)
         
-        self.addChild(Button(name: "buttonNewGame", x:289, y:241))
+        self.addChild(Button(name: "buttonNewGame", x:289, y:241, align:alignments.none))
         self.addChild(Button(name: "buttonBack", x:81, y:633, align:alignments.left))
-        self.addChild(Button(name: "buttonLeft", x:549, y:241))
-        self.addChild(Button(name: "buttonRight", x:663, y:241))
+        self.addChild(Button(name: "buttonLeft", x:549, y:241, align:alignments.none))
+        self.addChild(Button(name: "buttonRight", x:663, y:241, align:alignments.none))
         
         self.hidden = false
     }
@@ -25,15 +25,15 @@ class NewGame: Control {
     }
     
     override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
-        Button.touchesBegan(self, touches: touches as! Set<UITouch>)
+        Control.touchesBegan(self, touches: touches as! Set<UITouch>)
     }
     
     override func touchesMoved(touches: Set<NSObject>, withEvent event: UIEvent) {
-        Button.touchesMoved(self, touches: touches as! Set<UITouch>)
+        Control.touchesMoved(self)
     }
     
     override func touchesEnded(touches: Set<NSObject>, withEvent event: UIEvent) {
-        Button.touchesEnded(self, touches: touches as! Set<UITouch>)
+        Control.touchesEnded(self, touches: touches as! Set<UITouch>)
         for touch in (touches as! Set<UITouch>) {
             let location = touch.locationInNode(self)
             
@@ -46,7 +46,7 @@ class NewGame: Control {
     }
     
     override func touchesCancelled(touches: Set<NSObject>!, withEvent event: UIEvent!) {
-        Button.touchesEnded(self.scene!, touches: touches as! Set<UITouch>)
+        Control.touchesEnded(self.scene!, touches: touches as! Set<UITouch>)
     }
     
     override var hidden: Bool {

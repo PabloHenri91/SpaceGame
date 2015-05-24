@@ -40,7 +40,7 @@ class Switch: Control {
         })
     }
     
-    class func touchesEnded(scene: SKScene, touches: Set<UITouch>) {
+    class func update(scene: SKNode, touches: Set<UITouch>) {
         scene.enumerateChildNodesWithName("switch*", usingBlock: { (node:SKNode!, stop:UnsafeMutablePointer<ObjCBool>) -> Void in
             for touch in touches {
                 let location = touch.locationInNode(node.parent)

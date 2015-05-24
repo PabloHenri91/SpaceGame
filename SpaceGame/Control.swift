@@ -10,10 +10,13 @@ import SpriteKit
 
 class Control: SKNode {
     
+    static var touchesArray:NSMutableArray = NSMutableArray()
+    
     enum alignments {
         case center
         case left
         case right
+        case none //Este alinhamento é usado para elementos que estao dentro de um Control que ja está alinhado
     }
     
     var align = alignments.center {
@@ -72,7 +75,7 @@ class Control: SKNode {
         Switch.resetSwitches(scene)
     }
     
-    func resetPosition(){
+    func resetPosition() {
         switch(align)
         {
         case .center:
@@ -84,8 +87,30 @@ class Control: SKNode {
         case .right:
             self.position = CGPoint(x: Int(sketchPosition.x)/2 + Int(Config.translate.x * 2), y: -Int(sketchPosition.y)/2 - Int(Config.translate.y))
             break
+        case .none:
+            self.position = CGPoint(x: Int(sketchPosition.x)/2, y: -Int(sketchPosition.y)/2)
+            break
         default:
             break
         }
+    }
+    
+    class func touchesBegan(scene: SKNode, touches: Set<UITouch>) {
+        for touch in touches {
+            Control.touchesArray.addObject(touch)
+        }
+        Button.update(scene)
+    }
+    
+    class func touchesMoved(scene: SKNode) {
+        Button.update(scene)
+    }
+    
+    class func touchesEnded(scene: SKNode, touches: Set<UITouch>) {
+        for touch in touches {
+            Control.touchesArray.removeObject(touch)
+        }
+        Button.update(scene)
+        Switch.update(scene, touches: touches)
     }
 }
