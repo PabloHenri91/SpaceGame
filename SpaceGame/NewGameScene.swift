@@ -8,20 +8,32 @@
 
 import SpriteKit
 
-class NewGame: Control {
-    init(){
-        super.init(name: "NewGame", textureName: "newGameBackground", x: 0, y: 0)
-        
-        self.addChild(Button(name: "buttonNewGame", x:289, y:241, align:alignments.none))
-        self.addChild(Button(name: "buttonBack", x:81, y:633, align:alignments.left))
-        self.addChild(Button(name: "buttonLeft", x:549, y:241, align:alignments.none))
-        self.addChild(Button(name: "buttonRight", x:663, y:241, align:alignments.none))
-        
-        self.hidden = false
+class NewGameScene: SKScene {
+    override init() {
+        Control.locations = NSMutableArray()
+        super.init(size: Config.sceneSize())
     }
-
+    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func didMoveToView(view: SKView) {
+        
+        self.scaleMode = SKSceneScaleMode.AspectFit
+        self.backgroundColor = Config.myGray
+        self.anchorPoint = CGPoint(x: 0, y: 1)
+        
+        self.addChild(Control(name: "newGameBackground", x:0, y:0, align:.center))
+        
+        self.addChild(Button(name: "buttonNewGame", x:289, y:241, align:.center))
+        self.addChild(Button(name: "buttonBack", x:81, y:633, xAlign:.left, yAlign:.down))
+        self.addChild(Button(name: "buttonLeft", x:549, y:241, align:.center))
+        self.addChild(Button(name: "buttonRight", x:663, y:241, align:.center))
+        
+        self.addChild(PlayerShip(index: 0))
+        
+        self.hidden = false
     }
     
     override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
@@ -38,8 +50,7 @@ class NewGame: Control {
             let location = touch.locationInNode(self)
             
             if (self.childNodeWithName("buttonBack")!.containsPoint(location) == true) {
-                self.hidden = true
-                (self.scene as! MainMenuScene).nextState = MainMenuScene.states.mainMenu
+                self.view!.presentScene(MainMenuScene(), transition: SKTransition.crossFadeWithDuration(1))
                 return;
             }
         }

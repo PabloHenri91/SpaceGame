@@ -13,13 +13,14 @@ class Button: Control {
     
     var pressed:Bool = false
     
-    override func load(name:String, textureName:String, x:Int, y:Int, align:Control.alignments) {
+    override func load(name:String, textureName:String, x:Int, y:Int, xAlign:Control.xAlignments, yAlign:Control.yAlignments) {
         if(!name.hasPrefix("button")) {
             fatalError("Error loading Button: \(name). Did you mean button\(name)?")
         }
         self.name = name
         self.sketchPosition = CGPoint(x: x, y: y)
-        self.align = align
+        self.yAlign = yAlign
+        self.xAlign = xAlign
         self.zPosition = Config.HUDZPosition
         
         let texture = SKTexture(imageNamed: textureName)

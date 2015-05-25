@@ -12,14 +12,20 @@ class Control: SKNode {
     
     static var touchesArray:NSMutableArray = NSMutableArray()
     
-    enum alignments {
-        case center
-        case left
-        case right
-        case none //Este alinhamento é usado para elementos que estao dentro de um Control que ja está alinhado
+    enum xAlignments: Int {
+        case left = 0
+        case center = 1
+        case right = 2
     }
     
-    var align = alignments.center {
+    enum yAlignments: Int {
+        case up = 0
+        case center = 1
+        case down = 2
+    }
+    
+    var yAlign = yAlignments.up
+    var xAlign = xAlignments.left {
         didSet {
             self.resetPosition()
         }
@@ -31,33 +37,44 @@ class Control: SKNode {
     
     init(name:String, x:Int, y:Int) {
         super.init()
-        self.load(name, textureName: name, x: x, y: y, align: alignments.center)
-    }
-    
-    init(name:String, x:Int, y:Int, align:Control.alignments) {
-        super.init()
-        self.load(name, textureName: name, x: x, y: y, align: align)
+        self.load(name, textureName: name, x: x, y: y, xAlign: .left, yAlign: .up)
     }
     
     init(name:String, textureName:String, x:Int, y:Int) {
         super.init()
-        self.load(name, textureName: textureName, x: x, y: y, align: alignments.center)
+        self.load(name, textureName: textureName, x: x, y: y, xAlign: .left, yAlign: .up)
     }
     
-    init(name:String, textureName:String, x:Int, y:Int, align:Control.alignments) {
+    init(name:String, x:Int, y:Int, align:Control.xAlignments) {
         super.init()
-        self.load(name, textureName: textureName, x: x, y: y, align: align)
+        self.load(name, textureName: name, x: x, y: y, xAlign: align, yAlign: .center)
+    }
+    
+    init(name:String, x:Int, y:Int, xAlign:Control.xAlignments, yAlign:Control.yAlignments) {
+        super.init()
+        self.load(name, textureName: name, x: x, y: y, xAlign: xAlign, yAlign: yAlign)
+    }
+    
+    init(name:String, textureName:String, x:Int, y:Int, align:Control.xAlignments) {
+        super.init()
+        self.load(name, textureName: textureName, x: x, y: y, xAlign: align, yAlign: .center)
+    }
+    
+    init(name:String, textureName:String, x:Int, y:Int, xAlign:Control.xAlignments, yAlign:Control.yAlignments) {
+        super.init()
+        self.load(name, textureName: textureName, x: x, y: y, xAlign: xAlign, yAlign: yAlign)
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func load(name:String, textureName:String, x:Int, y:Int, align:Control.alignments) {
+    func load(name:String, textureName:String, x:Int, y:Int, xAlign:Control.xAlignments, yAlign:Control.yAlignments) {
         self.name = name
         Control.locations.addObject(name)
         self.sketchPosition = CGPoint(x: x, y: y)
-        self.align = alignments.center
+        self.yAlign = yAlign
+        self.xAlign = xAlign
         self.zPosition = Config.HUDZPosition/2
         
         let texture = SKTexture(imageNamed: textureName)
@@ -69,30 +86,16 @@ class Control: SKNode {
     
     class func resetControls(scene: SKScene) {
         for name in Control.locations {
-            ((scene.childNodeWithName(name as! String)) as! Control).resetPosition()
+            ((scene.childNodeWithName("//" + (name as! String))) as! Control).resetPosition()
         }
         Button.resetButtons(scene)
         Switch.resetSwitches(scene)
     }
     
     func resetPosition() {
-        switch(align)
-        {
-        case .center:
-            self.position = CGPoint(x: Int(sketchPosition.x)/2 + Int(Config.translate.x), y: -Int(sketchPosition.y)/2 - Int(Config.translate.y))
-            break
-        case .left:
-            self.position = CGPoint(x: Int(sketchPosition.x)/2, y: -Int(sketchPosition.y)/2 - Int(Config.translate.y))
-            break
-        case .right:
-            self.position = CGPoint(x: Int(sketchPosition.x)/2 + Int(Config.translate.x * 2), y: -Int(sketchPosition.y)/2 - Int(Config.translate.y))
-            break
-        case .none:
-            self.position = CGPoint(x: Int(sketchPosition.x)/2, y: -Int(sketchPosition.y)/2)
-            break
-        default:
-            break
-        }
+        self.position = CGPoint(x: Int(sketchPosition.x)/2 + Int(Config.translate.x * CGFloat(xAlign.rawValue)),
+                               y: -Int(sketchPosition.y)/2 - Int(Config.translate.y * CGFloat(yAlign.rawValue)))
+        
     }
     
     class func touchesBegan(scene: SKNode, touches: Set<UITouch>) {

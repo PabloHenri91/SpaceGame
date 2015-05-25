@@ -8,7 +8,7 @@
 
 import SpriteKit
 
-class PlayerShip: SKNode {
+class PlayerShip: Control {
     var speedAtribute:Int = 0
     var acceleration:Int = 0
     var agility:Int = 0
@@ -16,8 +16,8 @@ class PlayerShip: SKNode {
     var shieldPower:Int = 0
     var shieldRecharge:Int = 0
     
-    override init() {
-        super.init()
+    init(index:Int) {
+        super.init(name: "player", textureName: "player\(index)", x: 601, y: 526, align:.center)
         //Dados vao vir do save do jogo ou vao ser carregados quando o jogador criar uma nova nave
         self.speedAtribute = 10
         self.acceleration = 10

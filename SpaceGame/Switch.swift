@@ -11,7 +11,7 @@ import SpriteKit
 
 class Switch: Control {
     
-    override func load(name: String, textureName: String, x: Int, y: Int, align: Control.alignments) {
+    override func load(name: String, textureName: String, x: Int, y: Int, xAlign: Control.xAlignments, yAlign:Control.yAlignments) {
         
         if(!name.hasPrefix("switch")) {
             fatalError("Error loading Switch: \(name). Did you mean switch\(name)?")

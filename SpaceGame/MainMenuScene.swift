@@ -36,13 +36,11 @@ class MainMenuScene: SKScene {
         self.backgroundColor = Config.myGray
         self.anchorPoint = CGPoint(x: 0, y: 1)
         
-        var textures2Dlocations = NSMutableArray()
+        self.addChild(Control(name: "mainMenuBackground", x:0, y:0, align:.center))
         
-        self.addChild(Control(name: "mainMenuBackground", x:0, y:0))
-        
-        self.addChild(Button(name: "buttonPlay", x:549, y:317))
-        self.addChild(Button(name: "buttonOptions", x: 549, y: 409))
-        self.addChild(Button(name: "buttonCredits", x: 549, y: 501))
+        self.addChild(Button(name: "buttonPlay", x:549, y:317, align:.center))
+        self.addChild(Button(name: "buttonOptions", x: 549, y: 409, align:.center))
+        self.addChild(Button(name: "buttonCredits", x: 549, y: 501, align:.center))
     }
     
     override func update(currentTime: NSTimeInterval) {
@@ -57,17 +55,11 @@ class MainMenuScene: SKScene {
             switch (self.nextState) {
                 
             case states.newGame:
-                if let node = self.childNodeWithName("NewGame") {
-                    node.hidden = false
-                } else {
-                    var newGame = NewGame()
-                    newGame.zPosition *= 2
-                    self.addChild(newGame)
-                }
+                self.view!.presentScene(NewGameScene(), transition: SKTransition.crossFadeWithDuration(1))
                 break;
                 
             case states.loadGame:
-                self.view!.presentScene(GameScene(), transition: SKTransition.crossFadeWithDuration(2))
+                self.view!.presentScene(GameScene(), transition: SKTransition.crossFadeWithDuration(1))
                 break;
                 
             default:
