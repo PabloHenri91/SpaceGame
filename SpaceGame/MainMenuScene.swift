@@ -13,7 +13,7 @@ class MainMenuScene: SKScene {
     enum states {
         case mainMenu
         case newGame
-        case loadGame
+        case hangar
         case options
         case credits
     }
@@ -58,8 +58,8 @@ class MainMenuScene: SKScene {
                 self.view!.presentScene(NewGameScene(), transition: SKTransition.crossFadeWithDuration(1))
                 break;
                 
-            case states.loadGame:
-                self.view!.presentScene(GameScene(), transition: SKTransition.crossFadeWithDuration(1))
+            case states.hangar:
+                self.view!.presentScene(HangarScene(), transition: SKTransition.crossFadeWithDuration(1))
                 break;
                 
             default:
@@ -86,11 +86,11 @@ class MainMenuScene: SKScene {
                     let location = touch.locationInNode(self)
                     
                     if (self.childNodeWithName("buttonPlay")!.containsPoint(location) == true) {
-                        if(true){
-                            self.nextState = states.newGame;
-                        } //else {
-                        //    self.nextState = states.loadGame;
-                        //}
+                        if(SpaceScene.memoryCard.loadGame()){
+                            self.nextState = .hangar
+                        } else {
+                            self.nextState = .newGame
+                        }
                         return;
                     }
                 }

@@ -12,4 +12,16 @@ class MemoryCard: NSObject {
     override init() {
         
     }
+    
+    func newGame(shipIndex:Int){
+        
+    }
+    
+    func saveGame(){
+        
+    }
+    
+    func loadGame() -> Bool{
+        return true
+    }
 }

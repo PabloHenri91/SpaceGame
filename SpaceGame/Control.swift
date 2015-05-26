@@ -101,7 +101,6 @@ class Control: SKNode {
     func resetPosition() {
         self.position = CGPoint(x: Int(sketchPosition.x)/2 + Int(Config.translate.x * CGFloat(xAlign.rawValue)),
                                y: -Int(sketchPosition.y)/2 - Int(Config.translate.y * CGFloat(yAlign.rawValue)))
-        
     }
     
     class func touchesBegan(scene: SKNode, touches: Set<UITouch>) {
