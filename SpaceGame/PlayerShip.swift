@@ -62,7 +62,13 @@ class PlayerShip: Control {
         self.shieldPower = playerType.shieldPower
         self.shieldRecharge = playerType.shieldRecharge
         
-        (self.childNodeWithName("player") as! SKSpriteNode).texture = SKTexture(imageNamed: "player" + index.description)
+        (self.childNodeWithName("player"))!.removeFromParent()
+        
+        let texture = SKTexture(imageNamed: "player" + index.description)
+        let spriteNode = SKSpriteNode(texture: texture, color: nil, size: texture.size())
+        spriteNode.name = "player"
+        spriteNode.zPosition = Config.HUDZPosition/2
+        self.addChild(spriteNode)
     }
 }
 

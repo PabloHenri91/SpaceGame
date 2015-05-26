@@ -63,6 +63,12 @@ class NewGameScene: SKScene {
                 return;
             }
             if (self.childNodeWithName("buttonRight")!.containsPoint(location)) {
+                shipIndex++
+                if(shipIndex > Config.playerTypesCount ){
+                    shipIndex = 0
+                }
+                
+                (self.childNodeWithName("player") as! PlayerShip).reloadNewShip(shipIndex)
                 
                 return;
             }
