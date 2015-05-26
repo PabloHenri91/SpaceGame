@@ -35,6 +35,11 @@ class Control: SKNode {
     
     static var locations:NSMutableArray = NSMutableArray()
     
+    override init() {
+        super.init()
+        //Este inicializador deve ser sobreescrito nas subclasses
+    }
+    
     init(name:String, x:Int, y:Int) {
         super.init()
         self.load(name, textureName: name, x: x, y: y, xAlign: .left, yAlign: .up)
@@ -69,6 +74,7 @@ class Control: SKNode {
         fatalError("init(coder:) has not been implemented")
     }
     
+    //Esta função deve ser sobreescrita nas subclasses
     func load(name:String, textureName:String, x:Int, y:Int, xAlign:Control.xAlignments, yAlign:Control.yAlignments) {
         self.name = name
         Control.locations.addObject(name)

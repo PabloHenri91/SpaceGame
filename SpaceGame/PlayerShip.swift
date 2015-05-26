@@ -9,6 +9,7 @@
 import SpriteKit
 
 class PlayerShip: Control {
+    
     var speedAtribute:Int = 0
     var acceleration:Int = 0
     var agility:Int = 0
@@ -17,18 +18,51 @@ class PlayerShip: Control {
     var shieldRecharge:Int = 0
     
     init(index:Int) {
-        super.init(name: "player", textureName: "player\(index)", x: 601, y: 526, align:.center)
-        //Dados vao vir do save do jogo ou vao ser carregados quando o jogador criar uma nova nave
-        self.speedAtribute = 10
-        self.acceleration = 10
-        self.agility = 10
-        self.armor = 10
-        self.shieldPower = 10
-        self.shieldRecharge = 10
+        super.init()
+        loadNewShip(index)
     }
 
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func loadNewShip(index:Int) {
+        
+        var players = Players()
+        var playerType = players.playerTypes[index] as! PlayerType
+        
+        self.speedAtribute = playerType.speed
+        self.acceleration = playerType.acceleration
+        self.agility = playerType.agility
+        self.armor = playerType.armor
+        self.shieldPower = playerType.shieldPower
+        self.shieldRecharge = playerType.shieldRecharge
+        
+        self.name = "player"
+        Control.locations.addObject("player")
+        self.sketchPosition = CGPoint(x: 665, y: 590)
+        self.yAlign = .center
+        self.xAlign = .center
+        self.zPosition = Config.HUDZPosition/2
+        
+        let texture = SKTexture(imageNamed: "player" + index.description)
+        let spriteNode = SKSpriteNode(texture: texture, color: nil, size: texture.size())
+        spriteNode.name = "player"
+        self.addChild(spriteNode)
+    }
+    
+    func reloadNewShip(index:Int) {
+        var players = Players()
+        var playerType = players.playerTypes[index] as! PlayerType
+        
+        self.speedAtribute = playerType.speed
+        self.acceleration = playerType.acceleration
+        self.agility = playerType.agility
+        self.armor = playerType.armor
+        self.shieldPower = playerType.shieldPower
+        self.shieldRecharge = playerType.shieldRecharge
+        
+        (self.childNodeWithName("player") as! SKSpriteNode).texture = SKTexture(imageNamed: "player" + index.description)
     }
 }
 
@@ -53,9 +87,9 @@ class PlayerType: NSObject {
 class Players: NSObject {
     var playerTypes:NSMutableArray = NSMutableArray()
     
-    func load(){
+    override init() {
         //Futuramente vao ser predefinidos os valores de cada tipo inicial de nave
-        for(var i = 0; i < 6; i++){
+        for(var i = 0; i <= Config.playerTypesCount; i++){
             playerTypes.addObject(PlayerType(
                 speed: Int(arc4random_uniform(90) + 10),
                 acceleration: Int(arc4random_uniform(90) + 10),

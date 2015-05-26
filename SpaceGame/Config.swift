@@ -45,4 +45,6 @@ class Config: NSObject {
         case enemy  = 2
         case bullet = 4
     }
+    
+    static var playerTypesCount = 12
 }

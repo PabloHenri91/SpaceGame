@@ -9,6 +9,9 @@
 import SpriteKit
 
 class NewGameScene: SKScene {
+    
+    var shipIndex:Int = 0
+    
     override init() {
         Control.locations = NSMutableArray()
         super.init(size: Config.sceneSize())
@@ -31,7 +34,7 @@ class NewGameScene: SKScene {
         self.addChild(Button(name: "buttonLeft", x:549, y:241, align:.center))
         self.addChild(Button(name: "buttonRight", x:663, y:241, align:.center))
         
-        self.addChild(PlayerShip(index: 0))
+        self.addChild(PlayerShip(index: shipIndex))
         
         self.hidden = false
     }
@@ -49,7 +52,21 @@ class NewGameScene: SKScene {
         for touch in (touches as! Set<UITouch>) {
             let location = touch.locationInNode(self)
             
-            if (self.childNodeWithName("buttonBack")!.containsPoint(location) == true) {
+            if (self.childNodeWithName("buttonLeft")!.containsPoint(location)) {
+                shipIndex--
+                if(shipIndex < 0 ){
+                    shipIndex = Config.playerTypesCount
+                }
+                
+                (self.childNodeWithName("player") as! PlayerShip).reloadNewShip(shipIndex)
+                
+                return;
+            }
+            if (self.childNodeWithName("buttonRight")!.containsPoint(location)) {
+                
+                return;
+            }
+            if (self.childNodeWithName("buttonBack")!.containsPoint(location)) {
                 self.view!.presentScene(MainMenuScene(), transition: SKTransition.crossFadeWithDuration(1))
                 return;
             }
