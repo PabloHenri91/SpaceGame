@@ -34,6 +34,13 @@ class NewGameScene: SKScene {
         self.addChild(Button(name: "buttonLeft", x:549, y:241, align:.center))
         self.addChild(Button(name: "buttonRight", x:663, y:241, align:.center))
         
+        self.addChild(Label(name: "labelSpeed", textureName:"999", x:1014, y:264, align:.center))
+        self.addChild(Label(name: "labelAcceleration", textureName:"999", x:1014, y:342, align:.center))
+        self.addChild(Label(name: "labelAgility", textureName:"999", x:1014, y:420, align:.center))
+        self.addChild(Label(name: "labelArmor", textureName:"999", x:1014, y:498, align:.center))
+        self.addChild(Label(name: "labelShieldPower", textureName:"999", x:1014, y:576, align:.center))
+        self.addChild(Label(name: "labelShieldRecharge", textureName:"999", x:1014, y:655, align:.center))
+        
         self.addChild(PlayerShip(index: shipIndex))
         
         self.hidden = false

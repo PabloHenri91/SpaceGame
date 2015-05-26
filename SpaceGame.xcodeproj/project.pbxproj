@@ -25,6 +25,7 @@
 		13D29B941B0FA4FA00AED094 /* MemoryCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13D29B931B0FA4FA00AED094 /* MemoryCard.swift */; };
 		13D29B961B0FB30D00AED094 /* PlayerShip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13D29B951B0FB30D00AED094 /* PlayerShip.swift */; };
 		13DB50681B14EC9700E543E9 /* HangarScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13DB50671B14EC9700E543E9 /* HangarScene.swift */; };
+		13DB506A1B14FBC300E543E9 /* Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13DB50691B14FBC300E543E9 /* Label.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +61,7 @@
 		13D29B931B0FA4FA00AED094 /* MemoryCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemoryCard.swift; sourceTree = "<group>"; };
 		13D29B951B0FB30D00AED094 /* PlayerShip.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerShip.swift; sourceTree = "<group>"; };
 		13DB50671B14EC9700E543E9 /* HangarScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HangarScene.swift; sourceTree = "<group>"; };
+		13DB50691B14FBC300E543E9 /* Label.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Label.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,6 +160,7 @@
 				13D1BCE91B0E5F9F003E596F /* Control.swift */,
 				13D1BCEB1B0E5FDB003E596F /* Button.swift */,
 				13D1BCED1B0E5FFB003E596F /* Switch.swift */,
+				13DB50691B14FBC300E543E9 /* Label.swift */,
 				13D29B931B0FA4FA00AED094 /* MemoryCard.swift */,
 				13D29B951B0FB30D00AED094 /* PlayerShip.swift */,
 			);
@@ -271,6 +274,7 @@
 				13D1BCE81B0E5EF6003E596F /* MainMenuScene.swift in Sources */,
 				13C13B8C1B0CB01A00E6AC5E /* SpaceScene.swift in Sources */,
 				13D29B941B0FA4FA00AED094 /* MemoryCard.swift in Sources */,
+				13DB506A1B14FBC300E543E9 /* Label.swift in Sources */,
 				13D1BCE61B0E5ECA003E596F /* Config.swift in Sources */,
 				13C13B8E1B0CB01A00E6AC5E /* GameViewController.swift in Sources */,
 				13C13B881B0CB01A00E6AC5E /* AppDelegate.swift in Sources */,

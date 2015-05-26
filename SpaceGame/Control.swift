@@ -96,6 +96,7 @@ class Control: SKNode {
         }
         Button.resetButtons(scene)
         Switch.resetSwitches(scene)
+        Label.resetLabels(scene)
     }
     
     func resetPosition() {

@@ -22,6 +22,6 @@ class MemoryCard: NSObject {
     }
     
     func loadGame() -> Bool{
-        return true
+        return false
     }
 }
