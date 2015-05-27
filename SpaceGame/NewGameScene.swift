@@ -39,6 +39,7 @@ class NewGameScene: SKScene {
         self.addChild(Control(name: "newGameBackground", x:0, y:0, align:.center))
         
         self.addChild(Button(name: "buttonNewGame", x:289, y:241, align:.center))
+        self.addChild(Button(name: "buttonCancel", x:289, y:366, align:.center))
         self.addChild(Button(name: "buttonBack", x:81, y:633, xAlign:.left, yAlign:.down))
         self.addChild(Button(name: "buttonLeft", x:549, y:241, align:.center))
         self.addChild(Button(name: "buttonRight", x:663, y:241, align:.center))
@@ -49,6 +50,14 @@ class NewGameScene: SKScene {
         self.addChild(Label(name: "labelArmor", textureName:"999", x:1014, y:498, align:.center))
         self.addChild(Label(name: "labelShieldPower", textureName:"999", x:1014, y:576, align:.center))
         self.addChild(Label(name: "labelShieldRecharge", textureName:"999", x:1014, y:655, align:.center))
+        
+        self.addChild(Label(name: "labelScore", textureName:"$10000", x:645, y:357, align:.center))
+        self.addChild(Label(name: "labelLevel", textureName:"Level: 1", x:645, y:420, align:.center))
+        
+        self.addChild(Label(name: "labelMaximumUP", textureName:"Maximum UP: 9999", x:408, y:507, align:.center))
+        self.addChild(Label(name: "labelCurrentUP", textureName:"Current UP 9999", x:408, y:589, align:.center))
+        self.addChild(Label(name: "labelAvailableUP", textureName:"Available UP 9999", x:408, y:671, align:.center))
+        
         
         let playerShip = PlayerShip(index: shipIndex)
         self.reloadAtributeLabels(playerShip)
@@ -105,9 +114,10 @@ class NewGameScene: SKScene {
             
             if (self.childNodeWithName("buttonNewGame")!.containsPoint(location)) {
                 SpaceScene.memoryCard.newGame(shipIndex)
+                self.view!.presentScene(HangarScene(), transition: SKTransition.crossFadeWithDuration(1))
             }
             
-            if (self.childNodeWithName("buttonBack")!.containsPoint(location)) {
+            if (self.childNodeWithName("buttonBack")!.containsPoint(location) || self.childNodeWithName("buttonCancel")!.containsPoint(location)) {
                 self.view!.presentScene(MainMenuScene(), transition: SKTransition.crossFadeWithDuration(1))
                 return;
             }
