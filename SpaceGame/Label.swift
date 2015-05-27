@@ -38,6 +38,8 @@ class Label: Control {
     }
     
     func setText(text:String){
-        (self.childNodeWithName(self.name!) as! SKLabelNode).text = text
+        let label = self.childNodeWithName(self.name!) as! SKLabelNode
+        label.text = text
+        label.zPosition = Config.HUDZPosition/2
     }
 }

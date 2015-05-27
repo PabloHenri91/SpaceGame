@@ -27,11 +27,11 @@ class Config: NSObject {
     
     static func sceneSize() -> CGSize {
         
-        var sceneSize:CGSize = CGSize(width: 1334/2, height: 750/2)
+        let sceneSize:CGSize = CGSize(width: 1334/2, height: 750/2)
         
-        var xScale = skViewBoundsSize.width / sceneSize.width
-        var yScale = skViewBoundsSize.height / sceneSize.height
-        var scale = min(xScale, yScale)
+        let xScale = skViewBoundsSize.width / sceneSize.width
+        let yScale = skViewBoundsSize.height / sceneSize.height
+        let scale = min(xScale, yScale)
         
         Config.translate = CGPoint(x: ((skViewBoundsSize.width - (sceneSize.width * scale))/2)/scale,
                                    y: ((skViewBoundsSize.height - (sceneSize.height * scale))/2)/scale)
@@ -46,5 +46,5 @@ class Config: NSObject {
         case bullet = 4
     }
     
-    static var playerTypesCount = 12
+    static var playerTypesCount = 13
 }

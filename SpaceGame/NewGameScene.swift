@@ -10,6 +10,15 @@ import SpriteKit
 
 class NewGameScene: SKScene {
     
+    enum states {
+        case newGame
+        case mainMenu
+        case hangar
+    }
+    
+    var state = states.newGame
+    var nextState = states.newGame
+    
     var shipIndex:Int = 0
     
     override init() {
@@ -41,9 +50,18 @@ class NewGameScene: SKScene {
         self.addChild(Label(name: "labelShieldPower", textureName:"999", x:1014, y:576, align:.center))
         self.addChild(Label(name: "labelShieldRecharge", textureName:"999", x:1014, y:655, align:.center))
         
-        self.addChild(PlayerShip(index: shipIndex))
-        
-        self.hidden = false
+        let playerShip = PlayerShip(index: shipIndex)
+        self.reloadAtributeLabels(playerShip)
+        self.addChild(playerShip)
+    }
+    
+    func reloadAtributeLabels(playerShip:PlayerShip) {
+        (self.childNodeWithName("labelSpeed") as! Label).setText(playerShip.speedAtribute.description)
+        (self.childNodeWithName("labelAcceleration") as! Label).setText(playerShip.acceleration.description)
+        (self.childNodeWithName("labelAgility") as! Label).setText(playerShip.agility.description)
+        (self.childNodeWithName("labelArmor") as! Label).setText(playerShip.armor.description)
+        (self.childNodeWithName("labelShieldPower") as! Label).setText(playerShip.shieldPower.description)
+        (self.childNodeWithName("labelShieldRecharge") as! Label).setText(playerShip.shieldRecharge.description)
     }
     
     override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
@@ -62,23 +80,33 @@ class NewGameScene: SKScene {
             if (self.childNodeWithName("buttonLeft")!.containsPoint(location)) {
                 shipIndex--
                 if(shipIndex < 0 ){
-                    shipIndex = Config.playerTypesCount
+                    shipIndex = Config.playerTypesCount - 1
                 }
                 
-                (self.childNodeWithName("player") as! PlayerShip).reloadNewShip(shipIndex)
+                let playerShip = self.childNodeWithName("player") as! PlayerShip
+                playerShip.reloadNewShip(shipIndex)
+                self.reloadAtributeLabels(playerShip)
                 
                 return;
             }
+            
             if (self.childNodeWithName("buttonRight")!.containsPoint(location)) {
                 shipIndex++
-                if(shipIndex > Config.playerTypesCount ){
+                if(shipIndex >= Config.playerTypesCount ){
                     shipIndex = 0
                 }
                 
-                (self.childNodeWithName("player") as! PlayerShip).reloadNewShip(shipIndex)
+                let playerShip = self.childNodeWithName("player") as! PlayerShip
+                playerShip.reloadNewShip(shipIndex)
+                self.reloadAtributeLabels(playerShip)
                 
                 return;
             }
+            
+            if (self.childNodeWithName("buttonNewGame")!.containsPoint(location)) {
+                SpaceScene.memoryCard.newGame(shipIndex)
+            }
+            
             if (self.childNodeWithName("buttonBack")!.containsPoint(location)) {
                 self.view!.presentScene(MainMenuScene(), transition: SKTransition.crossFadeWithDuration(1))
                 return;
@@ -87,6 +115,6 @@ class NewGameScene: SKScene {
     }
     
     override func touchesCancelled(touches: Set<NSObject>!, withEvent event: UIEvent!) {
-        Control.touchesEnded(self.scene!, touches: touches as! Set<UITouch>)
+        Control.touchesEnded(self, touches: touches as! Set<UITouch>)
     }
 }

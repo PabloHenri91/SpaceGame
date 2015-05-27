@@ -9,19 +9,24 @@
 import UIKit
 
 class MemoryCard: NSObject {
-    override init() {
+    
+    var save:NSMutableDictionary = NSMutableDictionary()
+    
+    //
+    var playerShips:NSMutableDictionary = NSMutableDictionary()
+    var playerShipIndex:Int = 0
+    
+    func newGame(shipIndex:Int) {
+        save.setObject(playerShips, forKey: "playerShips")
+        self.playerShips.setObject(NSMutableDictionary(), forKey: shipIndex)
+        self.playerShipIndex = shipIndex
+    }
+    
+    func saveGame() {
         
     }
     
-    func newGame(shipIndex:Int){
-        
-    }
-    
-    func saveGame(){
-        
-    }
-    
-    func loadGame() -> Bool{
+    func loadGame() -> Bool {
         return false
     }
 }

@@ -28,8 +28,7 @@ class PlayerShip: Control {
     
     func loadNewShip(index:Int) {
         
-        var players = Players()
-        var playerType = players.playerTypes[index] as! PlayerType
+        var playerType = Players.types[index] as! PlayerType
         
         self.speedAtribute = playerType.speed
         self.acceleration = playerType.acceleration
@@ -52,8 +51,7 @@ class PlayerShip: Control {
     }
     
     func reloadNewShip(index:Int) {
-        var players = Players()
-        var playerType = players.playerTypes[index] as! PlayerType
+        var playerType = Players.types[index] as! PlayerType
         
         self.speedAtribute = playerType.speed
         self.acceleration = playerType.acceleration
@@ -91,18 +89,19 @@ class PlayerType: NSObject {
 }
 
 class Players: NSObject {
-    var playerTypes:NSMutableArray = NSMutableArray()
-    
-    override init() {
-        //Futuramente vao ser predefinidos os valores de cada tipo inicial de nave
-        for(var i = 0; i <= Config.playerTypesCount; i++){
-            playerTypes.addObject(PlayerType(
-                speed: Int(arc4random_uniform(90) + 10),
-                acceleration: Int(arc4random_uniform(90) + 10),
-                agility: Int(arc4random_uniform(90) + 10),
-                armor: Int(arc4random_uniform(90) + 10),
-                shieldPower: Int(arc4random_uniform(90) + 10),
-                shieldRecharge: Int(arc4random_uniform(90) + 10)))
-        }
-    }
+    static var types:NSArray = NSArray(array: [
+        PlayerType(speed: 70, acceleration: 10, agility: 10, armor: 10, shieldPower: 10, shieldRecharge: 10), //0
+        PlayerType(speed: 40, acceleration: 10, agility: 10, armor: 10, shieldPower: 10, shieldRecharge: 40), //1
+        PlayerType(speed: 10, acceleration: 70, agility: 10, armor: 10, shieldPower: 10, shieldRecharge: 10), //2
+        PlayerType(speed: 10, acceleration: 10, agility: 10, armor: 10, shieldPower: 40, shieldRecharge: 40), //3
+        PlayerType(speed: 10, acceleration: 10, agility: 70, armor: 10, shieldPower: 10, shieldRecharge: 10), //4
+        PlayerType(speed: 10, acceleration: 10, agility: 10, armor: 40, shieldPower: 40, shieldRecharge: 10), //5
+        PlayerType(speed: 10, acceleration: 10, agility: 10, armor: 70, shieldPower: 10, shieldRecharge: 10), //6
+        PlayerType(speed: 10, acceleration: 10, agility: 40, armor: 40, shieldPower: 10, shieldRecharge: 10), //7
+        PlayerType(speed: 10, acceleration: 10, agility: 10, armor: 10, shieldPower: 70, shieldRecharge: 10), //8
+        PlayerType(speed: 10, acceleration: 40, agility: 40, armor: 10, shieldPower: 10, shieldRecharge: 10), //9
+        PlayerType(speed: 10, acceleration: 10, agility: 10, armor: 10, shieldPower: 10, shieldRecharge: 70), //10
+        PlayerType(speed: 40, acceleration: 40, agility: 10, armor: 10, shieldPower: 10, shieldRecharge: 10), //11
+        PlayerType(speed: 20, acceleration: 20, agility: 20, armor: 20, shieldPower: 20, shieldRecharge: 20)  //12
+        ])
 }
