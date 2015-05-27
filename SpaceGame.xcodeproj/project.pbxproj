@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		130E88701B0F75A00030FA7A /* NewGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 130E886F1B0F75A00030FA7A /* NewGameScene.swift */; };
+		130EBF6F1B1627B000D8F486 /* data.plist in Resources */ = {isa = PBXBuildFile; fileRef = 130EBF6E1B1627B000D8F486 /* data.plist */; };
 		13C13B881B0CB01A00E6AC5E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C13B871B0CB01A00E6AC5E /* AppDelegate.swift */; };
 		13C13B8A1B0CB01A00E6AC5E /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 13C13B891B0CB01A00E6AC5E /* GameScene.sks */; };
 		13C13B8C1B0CB01A00E6AC5E /* SpaceScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C13B8B1B0CB01A00E6AC5E /* SpaceScene.swift */; };
@@ -21,7 +22,6 @@
 		13D1BCEA1B0E5F9F003E596F /* Control.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13D1BCE91B0E5F9F003E596F /* Control.swift */; };
 		13D1BCEC1B0E5FDB003E596F /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13D1BCEB1B0E5FDB003E596F /* Button.swift */; };
 		13D1BCEE1B0E5FFB003E596F /* Switch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13D1BCED1B0E5FFB003E596F /* Switch.swift */; };
-		13D29B921B0FA1CF00AED094 /* MemoryCard.plist in Resources */ = {isa = PBXBuildFile; fileRef = 13D29B911B0FA1CF00AED094 /* MemoryCard.plist */; };
 		13D29B941B0FA4FA00AED094 /* MemoryCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13D29B931B0FA4FA00AED094 /* MemoryCard.swift */; };
 		13D29B961B0FB30D00AED094 /* PlayerShip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13D29B951B0FB30D00AED094 /* PlayerShip.swift */; };
 		13DB50681B14EC9700E543E9 /* HangarScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13DB50671B14EC9700E543E9 /* HangarScene.swift */; };
@@ -40,6 +40,7 @@
 
 /* Begin PBXFileReference section */
 		130E886F1B0F75A00030FA7A /* NewGameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewGameScene.swift; sourceTree = "<group>"; };
+		130EBF6E1B1627B000D8F486 /* data.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = data.plist; sourceTree = "<group>"; };
 		13C13B821B0CB01A00E6AC5E /* SpaceGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpaceGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13C13B861B0CB01A00E6AC5E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		13C13B871B0CB01A00E6AC5E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -57,7 +58,6 @@
 		13D1BCE91B0E5F9F003E596F /* Control.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Control.swift; sourceTree = "<group>"; };
 		13D1BCEB1B0E5FDB003E596F /* Button.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
 		13D1BCED1B0E5FFB003E596F /* Switch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Switch.swift; sourceTree = "<group>"; };
-		13D29B911B0FA1CF00AED094 /* MemoryCard.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = MemoryCard.plist; sourceTree = "<group>"; };
 		13D29B931B0FA4FA00AED094 /* MemoryCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemoryCard.swift; sourceTree = "<group>"; };
 		13D29B951B0FB30D00AED094 /* PlayerShip.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerShip.swift; sourceTree = "<group>"; };
 		13DB50671B14EC9700E543E9 /* HangarScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HangarScene.swift; sourceTree = "<group>"; };
@@ -112,7 +112,7 @@
 				13C13B921B0CB01A00E6AC5E /* Images.xcassets */,
 				13C13B941B0CB01A00E6AC5E /* LaunchScreen.xib */,
 				13C13B851B0CB01A00E6AC5E /* Supporting Files */,
-				13D29B911B0FA1CF00AED094 /* MemoryCard.plist */,
+				130EBF6E1B1627B000D8F486 /* data.plist */,
 			);
 			path = SpaceGame;
 			sourceTree = "<group>";
@@ -247,10 +247,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				13D29B921B0FA1CF00AED094 /* MemoryCard.plist in Resources */,
 				13C13B961B0CB01A00E6AC5E /* LaunchScreen.xib in Resources */,
 				13C13B931B0CB01A00E6AC5E /* Images.xcassets in Resources */,
 				13C13B8A1B0CB01A00E6AC5E /* GameScene.sks in Resources */,
+				130EBF6F1B1627B000D8F486 /* data.plist in Resources */,
 				13C13B911B0CB01A00E6AC5E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -26,7 +26,7 @@ class HangarScene: SKScene {
         
         self.addChild(Button(name: "buttonBack", x:81, y:633, xAlign:.left, yAlign:.down))
         
-        self.addChild(PlayerShip(index: 0))
+        self.addChild(PlayerShip(index: SpaceScene.memoryCard.playerShipIndex))
         
         self.hidden = false
     }
