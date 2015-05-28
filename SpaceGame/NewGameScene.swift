@@ -96,7 +96,7 @@ class NewGameScene: SKScene {
                 playerShip.reloadNewShip(shipIndex)
                 self.reloadAtributeLabels(playerShip)
                 
-                return;
+                return
             }
             
             if (self.childNodeWithName("buttonRight")!.containsPoint(location)) {
@@ -109,17 +109,17 @@ class NewGameScene: SKScene {
                 playerShip.reloadNewShip(shipIndex)
                 self.reloadAtributeLabels(playerShip)
                 
-                return;
+                return
             }
             
             if (self.childNodeWithName("buttonNewGame")!.containsPoint(location)) {
-                SpaceScene.memoryCard.newGame(shipIndex)
+                GameViewController.memoryCard.newGame(shipIndex)
                 self.view!.presentScene(HangarScene(), transition: SKTransition.crossFadeWithDuration(1))
             }
             
             if (self.childNodeWithName("buttonBack")!.containsPoint(location) || self.childNodeWithName("buttonCancel")!.containsPoint(location)) {
                 self.view!.presentScene(MainMenuScene(), transition: SKTransition.crossFadeWithDuration(1))
-                return;
+                return
             }
         }
     }

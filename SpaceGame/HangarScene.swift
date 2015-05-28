@@ -26,7 +26,7 @@ class HangarScene: SKScene {
         
         self.addChild(Button(name: "buttonBack", x:81, y:633, xAlign:.left, yAlign:.down))
         
-        self.addChild(PlayerShip(index: SpaceScene.memoryCard.playerShipIndex))
+        self.addChild(PlayerShip(index: GameViewController.memoryCard.playerShipSelected))
         
         self.hidden = false
     }
@@ -46,7 +46,7 @@ class HangarScene: SKScene {
             
             if (self.childNodeWithName("buttonBack")!.containsPoint(location)) {
                 self.view?.presentScene(MainMenuScene(), transition: SKTransition.crossFadeWithDuration(1))
-                return;
+                return
             }
         }
     }

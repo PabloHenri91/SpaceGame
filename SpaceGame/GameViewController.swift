@@ -10,6 +10,8 @@ import UIKit
 import SpriteKit
 
 class GameViewController: UIViewController {
+    
+    static var memoryCard = MemoryCard()
 
     override func viewDidLoad() {
         // Do any additional setup after loading the view, typically from a nib.

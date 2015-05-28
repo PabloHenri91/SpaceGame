@@ -10,8 +10,6 @@ import SpriteKit
 
 class SpaceScene: SKScene {
     
-    static var memoryCard = MemoryCard()
-    
     override init() {
         Control.locations = NSMutableArray()
         super.init(size: Config.sceneSize())

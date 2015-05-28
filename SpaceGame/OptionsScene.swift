@@ -1,25 +1,23 @@
 //
-//  MainMenuScene.swift
-//  SuperAwesomeGame
+//  OptionsScene.swift
+//  SpaceGame
 //
-//  Created by Pablo Henrique Bertaco on 5/20/15.
+//  Created by Pablo Henrique Bertaco on 5/28/15.
 //  Copyright (c) 2015 WTFGames. All rights reserved.
 //
 
 import SpriteKit
 
-class MainMenuScene: SKScene {
+class OptionsScene: SKScene {
     
     enum states {
-        case mainMenu
-        case newGame
-        case hangar
         case options
-        case credits
+        case deleteSavedGame
+        case mainMenu
     }
     
-    var state = states.mainMenu
-    var nextState = states.mainMenu
+    var state = states.options
+    var nextState = states.options
     
     override init() {
         Control.locations = NSMutableArray()
@@ -36,11 +34,12 @@ class MainMenuScene: SKScene {
         self.backgroundColor = Config.myGray
         self.anchorPoint = CGPoint(x: 0, y: 1)
         
-        self.addChild(Control(name: "mainMenuBackground", x:0, y:0, align:.center))
+        self.addChild(Control(name: "optionsBackground", x:0, y:0, align:.center))
         
-        self.addChild(Button(name: "buttonPlay", x:549, y:317, align:.center))
-        self.addChild(Button(name: "buttonOptions", x: 549, y: 409, align:.center))
-        self.addChild(Button(name: "buttonCredits", x: 549, y: 501, align:.center))
+        self.addChild(Button(name: "buttonDeleteSavedGame", x:272, y:223, align:.center))
+        
+        self.addChild(Button(name: "buttonBack", x:81, y:633, xAlign:.left, yAlign:.down))
+        
     }
     
     override func update(currentTime: NSTimeInterval) {
@@ -54,16 +53,20 @@ class MainMenuScene: SKScene {
             
             switch (self.nextState) {
                 
-            case states.newGame:
-                self.view!.presentScene(NewGameScene(), transition: SKTransition.crossFadeWithDuration(1))
+            case .deleteSavedGame:
+                var messageBox = MessageBox(text: "Are you sure you want to delete?")
+                messageBox.touchesEndedAtButtonOK.addHandler({
+                    GameViewController.memoryCard.reset()
+                    self.nextState = .options
+                })
+                messageBox.touchesEndedAtButtonCancel.addHandler({
+                    self.nextState = .options
+                })
+                self.addChild(messageBox)
                 break
                 
-            case states.hangar:
-                self.view!.presentScene(HangarScene(), transition: SKTransition.crossFadeWithDuration(1))
-                break
-                
-            case states.options:
-                self.view!.presentScene(OptionsScene(), transition: SKTransition.crossFadeWithDuration(1))
+            case .mainMenu:
+                self.view!.presentScene(MainMenuScene(), transition: SKTransition.crossFadeWithDuration(1))
                 break
                 
             default:
@@ -85,24 +88,23 @@ class MainMenuScene: SKScene {
         
         if (self.state == self.nextState) {
             switch (self.state) {
-            case states.mainMenu:
+            case states.options:
+                
                 for touch in (touches as! Set<UITouch>) {
                     let location = touch.locationInNode(self)
                     
-                    if (self.childNodeWithName("buttonPlay")!.containsPoint(location)) {
-                        if(GameViewController.memoryCard.loadGame()) {
-                            self.nextState = .hangar
-                        } else {
-                            self.nextState = .newGame
-                        }
-                        return
+                    if (self.childNodeWithName("buttonDeleteSavedGame")!.containsPoint(location)) {
+                        self.nextState = .deleteSavedGame
                     }
                     
-                    if (self.childNodeWithName("buttonOptions")!.containsPoint(location)) {
-                        self.nextState = .options
-                        return
+                    if (self.childNodeWithName("buttonBack")!.containsPoint(location)) {
+                        self.nextState = .mainMenu
+                        return;
                     }
                 }
+                break
+                
+            case .deleteSavedGame:
                 break
                 
             default:
