@@ -1,15 +1,14 @@
 //
-//  GameScene.swift
+//  SupplyRoomScene.swift
 //  SpaceGame
 //
-//  Created by Pablo Henrique Bertaco on 5/20/15.
+//  Created by Pablo Henrique Bertaco on 5/28/15.
 //  Copyright (c) 2015 WTFGames. All rights reserved.
 //
 
 import SpriteKit
 
-class SpaceScene: SKScene {
-    
+class SupplyRoomScene: SKScene {
     override init() {
         Control.locations = NSMutableArray()
         super.init(size: Config.sceneSize())
@@ -22,7 +21,7 @@ class SpaceScene: SKScene {
     override func didMoveToView(view: SKView) {
         
         self.scaleMode = SKSceneScaleMode.AspectFit
-        self.backgroundColor = UIColor.blackColor()
+        self.backgroundColor = Config.myGray
         self.anchorPoint = CGPoint(x: 0, y: 1)
         
         self.addChild(Button(name: "buttonBack", x:81, y:633, xAlign:.left, yAlign:.down))

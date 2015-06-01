@@ -21,15 +21,13 @@ class HangarScene: SKScene {
     override func didMoveToView(view: SKView) {
         
         self.scaleMode = SKSceneScaleMode.AspectFit
-        self.backgroundColor = Config.myBlue
+        self.backgroundColor = Config.myGray
         self.anchorPoint = CGPoint(x: 0, y: 1)
         
         self.addChild(Button(name: "buttonBack", x:81, y:633, xAlign:.left, yAlign:.down))
         
         self.addChild(PlayerShip(index: GameViewController.memoryCard.playerShipSelected))
-        
-        self.hidden = false
-    }
+     }
     
     override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
         Control.touchesBegan(self, touches: touches as! Set<UITouch>)
