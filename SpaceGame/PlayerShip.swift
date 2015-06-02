@@ -17,16 +17,16 @@ class PlayerShip: Control {
     var shieldPower:Int = 0
     var shieldRecharge:Int = 0
     
-    init(index:Int) {
+    init(index:Int, x:Int, y:Int) {
         super.init()
-        loadNewShip(index)
+        loadNewShip(index, x: x, y: y)
     }
 
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func loadNewShip(index:Int) {
+    func loadNewShip(index:Int, x:Int, y:Int) {
         
         var playerType = Players.types[index] as! PlayerType
         
@@ -39,10 +39,10 @@ class PlayerShip: Control {
         
         self.name = "player"
         Control.locations.addObject("player")
-        self.sketchPosition = CGPoint(x: 665, y: 590)
+        self.sketchPosition = CGPoint(x: x, y: y)
         self.yAlign = .center
         self.xAlign = .center
-        self.zPosition = Config.HUDZPosition/2
+        self.zPosition = Config.HUDZPosition
         
         let texture = SKTexture(imageNamed: "player" + index.description)
         let spriteNode = SKSpriteNode(texture: texture, color: nil, size: texture.size())

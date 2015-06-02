@@ -59,7 +59,7 @@ class NewGameScene: SKScene {
         self.addChild(Label(name: "labelAvailableUP", textureName:"Available UP 9999", x:408, y:671, align:.center))
         
         
-        let playerShip = PlayerShip(index: shipIndex)
+        let playerShip = PlayerShip(index: shipIndex, x:667, y:589)
         self.reloadAtributeLabels(playerShip)
         self.addChild(playerShip)
     }
