@@ -29,6 +29,7 @@
 		13D29B961B0FB30D00AED094 /* PlayerShip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13D29B951B0FB30D00AED094 /* PlayerShip.swift */; };
 		13DB50681B14EC9700E543E9 /* HangarScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13DB50671B14EC9700E543E9 /* HangarScene.swift */; };
 		13DB506A1B14FBC300E543E9 /* Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13DB50691B14FBC300E543E9 /* Label.swift */; };
+		5C4FFBD51B1DDE00001A8C42 /* spaceGame.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5C4FFBD31B1DDE00001A8C42 /* spaceGame.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +69,7 @@
 		13D29B951B0FB30D00AED094 /* PlayerShip.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerShip.swift; sourceTree = "<group>"; };
 		13DB50671B14EC9700E543E9 /* HangarScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HangarScene.swift; sourceTree = "<group>"; };
 		13DB50691B14FBC300E543E9 /* Label.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Label.swift; sourceTree = "<group>"; };
+		5C4FFBD41B1DDE00001A8C42 /* spaceGame.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = spaceGame.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +118,7 @@
 				13C13B8F1B0CB01A00E6AC5E /* Main.storyboard */,
 				13C13B921B0CB01A00E6AC5E /* Images.xcassets */,
 				13C13B941B0CB01A00E6AC5E /* LaunchScreen.xib */,
+				5C4FFBD31B1DDE00001A8C42 /* spaceGame.xcdatamodeld */,
 				13C13B851B0CB01A00E6AC5E /* Supporting Files */,
 				130EBF6E1B1627B000D8F486 /* data.plist */,
 			);
@@ -287,6 +290,7 @@
 				13DB506A1B14FBC300E543E9 /* Label.swift in Sources */,
 				135DC5FD1B177A3700A7E4EC /* Event.swift in Sources */,
 				13D1BCE61B0E5ECA003E596F /* Config.swift in Sources */,
+				5C4FFBD51B1DDE00001A8C42 /* spaceGame.xcdatamodeld in Sources */,
 				13C13B8E1B0CB01A00E6AC5E /* GameViewController.swift in Sources */,
 				135DC5FF1B17CD5300A7E4EC /* SupplyRoomScene.swift in Sources */,
 				13C13B881B0CB01A00E6AC5E /* AppDelegate.swift in Sources */,
@@ -503,6 +507,20 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		5C4FFBD31B1DDE00001A8C42 /* spaceGame.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				5C4FFBD41B1DDE00001A8C42 /* spaceGame.xcdatamodel */,
+			);
+			currentVersion = 5C4FFBD41B1DDE00001A8C42 /* spaceGame.xcdatamodel */;
+			name = spaceGame.xcdatamodeld;
+			path = ../spaceGame.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 13C13B7A1B0CB01A00E6AC5E /* Project object */;
 }
