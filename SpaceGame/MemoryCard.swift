@@ -28,7 +28,8 @@ class MemoryCard: NSObject {
     
     func newGame(shipIndex:Int) {
         self.save.setObject(NSArray(array: [shipIndex]), forKey: "playerShips")
-        self.save.setObject(shipIndex, forKey: "playerShipSelected")
+        
+        self.playerShipSelected = shipIndex
         
         self.autoSave = true
         
@@ -48,6 +49,9 @@ class MemoryCard: NSObject {
     }
     
     func loadGame() -> Bool {
+        
+        var managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
+        
         if(self.fileManager.fileExistsAtPath(self.path)) {
             println("Loading game from " + self.path)
             self.save = NSMutableDictionary(contentsOfFile: self.path)!
