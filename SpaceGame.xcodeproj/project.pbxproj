@@ -13,6 +13,7 @@
 		135DC5FB1B17421D00A7E4EC /* MessageBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135DC5FA1B17421D00A7E4EC /* MessageBox.swift */; };
 		135DC5FD1B177A3700A7E4EC /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135DC5FC1B177A3700A7E4EC /* Event.swift */; };
 		135DC5FF1B17CD5300A7E4EC /* SupplyRoomScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135DC5FE1B17CD5300A7E4EC /* SupplyRoomScene.swift */; };
+		13843C321B275E5100F67EA3 /* SpaceGame.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 13843C301B275E5100F67EA3 /* SpaceGame.xcdatamodeld */; };
 		13C13B881B0CB01A00E6AC5E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C13B871B0CB01A00E6AC5E /* AppDelegate.swift */; };
 		13C13B8C1B0CB01A00E6AC5E /* SpaceScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C13B8B1B0CB01A00E6AC5E /* SpaceScene.swift */; };
 		13C13B8E1B0CB01A00E6AC5E /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C13B8D1B0CB01A00E6AC5E /* GameViewController.swift */; };
@@ -29,7 +30,6 @@
 		13D29B961B0FB30D00AED094 /* PlayerShip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13D29B951B0FB30D00AED094 /* PlayerShip.swift */; };
 		13DB50681B14EC9700E543E9 /* HangarScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13DB50671B14EC9700E543E9 /* HangarScene.swift */; };
 		13DB506A1B14FBC300E543E9 /* Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13DB50691B14FBC300E543E9 /* Label.swift */; };
-		5C4FFBD51B1DDE00001A8C42 /* SpaceGame.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5C4FFBD31B1DDE00001A8C42 /* SpaceGame.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +49,7 @@
 		135DC5FA1B17421D00A7E4EC /* MessageBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageBox.swift; sourceTree = "<group>"; };
 		135DC5FC1B177A3700A7E4EC /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		135DC5FE1B17CD5300A7E4EC /* SupplyRoomScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SupplyRoomScene.swift; sourceTree = "<group>"; };
+		13843C311B275E5100F67EA3 /* SpaceGame.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SpaceGame.xcdatamodel; sourceTree = "<group>"; };
 		13C13B821B0CB01A00E6AC5E /* SpaceGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpaceGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13C13B861B0CB01A00E6AC5E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		13C13B871B0CB01A00E6AC5E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -69,7 +70,6 @@
 		13D29B951B0FB30D00AED094 /* PlayerShip.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerShip.swift; sourceTree = "<group>"; };
 		13DB50671B14EC9700E543E9 /* HangarScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HangarScene.swift; sourceTree = "<group>"; };
 		13DB50691B14FBC300E543E9 /* Label.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Label.swift; sourceTree = "<group>"; };
-		5C4FFBD41B1DDE00001A8C42 /* SpaceGame.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SpaceGame.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +90,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		13843C0F1B27503A00F67EA3 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				13843C301B275E5100F67EA3 /* SpaceGame.xcdatamodeld */,
+			);
+			name = CoreData;
+			sourceTree = "<group>";
+		};
 		13C13B791B0CB01900E6AC5E = {
 			isa = PBXGroup;
 			children = (
@@ -111,6 +119,7 @@
 		13C13B841B0CB01A00E6AC5E /* SpaceGame */ = {
 			isa = PBXGroup;
 			children = (
+				13843C0F1B27503A00F67EA3 /* CoreData */,
 				13D1BCE41B0E5EAE003E596F /* src */,
 				13D1BCE31B0E5EA1003E596F /* Scenes */,
 				13C13B871B0CB01A00E6AC5E /* AppDelegate.swift */,
@@ -118,7 +127,6 @@
 				13C13B8F1B0CB01A00E6AC5E /* Main.storyboard */,
 				13C13B921B0CB01A00E6AC5E /* Images.xcassets */,
 				13C13B941B0CB01A00E6AC5E /* LaunchScreen.xib */,
-				5C4FFBD31B1DDE00001A8C42 /* SpaceGame.xcdatamodeld */,
 				13C13B851B0CB01A00E6AC5E /* Supporting Files */,
 				130EBF6E1B1627B000D8F486 /* data.plist */,
 			);
@@ -286,11 +294,11 @@
 				135DC5FB1B17421D00A7E4EC /* MessageBox.swift in Sources */,
 				13D1BCE81B0E5EF6003E596F /* MainMenuScene.swift in Sources */,
 				13C13B8C1B0CB01A00E6AC5E /* SpaceScene.swift in Sources */,
+				13843C321B275E5100F67EA3 /* SpaceGame.xcdatamodeld in Sources */,
 				13D29B941B0FA4FA00AED094 /* MemoryCard.swift in Sources */,
 				13DB506A1B14FBC300E543E9 /* Label.swift in Sources */,
 				135DC5FD1B177A3700A7E4EC /* Event.swift in Sources */,
 				13D1BCE61B0E5ECA003E596F /* Config.swift in Sources */,
-				5C4FFBD51B1DDE00001A8C42 /* SpaceGame.xcdatamodeld in Sources */,
 				13C13B8E1B0CB01A00E6AC5E /* GameViewController.swift in Sources */,
 				135DC5FF1B17CD5300A7E4EC /* SupplyRoomScene.swift in Sources */,
 				13C13B881B0CB01A00E6AC5E /* AppDelegate.swift in Sources */,
@@ -509,14 +517,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		5C4FFBD31B1DDE00001A8C42 /* SpaceGame.xcdatamodeld */ = {
+		13843C301B275E5100F67EA3 /* SpaceGame.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				5C4FFBD41B1DDE00001A8C42 /* SpaceGame.xcdatamodel */,
+				13843C311B275E5100F67EA3 /* SpaceGame.xcdatamodel */,
 			);
-			currentVersion = 5C4FFBD41B1DDE00001A8C42 /* SpaceGame.xcdatamodel */;
-			name = SpaceGame.xcdatamodeld;
-			path = ../SpaceGame.xcdatamodeld;
+			currentVersion = 13843C311B275E5100F67EA3 /* SpaceGame.xcdatamodel */;
+			path = SpaceGame.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
