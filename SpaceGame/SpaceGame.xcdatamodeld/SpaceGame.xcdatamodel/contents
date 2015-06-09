@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="7701" systemVersion="14D136" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
-    <entity name="HardPointData" syncable="YES">
+    <entity name="HardPointData" representedClassName="PRODUCT_MODULE_NAME.HardPointData" syncable="YES">
         <relationship name="playerShip" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PlayerShipData" inverseName="hardPoints" inverseEntity="PlayerShipData" syncable="YES"/>
         <relationship name="weapon" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="WeaponData" inverseName="hardPoint" inverseEntity="WeaponData" syncable="YES"/>
     </entity>
-    <entity name="PlayerData" syncable="YES">
+    <entity name="PlayerData" representedClassName="PRODUCT_MODULE_NAME.PlayerData" syncable="YES">
         <attribute name="score" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <relationship name="playerShips" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="PlayerShipData" inverseName="player" inverseEntity="PlayerShipData" syncable="YES"/>
+        <relationship name="weapons" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="WeaponData" inverseName="player" inverseEntity="WeaponData" syncable="YES"/>
     </entity>
-    <entity name="PlayerShipData" syncable="YES">
+    <entity name="PlayerShipData" representedClassName="PRODUCT_MODULE_NAME.PlayerShipData" syncable="YES">
         <attribute name="bunusAcceleration" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="bunusAgility" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="bunusArmor" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
@@ -20,17 +21,18 @@
         <relationship name="hardPoints" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="HardPointData" inverseName="playerShip" inverseEntity="HardPointData" syncable="YES"/>
         <relationship name="player" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PlayerData" inverseName="playerShips" inverseEntity="PlayerData" syncable="YES"/>
     </entity>
-    <entity name="WeaponData" syncable="YES">
+    <entity name="WeaponData" representedClassName="PRODUCT_MODULE_NAME.WeaponData" syncable="YES">
         <attribute name="bonusAmmoPerMag" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="bonusDemage" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="bonusReloadTime" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="shopIndex" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <relationship name="hardPoint" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="HardPointData" inverseName="weapon" inverseEntity="HardPointData" syncable="YES"/>
+        <relationship name="player" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PlayerData" inverseName="weapons" inverseEntity="PlayerData" syncable="YES"/>
     </entity>
     <elements>
-        <element name="PlayerData" positionX="-450" positionY="-73" width="128" height="73"/>
-        <element name="PlayerShipData" positionX="-198" positionY="-259" width="128" height="193"/>
         <element name="HardPointData" positionX="88" positionY="-47" width="128" height="73"/>
-        <element name="WeaponData" positionX="-110" positionY="86" width="128" height="118"/>
+        <element name="PlayerData" positionX="-450" positionY="-73" width="128" height="88"/>
+        <element name="PlayerShipData" positionX="-198" positionY="-259" width="128" height="193"/>
+        <element name="WeaponData" positionX="-171" positionY="72" width="128" height="133"/>
     </elements>
 </model>
