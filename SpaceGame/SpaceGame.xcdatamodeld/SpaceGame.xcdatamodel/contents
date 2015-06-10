@@ -6,6 +6,7 @@
     </entity>
     <entity name="PlayerData" representedClassName="PRODUCT_MODULE_NAME.PlayerData" syncable="YES">
         <attribute name="score" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <relationship name="currentPlayerShip" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PlayerShipData" syncable="YES"/>
         <relationship name="playerShips" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="PlayerShipData" inverseName="player" inverseEntity="PlayerShipData" syncable="YES"/>
         <relationship name="weapons" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="WeaponData" inverseName="player" inverseEntity="WeaponData" syncable="YES"/>
     </entity>
@@ -31,8 +32,8 @@
     </entity>
     <elements>
         <element name="HardPointData" positionX="88" positionY="-47" width="128" height="73"/>
-        <element name="PlayerData" positionX="-450" positionY="-73" width="128" height="88"/>
-        <element name="PlayerShipData" positionX="-198" positionY="-259" width="128" height="193"/>
-        <element name="WeaponData" positionX="-171" positionY="72" width="128" height="133"/>
+        <element name="PlayerData" positionX="-450" positionY="-144" width="128" height="103"/>
+        <element name="PlayerShipData" positionX="-137" positionY="-211" width="128" height="193"/>
+        <element name="WeaponData" positionX="-171" positionY="18" width="128" height="133"/>
     </elements>
 </model>
