@@ -47,7 +47,7 @@ class HangarScene: SKScene {
         
         self.addChild(Button(name: "buttonBack", x:81, y:633, xAlign:.left, yAlign:.down))
         
-        self.addChild(PlayerShip(index: GameViewController.memoryCard.playerShipSelected, x: 776, y: 341))
+        self.addChild(PlayerShip(index: Int(GameViewController.memoryCard.playerData!.currentPlayerShip.shopIndex), x: 776, y: 341))
     }
     
     override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {

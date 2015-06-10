@@ -7,29 +7,21 @@
 //
 
 import UIKit
+import CoreData
 
 class MemoryCard: NSObject {
     
     var autoSave:Bool = false
-    
-    let path = (NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.UserDomainMask, true).first as! String) + "/data.plist"
-    let fileManager = NSFileManager.defaultManager()
-    
-    var save:NSMutableDictionary = NSMutableDictionary()
-    
-    var playerShipSelected:Int {
-        get {
-            return self.save.objectForKey("playerShipSelected")!.integerValue
-        }
-        set(value) {
-            self.save.setObject(value, forKey: "playerShipSelected")
-        }
-    }
+
+    var playerData:PlayerData?
     
     func newGame(shipIndex:Int) {
-        self.save.setObject(NSArray(array: [shipIndex]), forKey: "playerShips")
+        var playerShipData = NSEntityDescription.insertNewObjectForEntityForName("PlayerShipData", inManagedObjectContext: self.managedObjectContext!) as! PlayerShipData
+        playerShipData.shopIndex = shipIndex
         
-        self.playerShipSelected = shipIndex
+        self.playerData = NSEntityDescription.insertNewObjectForEntityForName("PlayerData", inManagedObjectContext: self.managedObjectContext!) as? PlayerData
+        playerData!.playerShips = NSSet(array: [playerShipData])
+        playerData!.currentPlayerShip = playerShipData
         
         self.autoSave = true
         
@@ -38,24 +30,18 @@ class MemoryCard: NSObject {
     
     func saveGame() {
         if(self.autoSave){
-            if(self.fileManager.fileExistsAtPath(self.path)){
-                self.save.writeToFile(self.path, atomically: true)
-            } else {
-                fileManager.createFileAtPath(self.path, contents: nil, attributes: nil)
-                self.save.writeToFile(self.path, atomically: true)
-            }
-            println("Saving game at " + self.path)
+            self.saveContext()
+            println("Saving game...")
         }
     }
     
     func loadGame() -> Bool {
         
-        var managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
+        let fetchRequestData:NSArray = getPlayerData()
         
-        if(self.fileManager.fileExistsAtPath(self.path)) {
-            println("Loading game from " + self.path)
-            self.save = NSMutableDictionary(contentsOfFile: self.path)!
-            
+        if(fetchRequestData.count > 0){
+            println("Loading game...")
+            self.playerData = (fetchRequestData.lastObject as! PlayerData)
             self.autoSave = true
             return true
         } else {
@@ -73,12 +59,85 @@ class MemoryCard: NSObject {
         println("MemoryCard.reset()")
         var error:NSError?
         
-        self.fileManager.removeItemAtPath(self.path, error: &error)
+        let fetchRequestData:NSArray = getPlayerData()
+        
+        for item in fetchRequestData {
+            self.managedObjectContext!.deleteObject(item as! NSManagedObject)
+        }
         
         self.autoSave = false
         
         if error != nil {
             println(error)
+        }
+    }
+    
+    func getPlayerData() -> NSArray{
+        let fetchRequest = self.managedObjectModel.fetchRequestTemplateForName("getPlayerData")!
+        let fetchRequestData: NSArray! = self.managedObjectContext!.executeFetchRequest(fetchRequest, error: nil)
+        return fetchRequestData
+    }
+    
+    // MARK: - Core Data stack
+    
+    lazy var applicationDocumentsDirectory: NSURL = {
+        // The directory the application uses to store the Core Data store file. This code uses a directory named "PabloHenri91.SpaceGame" in the application's documents Application Support directory.
+        let urls = NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)
+        return urls[urls.count-1] as! NSURL
+        }()
+    
+    lazy var managedObjectModel: NSManagedObjectModel = {
+        // The managed object model for the application. This property is not optional. It is a fatal error for the application not to be able to find and load its model.
+        let modelURL = NSBundle.mainBundle().URLForResource("SpaceGame", withExtension: "momd")!
+        return NSManagedObjectModel(contentsOfURL: modelURL)!
+        }()
+    
+    lazy var persistentStoreCoordinator: NSPersistentStoreCoordinator? = {
+        // The persistent store coordinator for the application. This implementation creates and return a coordinator, having added the store for the application to it. This property is optional since there are legitimate error conditions that could cause the creation of the store to fail.
+        // Create the coordinator and store
+        var coordinator: NSPersistentStoreCoordinator? = NSPersistentStoreCoordinator(managedObjectModel: self.managedObjectModel)
+        let url = self.applicationDocumentsDirectory.URLByAppendingPathComponent("SpaceGame.sqlite")
+        var error: NSError? = nil
+        var failureReason = "There was an error creating or loading the application's saved data."
+        if coordinator!.addPersistentStoreWithType(NSSQLiteStoreType, configuration: nil, URL: url, options: nil, error: &error) == nil {
+            coordinator = nil
+            // Report any error we got.
+            var dict = [String: AnyObject]()
+            dict[NSLocalizedDescriptionKey] = "Failed to initialize the application's saved data"
+            dict[NSLocalizedFailureReasonErrorKey] = failureReason
+            dict[NSUnderlyingErrorKey] = error
+            error = NSError(domain: "YOUR_ERROR_DOMAIN", code: 9999, userInfo: dict)
+            // Replace this with code to handle the error appropriately.
+            // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+            NSLog("Unresolved error \(error), \(error!.userInfo)")
+            abort()
+        }
+        
+        return coordinator
+        }()
+    
+    lazy var managedObjectContext: NSManagedObjectContext? = {
+        // Returns the managed object context for the application (which is already bound to the persistent store coordinator for the application.) This property is optional since there are legitimate error conditions that could cause the creation of the context to fail.
+        let coordinator = self.persistentStoreCoordinator
+        if coordinator == nil {
+            return nil
+        }
+        var managedObjectContext = NSManagedObjectContext()
+        managedObjectContext.persistentStoreCoordinator = coordinator
+        return managedObjectContext
+        }()
+    
+    // MARK: - Core Data Saving support
+    
+    func saveContext () {
+        if let moc = self.managedObjectContext {
+            var error: NSError? = nil
+            if moc.hasChanges && !moc.save(&error) {
+                // Replace this implementation with code to handle the error appropriately.
+                // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+                NSLog("Unresolved error \(error), \(error!.userInfo)")
+                abort()
+            }
         }
     }
 }

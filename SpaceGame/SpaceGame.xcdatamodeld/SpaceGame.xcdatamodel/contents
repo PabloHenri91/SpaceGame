@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="7701" systemVersion="14D136" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
-    <entity name="HardPointData" representedClassName="PRODUCT_MODULE_NAME.HardPointData" syncable="YES">
+    <entity name="HardPointData" representedClassName="HardPointData" syncable="YES">
         <relationship name="playerShip" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PlayerShipData" inverseName="hardPoints" inverseEntity="PlayerShipData" syncable="YES"/>
         <relationship name="weapon" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="WeaponData" inverseName="hardPoint" inverseEntity="WeaponData" syncable="YES"/>
     </entity>
-    <entity name="PlayerData" representedClassName="PRODUCT_MODULE_NAME.PlayerData" syncable="YES">
+    <entity name="PlayerData" representedClassName="PlayerData" syncable="YES">
         <attribute name="score" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <relationship name="currentPlayerShip" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PlayerShipData" syncable="YES"/>
         <relationship name="playerShips" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="PlayerShipData" inverseName="player" inverseEntity="PlayerShipData" syncable="YES"/>
         <relationship name="weapons" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="WeaponData" inverseName="player" inverseEntity="WeaponData" syncable="YES"/>
     </entity>
-    <entity name="PlayerShipData" representedClassName="PRODUCT_MODULE_NAME.PlayerShipData" syncable="YES">
+    <entity name="PlayerShipData" representedClassName="PlayerShipData" syncable="YES">
         <attribute name="bunusAcceleration" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="bunusAgility" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="bunusArmor" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
@@ -22,7 +22,7 @@
         <relationship name="hardPoints" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="HardPointData" inverseName="playerShip" inverseEntity="HardPointData" syncable="YES"/>
         <relationship name="player" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PlayerData" inverseName="playerShips" inverseEntity="PlayerData" syncable="YES"/>
     </entity>
-    <entity name="WeaponData" representedClassName="PRODUCT_MODULE_NAME.WeaponData" syncable="YES">
+    <entity name="WeaponData" representedClassName="WeaponData" syncable="YES">
         <attribute name="bonusAmmoPerMag" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="bonusDemage" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="bonusReloadTime" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
@@ -30,6 +30,7 @@
         <relationship name="hardPoint" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="HardPointData" inverseName="weapon" inverseEntity="HardPointData" syncable="YES"/>
         <relationship name="player" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PlayerData" inverseName="weapons" inverseEntity="PlayerData" syncable="YES"/>
     </entity>
+    <fetchRequest name="getPlayerData" entity="PlayerData"/>
     <elements>
         <element name="HardPointData" positionX="88" positionY="-47" width="128" height="73"/>
         <element name="PlayerData" positionX="-450" positionY="-144" width="128" height="103"/>
