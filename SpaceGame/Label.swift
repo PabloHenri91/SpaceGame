@@ -23,7 +23,7 @@ class Label: Control {
         let labelNode = SKLabelNode(fontNamed: "Trebuchet MS")
         labelNode.text = textureName
         labelNode.fontSize = 25/2
-        labelNode.fontColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.75)
+        labelNode.fontColor = GameColors.white
         labelNode.verticalAlignmentMode = SKLabelVerticalAlignmentMode.Center
         labelNode.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.Center
         
@@ -39,6 +39,13 @@ class Label: Control {
     
     func setText(text:String){
         let label = self.childNodeWithName(self.name!) as! SKLabelNode
+        label.text = text
+        label.zPosition = Config.HUDZPosition/2
+    }
+    
+    func setText(text:String, color:UIColor){
+        let label = self.childNodeWithName(self.name!) as! SKLabelNode
+        label.fontColor = color
         label.text = text
         label.zPosition = Config.HUDZPosition/2
     }

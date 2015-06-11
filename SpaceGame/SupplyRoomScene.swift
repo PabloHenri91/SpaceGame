@@ -21,7 +21,7 @@ class SupplyRoomScene: SKScene {
     override func didMoveToView(view: SKView) {
         
         self.scaleMode = SKSceneScaleMode.AspectFit
-        self.backgroundColor = Config.myGray
+        self.backgroundColor = GameColors.gray
         self.anchorPoint = CGPoint(x: 0, y: 1)
         
         self.addChild(Button(name: "buttonBack", x:81, y:633, xAlign:.left, yAlign:.down))

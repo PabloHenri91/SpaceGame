@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		130E88701B0F75A00030FA7A /* NewGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 130E886F1B0F75A00030FA7A /* NewGameScene.swift */; };
-		130EBF6F1B1627B000D8F486 /* data.plist in Resources */ = {isa = PBXBuildFile; fileRef = 130EBF6E1B1627B000D8F486 /* data.plist */; };
 		135DC5F91B17374500A7E4EC /* OptionsScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135DC5F81B17374500A7E4EC /* OptionsScene.swift */; };
 		135DC5FB1B17421D00A7E4EC /* MessageBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135DC5FA1B17421D00A7E4EC /* MessageBox.swift */; };
 		135DC5FD1B177A3700A7E4EC /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135DC5FC1B177A3700A7E4EC /* Event.swift */; };
@@ -34,6 +33,8 @@
 		13D29B961B0FB30D00AED094 /* PlayerShip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13D29B951B0FB30D00AED094 /* PlayerShip.swift */; };
 		13DB50681B14EC9700E543E9 /* HangarScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13DB50671B14EC9700E543E9 /* HangarScene.swift */; };
 		13DB506A1B14FBC300E543E9 /* Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13DB50691B14FBC300E543E9 /* Label.swift */; };
+		13E539021B29F61200F0C573 /* GameMath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E539011B29F61200F0C573 /* GameMath.swift */; };
+		13E539041B2A003900F0C573 /* GameColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E539031B2A003900F0C573 /* GameColors.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,7 +49,6 @@
 
 /* Begin PBXFileReference section */
 		130E886F1B0F75A00030FA7A /* NewGameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewGameScene.swift; sourceTree = "<group>"; };
-		130EBF6E1B1627B000D8F486 /* data.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = data.plist; sourceTree = "<group>"; };
 		135DC5F81B17374500A7E4EC /* OptionsScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionsScene.swift; sourceTree = "<group>"; };
 		135DC5FA1B17421D00A7E4EC /* MessageBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageBox.swift; sourceTree = "<group>"; };
 		135DC5FC1B177A3700A7E4EC /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
@@ -78,6 +78,8 @@
 		13D29B951B0FB30D00AED094 /* PlayerShip.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerShip.swift; sourceTree = "<group>"; };
 		13DB50671B14EC9700E543E9 /* HangarScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HangarScene.swift; sourceTree = "<group>"; };
 		13DB50691B14FBC300E543E9 /* Label.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Label.swift; sourceTree = "<group>"; };
+		13E539011B29F61200F0C573 /* GameMath.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameMath.swift; sourceTree = "<group>"; };
+		13E539031B2A003900F0C573 /* GameColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameColors.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,7 +143,6 @@
 				13C13B921B0CB01A00E6AC5E /* Images.xcassets */,
 				13C13B941B0CB01A00E6AC5E /* LaunchScreen.xib */,
 				13C13B851B0CB01A00E6AC5E /* Supporting Files */,
-				130EBF6E1B1627B000D8F486 /* data.plist */,
 			);
 			path = SpaceGame;
 			sourceTree = "<group>";
@@ -195,6 +196,8 @@
 				13D29B951B0FB30D00AED094 /* PlayerShip.swift */,
 				135DC5FA1B17421D00A7E4EC /* MessageBox.swift */,
 				135DC5FC1B177A3700A7E4EC /* Event.swift */,
+				13E539011B29F61200F0C573 /* GameMath.swift */,
+				13E539031B2A003900F0C573 /* GameColors.swift */,
 			);
 			name = src;
 			sourceTree = "<group>";
@@ -281,7 +284,6 @@
 			files = (
 				13C13B961B0CB01A00E6AC5E /* LaunchScreen.xib in Resources */,
 				13C13B931B0CB01A00E6AC5E /* Images.xcassets in Resources */,
-				130EBF6F1B1627B000D8F486 /* data.plist in Resources */,
 				13C13B911B0CB01A00E6AC5E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -315,6 +317,7 @@
 				13C13B8E1B0CB01A00E6AC5E /* GameViewController.swift in Sources */,
 				1397BD8B1B28A13000842123 /* WeaponData.swift in Sources */,
 				135DC5FF1B17CD5300A7E4EC /* SupplyRoomScene.swift in Sources */,
+				13E539041B2A003900F0C573 /* GameColors.swift in Sources */,
 				13C13B881B0CB01A00E6AC5E /* AppDelegate.swift in Sources */,
 				130E88701B0F75A00030FA7A /* NewGameScene.swift in Sources */,
 				13D29B961B0FB30D00AED094 /* PlayerShip.swift in Sources */,
@@ -322,6 +325,7 @@
 				13D1BCEA1B0E5F9F003E596F /* Control.swift in Sources */,
 				1397BD891B28A13000842123 /* PlayerShipData.swift in Sources */,
 				13DB50681B14EC9700E543E9 /* HangarScene.swift in Sources */,
+				13E539021B29F61200F0C573 /* GameMath.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

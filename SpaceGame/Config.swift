@@ -10,10 +10,6 @@ import SpriteKit
 
 class Config: NSObject {
     
-    static var cornflowerBlue:UIColor = UIColor(red: 100/255, green: 149/255, blue: 238/255, alpha: 1)
-    static var myBlue:UIColor = UIColor(red: 0/255, green: 88/255, blue: 146/255, alpha: 1)
-    static var myGray:UIColor = UIColor(red: 65/255, green: 65/255, blue: 65/255, alpha: 1)
-    
     static var tileSize:CGFloat = 64
     static var chunkSize:CGFloat = Config.tileSize * 21// 21 tiles per chunk
     

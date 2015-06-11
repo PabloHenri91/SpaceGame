@@ -13,12 +13,12 @@ import CoreData
 
 class PlayerShipData: NSManagedObject {
 
-    @NSManaged var bunusAcceleration: NSNumber
-    @NSManaged var bunusAgility: NSNumber
-    @NSManaged var bunusArmor: NSNumber
-    @NSManaged var bunusShieldPower: NSNumber
-    @NSManaged var bunusShieldRecharge: NSNumber
-    @NSManaged var bunusSpeed: NSNumber
+    @NSManaged var bonusAcceleration: NSNumber
+    @NSManaged var bonusAgility: NSNumber
+    @NSManaged var bonusArmor: NSNumber
+    @NSManaged var bonusShieldPower: NSNumber
+    @NSManaged var bonusShieldRecharge: NSNumber
+    @NSManaged var bonusSpeed: NSNumber
     @NSManaged var level: NSNumber
     @NSManaged var shopIndex: NSNumber
     @NSManaged var hardPoints: NSSet

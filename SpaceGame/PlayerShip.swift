@@ -10,6 +10,9 @@ import SpriteKit
 
 class PlayerShip: Control {
     
+    var type:Int = 0
+    var level:Int = 0
+    
     var speedAtribute:Int = 0
     var acceleration:Int = 0
     var agility:Int = 0
@@ -21,6 +24,20 @@ class PlayerShip: Control {
         super.init()
         loadNewShip(index, x: x, y: y)
     }
+    
+    init(playerShipData:PlayerShipData, x:Int, y:Int) {
+        super.init()
+        loadNewShip(Int(playerShipData.shopIndex), x: x, y: y)
+        
+        self.level = Int(playerShipData.level)
+        
+        self.speedAtribute += Int(playerShipData.bonusSpeed)
+        self.acceleration += Int(playerShipData.bonusAcceleration)
+        self.agility += Int(playerShipData.bonusAgility)
+        self.armor += Int(playerShipData.bonusArmor)
+        self.shieldPower += Int(playerShipData.bonusShieldPower)
+        self.shieldRecharge += Int(playerShipData.bonusShieldRecharge)
+    }
 
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -28,7 +45,10 @@ class PlayerShip: Control {
     
     func loadNewShip(index:Int, x:Int, y:Int) {
         
-        var playerType = Players.types[index] as! PlayerType
+        var playerType = PlayerShips.types[index] as! PlayerShipType
+        
+        self.type = index
+        self.level = 1
         
         self.speedAtribute = playerType.speed
         self.acceleration = playerType.acceleration
@@ -51,14 +71,14 @@ class PlayerShip: Control {
     }
     
     func reloadNewShip(index:Int) {
-        var playerType = Players.types[index] as! PlayerType
+        var playerShipType = PlayerShips.types[index] as! PlayerShipType
         
-        self.speedAtribute = playerType.speed
-        self.acceleration = playerType.acceleration
-        self.agility = playerType.agility
-        self.armor = playerType.armor
-        self.shieldPower = playerType.shieldPower
-        self.shieldRecharge = playerType.shieldRecharge
+        self.speedAtribute = playerShipType.speed
+        self.acceleration = playerShipType.acceleration
+        self.agility = playerShipType.agility
+        self.armor = playerShipType.armor
+        self.shieldPower = playerShipType.shieldPower
+        self.shieldRecharge = playerShipType.shieldRecharge
         
         (self.childNodeWithName("player"))!.removeFromParent()
         
@@ -70,7 +90,7 @@ class PlayerShip: Control {
     }
 }
 
-class PlayerType: NSObject {
+class PlayerShipType: NSObject {
     var speed:Int
     var acceleration:Int
     var agility:Int
@@ -88,20 +108,20 @@ class PlayerType: NSObject {
     }
 }
 
-class Players: NSObject {
+class PlayerShips: NSObject {
     static var types:NSArray = NSArray(array: [
-        PlayerType(speed: 70, acceleration: 10, agility: 10, armor: 10, shieldPower: 10, shieldRecharge: 10), //0
-        PlayerType(speed: 40, acceleration: 10, agility: 10, armor: 10, shieldPower: 10, shieldRecharge: 40), //1
-        PlayerType(speed: 10, acceleration: 70, agility: 10, armor: 10, shieldPower: 10, shieldRecharge: 10), //2
-        PlayerType(speed: 10, acceleration: 10, agility: 10, armor: 10, shieldPower: 40, shieldRecharge: 40), //3
-        PlayerType(speed: 10, acceleration: 10, agility: 70, armor: 10, shieldPower: 10, shieldRecharge: 10), //4
-        PlayerType(speed: 10, acceleration: 10, agility: 10, armor: 40, shieldPower: 40, shieldRecharge: 10), //5
-        PlayerType(speed: 10, acceleration: 10, agility: 10, armor: 70, shieldPower: 10, shieldRecharge: 10), //6
-        PlayerType(speed: 10, acceleration: 10, agility: 40, armor: 40, shieldPower: 10, shieldRecharge: 10), //7
-        PlayerType(speed: 10, acceleration: 10, agility: 10, armor: 10, shieldPower: 70, shieldRecharge: 10), //8
-        PlayerType(speed: 10, acceleration: 40, agility: 40, armor: 10, shieldPower: 10, shieldRecharge: 10), //9
-        PlayerType(speed: 10, acceleration: 10, agility: 10, armor: 10, shieldPower: 10, shieldRecharge: 70), //10
-        PlayerType(speed: 40, acceleration: 40, agility: 10, armor: 10, shieldPower: 10, shieldRecharge: 10), //11
-        PlayerType(speed: 20, acceleration: 20, agility: 20, armor: 20, shieldPower: 20, shieldRecharge: 20)  //12
+        PlayerShipType(speed: 70, acceleration: 10, agility: 10, armor: 10, shieldPower: 10, shieldRecharge: 10), //0
+        PlayerShipType(speed: 40, acceleration: 10, agility: 10, armor: 10, shieldPower: 10, shieldRecharge: 40), //1
+        PlayerShipType(speed: 10, acceleration: 70, agility: 10, armor: 10, shieldPower: 10, shieldRecharge: 10), //2
+        PlayerShipType(speed: 10, acceleration: 10, agility: 10, armor: 10, shieldPower: 40, shieldRecharge: 40), //3
+        PlayerShipType(speed: 10, acceleration: 10, agility: 70, armor: 10, shieldPower: 10, shieldRecharge: 10), //4
+        PlayerShipType(speed: 10, acceleration: 10, agility: 10, armor: 40, shieldPower: 40, shieldRecharge: 10), //5
+        PlayerShipType(speed: 10, acceleration: 10, agility: 10, armor: 70, shieldPower: 10, shieldRecharge: 10), //6
+        PlayerShipType(speed: 10, acceleration: 10, agility: 40, armor: 40, shieldPower: 10, shieldRecharge: 10), //7
+        PlayerShipType(speed: 10, acceleration: 10, agility: 10, armor: 10, shieldPower: 70, shieldRecharge: 10), //8
+        PlayerShipType(speed: 10, acceleration: 40, agility: 40, armor: 10, shieldPower: 10, shieldRecharge: 10), //9
+        PlayerShipType(speed: 10, acceleration: 10, agility: 10, armor: 10, shieldPower: 10, shieldRecharge: 70), //10
+        PlayerShipType(speed: 40, acceleration: 40, agility: 10, armor: 10, shieldPower: 10, shieldRecharge: 10), //11
+        PlayerShipType(speed: 20, acceleration: 20, agility: 20, armor: 20, shieldPower: 20, shieldRecharge: 20)  //12
         ])
 }

@@ -11,12 +11,12 @@
         <relationship name="weapons" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="WeaponData" inverseName="player" inverseEntity="WeaponData" syncable="YES"/>
     </entity>
     <entity name="PlayerShipData" representedClassName="PlayerShipData" syncable="YES">
-        <attribute name="bunusAcceleration" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
-        <attribute name="bunusAgility" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
-        <attribute name="bunusArmor" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
-        <attribute name="bunusShieldPower" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
-        <attribute name="bunusShieldRecharge" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
-        <attribute name="bunusSpeed" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="bonusAcceleration" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="bonusAgility" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="bonusArmor" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="bonusShieldPower" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="bonusShieldRecharge" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="bonusSpeed" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="level" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="shopIndex" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <relationship name="hardPoints" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="HardPointData" inverseName="playerShip" inverseEntity="HardPointData" syncable="YES"/>
@@ -33,8 +33,8 @@
     <fetchRequest name="getPlayerData" entity="PlayerData"/>
     <elements>
         <element name="HardPointData" positionX="88" positionY="-47" width="128" height="73"/>
-        <element name="PlayerData" positionX="-450" positionY="-144" width="128" height="103"/>
-        <element name="PlayerShipData" positionX="-137" positionY="-211" width="128" height="193"/>
+        <element name="PlayerData" positionX="-450" positionY="-144" width="128" height="105"/>
+        <element name="PlayerShipData" positionX="-137" positionY="-211" width="128" height="195"/>
         <element name="WeaponData" positionX="-171" positionY="18" width="128" height="133"/>
     </elements>
 </model>

@@ -13,15 +13,18 @@ class MemoryCard: NSObject {
     
     var autoSave:Bool = false
 
-    var playerData:PlayerData?
+    var playerData:PlayerData!
     
     func newGame(shipIndex:Int) {
+        println("Creating new game...")
         var playerShipData = NSEntityDescription.insertNewObjectForEntityForName("PlayerShipData", inManagedObjectContext: self.managedObjectContext!) as! PlayerShipData
         playerShipData.shopIndex = shipIndex
+        playerShipData.level = 1
         
-        self.playerData = NSEntityDescription.insertNewObjectForEntityForName("PlayerData", inManagedObjectContext: self.managedObjectContext!) as? PlayerData
-        playerData!.playerShips = NSSet(array: [playerShipData])
-        playerData!.currentPlayerShip = playerShipData
+        self.playerData = NSEntityDescription.insertNewObjectForEntityForName("PlayerData", inManagedObjectContext: self.managedObjectContext!) as! PlayerData
+        self.playerData.playerShips = NSSet(array: [playerShipData])
+        self.playerData.score = 123456
+        self.playerData.currentPlayerShip = playerShipData
         
         self.autoSave = true
         
@@ -30,34 +33,32 @@ class MemoryCard: NSObject {
     
     func saveGame() {
         if(self.autoSave){
-            self.saveContext()
             println("Saving game...")
+            self.saveContext()
         }
     }
     
     func loadGame() -> Bool {
         
-        let fetchRequestData:NSArray = getPlayerData()
-        
-        if(fetchRequestData.count > 0){
-            println("Loading game...")
-            self.playerData = (fetchRequestData.lastObject as! PlayerData)
-            self.autoSave = true
+        if let playerData = playerData {
+            println("Game already loaded.")
             return true
         } else {
-            return false
+            let fetchRequestData:NSArray = getPlayerData()
+            
+            if(fetchRequestData.count > 0){
+                println("Loading game...")
+                self.playerData = (fetchRequestData.lastObject as! PlayerData)
+                self.autoSave = true
+                return true
+            } else {
+                return false
+            }
         }
     }
     
-//    func loadFromMainBundle() -> Bool {
-//        let bundle:String = NSBundle.mainBundle().pathForResource("data", ofType: "plist")!
-//        self.fileManager.copyItemAtPath(bundle, toPath: self.path, error:nil)
-//        return self.loadGame()
-//    }
-    
     func reset(){
         println("MemoryCard.reset()")
-        var error:NSError?
         
         let fetchRequestData:NSArray = getPlayerData()
         
@@ -65,11 +66,9 @@ class MemoryCard: NSObject {
             self.managedObjectContext!.deleteObject(item as! NSManagedObject)
         }
         
-        self.autoSave = false
+        self.playerData = nil
         
-        if error != nil {
-            println(error)
-        }
+        self.autoSave = false
     }
     
     func getPlayerData() -> NSArray{
