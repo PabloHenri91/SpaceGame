@@ -29,8 +29,16 @@ class Config: NSObject {
         let yScale = skViewBoundsSize.height / sceneSize.height
         let scale = min(xScale, yScale)
         
-        Config.translate = CGPoint(x: ((skViewBoundsSize.width - (sceneSize.width * scale))/2)/scale,
-                                   y: ((skViewBoundsSize.height - (sceneSize.height * scale))/2)/scale)
+        
+        if(UIDevice.currentDevice().systemVersion.hasPrefix("8")) {
+            Config.translate = CGPoint(x: ((skViewBoundsSize.width - (sceneSize.width * scale))/2)/scale,
+                                       y: ((skViewBoundsSize.height - (sceneSize.height * scale))/2)/scale)
+        } else {
+            //TODO: caculo de translate causa comportamento estranho no iOS 7
+            Config.translate = CGPoint.zeroPoint
+        }
+        
+        println(skViewBoundsSize)
         
         return CGSize(width: skViewBoundsSize.width / scale, height: skViewBoundsSize.height / scale)
     }
