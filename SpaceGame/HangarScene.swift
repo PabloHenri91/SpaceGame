@@ -10,6 +10,17 @@ import SpriteKit
 
 class HangarScene: SKScene {
     
+    enum states {
+        case hangar
+        case playMission
+        case supplyRoom
+        case allyShip
+        case mainMenu
+    }
+    
+    var state = states.hangar
+    var nextState = states.hangar
+    
     let playerData:PlayerData = GameViewController.memoryCard.playerData!
     
     override init() {
@@ -69,12 +80,13 @@ class HangarScene: SKScene {
         
         self.addChild(Button(name: "buttonBack", x:28, y:657, xAlign:.left, yAlign:.down))
         
-        self.updatePlayerShipAtributeLabels()
+        self.updateControls()
     }
     
-    func updatePlayerShipAtributeLabels() {
+    func updateControls() {
         let playerShip = self.childNodeWithName("player") as! PlayerShip
         
+        //Labels
         (self.childNodeWithName("labelSpeed") as! Label).setText(playerShip.speedAtribute.description)
         (self.childNodeWithName("labelAcceleration") as! Label).setText(playerShip.acceleration.description)
         (self.childNodeWithName("labelAgility") as! Label).setText(playerShip.agility.description)
@@ -86,9 +98,9 @@ class HangarScene: SKScene {
         (self.childNodeWithName("labelCurrentUP") as! Label).setText("Current UP: " + GameMath.currentUP(playerShip).description)
         (self.childNodeWithName("labelAvailableUP") as! Label).setText("Available UP: " + GameMath.availableUP(playerShip).description)
         
-        var requiredPoints = GameMath.requiredPoints(playerShip.level)
+        let requiredPoints = GameMath.requiredPoints(playerShip.level)
         
-        var color:UIColor!
+        let color:UIColor!
         if(Int(self.playerData.score) >= requiredPoints){
             color = GameColors.green
         } else {
@@ -98,6 +110,56 @@ class HangarScene: SKScene {
         (self.childNodeWithName("labelLevel") as! Label).setText("Level: " + playerShip.level.description)
         
         (self.childNodeWithName("labelScore") as! Label).setText("$" + self.playerData.score.description)
+        
+        //Buttons
+        let aux = GameMath.availableUP(playerShip) <= 0
+        (self.childNodeWithName("buttonRightSpeed") as! Button).hidden = aux || playerShip.speedAtribute >= 100
+        (self.childNodeWithName("buttonRightAcceleration") as! Button).hidden = aux || playerShip.acceleration >= 100
+        (self.childNodeWithName("buttonRightAgility") as! Button).hidden = aux || playerShip.agility >= 100
+        (self.childNodeWithName("buttonRightArmor") as! Button).hidden = aux || playerShip.armor >= 100
+        (self.childNodeWithName("buttonRightShieldPower") as! Button).hidden = aux || playerShip.shieldPower >= 100
+        (self.childNodeWithName("buttonRightShieldRecharge") as! Button).hidden = aux || playerShip.shieldRecharge >= 100
+        
+        let playerType = PlayerShips.types[playerShip.type] as! PlayerShipType
+        (self.childNodeWithName("buttonLeftSpeed") as! Button).hidden = playerShip.speedAtribute <= playerType.speed
+        (self.childNodeWithName("buttonLeftAcceleration") as! Button).hidden = playerShip.acceleration <= playerType.acceleration
+        (self.childNodeWithName("buttonLeftAgility") as! Button).hidden = playerShip.agility <= playerType.agility
+        (self.childNodeWithName("buttonLeftArmor") as! Button).hidden = playerShip.armor <= playerType.armor
+        (self.childNodeWithName("buttonLeftShieldPower") as! Button).hidden = playerShip.shieldPower <= playerType.shieldPower
+        (self.childNodeWithName("buttonLeftShieldRecharge") as! Button).hidden = playerShip.shieldRecharge <= playerType.shieldRecharge
+    }
+    
+    override func update(currentTime: NSTimeInterval) {
+        if(self.state == self.nextState) {
+            switch (self.state) {
+            default:
+                break
+            }
+        }  else {
+            self.state = self.nextState
+            
+            switch (self.nextState) {
+                
+            case states.playMission:
+                self.view!.presentScene(SpaceScene(), transition: SKTransition.crossFadeWithDuration(1))
+                break
+                
+            case states.supplyRoom:
+                self.view!.presentScene(SupplyRoomScene(), transition: SKTransition.crossFadeWithDuration(1))
+                break
+                
+            case states.allyShip:
+                // TODO:
+                self.nextState = states.hangar
+                break
+            case states.mainMenu:
+                self.view!.presentScene(MainMenuScene(), transition: SKTransition.crossFadeWithDuration(1))
+                break
+                
+            default:
+                break
+            }
+        }
     }
     
     override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
@@ -110,12 +172,147 @@ class HangarScene: SKScene {
     
     override func touchesEnded(touches: Set<NSObject>, withEvent event: UIEvent) {
         Control.touchesEnded(self, touches: touches as! Set<UITouch>)
-        for touch in (touches as! Set<UITouch>) {
-            let location = touch.locationInNode(self)
-            
-            if (self.childNodeWithName("buttonBack")!.containsPoint(location)) {
-                self.view?.presentScene(MainMenuScene(), transition: SKTransition.crossFadeWithDuration(1))
-                return
+        
+        if (self.state == self.nextState) {
+            switch (self.state) {
+            case states.hangar:
+                for touch in (touches as! Set<UITouch>) {
+                    let location = touch.locationInNode(self)
+                    
+                    if (self.childNodeWithName("buttonPlayMission")!.containsPoint(location)) {
+                        self.nextState = .playMission
+                        return
+                    }
+                    if (self.childNodeWithName("buttonSupplyRoom")!.containsPoint(location)) {
+                        self.nextState = .supplyRoom
+                        return
+                    }
+                    if (self.childNodeWithName("buttonAllyShip")!.containsPoint(location)) {
+                        self.nextState = .allyShip
+                        return
+                    }
+                    if (self.childNodeWithName("buttonBack")!.containsPoint(location)) {
+                        self.nextState = .mainMenu
+                        return
+                    }
+                    
+                    let playerShip = self.childNodeWithName("player") as! PlayerShip
+                    let playerType = PlayerShips.types[playerShip.type] as! PlayerShipType
+                    
+                    if (self.childNodeWithName("buttonLevelUp")!.containsPoint(location)) {
+                        let requiredPoints = GameMath.requiredPoints(playerShip.level)
+                        if(Int(self.playerData.score) >= requiredPoints){
+                            self.playerData.score = Int(self.playerData.score) - requiredPoints
+                            playerShip.level++
+                            self.updateControls()
+                            self.playerData.currentPlayerShip.level = playerShip.level
+                        }
+                        return
+                    }
+                    if (self.childNodeWithName("buttonLeftSpeed")!.containsPoint(location)) {
+                        if(playerShip.speedAtribute > playerType.speed){
+                            playerShip.speedAtribute--
+                            self.updateControls()
+                            playerShip.updatePlayerDataCurrentPlayerShip()
+                            return
+                        }
+                    }
+                    if (self.childNodeWithName("buttonLeftAcceleration")!.containsPoint(location)) {
+                        if(playerShip.acceleration > playerType.acceleration){
+                            playerShip.acceleration--
+                            self.updateControls()
+                            playerShip.updatePlayerDataCurrentPlayerShip()
+                            return
+                        }
+                    }
+                    if (self.childNodeWithName("buttonLeftAgility")!.containsPoint(location)) {
+                        if(playerShip.agility > playerType.agility){
+                            playerShip.agility--
+                            self.updateControls()
+                            playerShip.updatePlayerDataCurrentPlayerShip()
+                            return
+                        }
+                    }
+                    if (self.childNodeWithName("buttonLeftArmor")!.containsPoint(location)) {
+                        if(playerShip.armor > playerType.armor){
+                            playerShip.armor--
+                            self.updateControls()
+                            playerShip.updatePlayerDataCurrentPlayerShip()
+                            return
+                        }
+                    }
+                    if (self.childNodeWithName("buttonLeftShieldPower")!.containsPoint(location)) {
+                        if(playerShip.shieldPower > playerType.shieldPower){
+                            playerShip.shieldPower--
+                            self.updateControls()
+                            playerShip.updatePlayerDataCurrentPlayerShip()
+                            return
+                        }
+                    }
+                    if (self.childNodeWithName("buttonLeftShieldRecharge")!.containsPoint(location)) {
+                        if(playerShip.shieldRecharge > playerType.shieldRecharge){
+                            playerShip.shieldRecharge--
+                            self.updateControls()
+                            playerShip.updatePlayerDataCurrentPlayerShip()
+                            return
+                        }
+                    }
+                    
+                    if(GameMath.availableUP(playerShip) > 0) {
+                        if (self.childNodeWithName("buttonRightSpeed")!.containsPoint(location)) {
+                            if(playerShip.speedAtribute < 100){
+                                playerShip.speedAtribute++
+                            }
+                            self.updateControls()
+                            playerShip.updatePlayerDataCurrentPlayerShip()
+                            return
+                        }
+                        if (self.childNodeWithName("buttonRightAcceleration")!.containsPoint(location)) {
+                            if(playerShip.acceleration < 100){
+                                playerShip.acceleration++
+                            }
+                            self.updateControls()
+                            playerShip.updatePlayerDataCurrentPlayerShip()
+                            return
+                        }
+                        if (self.childNodeWithName("buttonRightAgility")!.containsPoint(location)) {
+                            if(playerShip.agility < 100){
+                                playerShip.agility++
+                            }
+                            self.updateControls()
+                            playerShip.updatePlayerDataCurrentPlayerShip()
+                            return
+                        }
+                        if (self.childNodeWithName("buttonRightArmor")!.containsPoint(location)) {
+                            if(playerShip.armor < 100){
+                                playerShip.armor++
+                            }
+                            self.updateControls()
+                            playerShip.updatePlayerDataCurrentPlayerShip()
+                            return
+                        }
+                        if (self.childNodeWithName("buttonRightShieldPower")!.containsPoint(location)) {
+                            if(playerShip.shieldPower < 100){
+                                playerShip.shieldPower++
+                            }
+                            self.updateControls()
+                            playerShip.updatePlayerDataCurrentPlayerShip()
+                            return
+                        }
+                        if (self.childNodeWithName("buttonRightShieldRecharge")!.containsPoint(location)) {
+                            if(playerShip.shieldRecharge < 100){
+                                playerShip.shieldRecharge++
+                            }
+                            self.updateControls()
+                            playerShip.updatePlayerDataCurrentPlayerShip()
+                            return
+                        }
+                    }
+                }
+                break
+                
+            default:
+                break
             }
         }
     }

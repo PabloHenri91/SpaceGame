@@ -88,6 +88,20 @@ class PlayerShip: Control {
         spriteNode.zPosition = Config.HUDZPosition/2
         self.addChild(spriteNode)
     }
+    
+    func updatePlayerDataCurrentPlayerShip() {
+        var currentPlayerShip = GameViewController.memoryCard.playerData.currentPlayerShip
+        var playerShipType = PlayerShips.types[self.type] as! PlayerShipType
+        
+        currentPlayerShip.level = self.level
+        
+        currentPlayerShip.bonusSpeed = self.speedAtribute - playerShipType.speed
+        currentPlayerShip.bonusAcceleration = self.acceleration - playerShipType.acceleration
+        currentPlayerShip.bonusAgility = self.agility - playerShipType.agility
+        currentPlayerShip.bonusArmor = self.armor - playerShipType.armor
+        currentPlayerShip.bonusShieldPower = self.shieldPower - playerShipType.shieldPower
+        currentPlayerShip.bonusShieldRecharge = self.shieldRecharge - playerShipType.shieldRecharge
+    }
 }
 
 class PlayerShipType: NSObject {

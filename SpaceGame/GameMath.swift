@@ -11,7 +11,7 @@ import UIKit
 class GameMath: NSObject {
     
     static func requiredPoints(level:Int) -> Int{
-        return 100 * (level + 1)
+        return 1000 * (level + 1)
     }
     
     static func maximumUP(level:Int) -> Int{
