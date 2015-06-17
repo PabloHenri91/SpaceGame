@@ -25,9 +25,9 @@ class PlayerShip: Control {
         loadNewShip(index, x: x, y: y)
     }
     
-    init(playerShipData:PlayerShipData, x:Int, y:Int) {
+    init(playerShipData:PlayerShipData, x:Int, y:Int, loadPhysics:Bool = false) {
         super.init()
-        loadNewShip(Int(playerShipData.shopIndex), x: x, y: y)
+        loadNewShip(Int(playerShipData.shopIndex), x: x, y: y, loadPhysics:loadPhysics)
         
         self.level = Int(playerShipData.level)
         
@@ -43,7 +43,7 @@ class PlayerShip: Control {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func loadNewShip(index:Int, x:Int, y:Int) {
+    func loadNewShip(index:Int, x:Int, y:Int, loadPhysics:Bool = false) {
         
         var playerType = PlayerShips.types[index] as! PlayerShipType
         
@@ -67,6 +67,11 @@ class PlayerShip: Control {
         let texture = SKTexture(imageNamed: "player" + index.description)
         let spriteNode = SKSpriteNode(texture: texture, color: nil, size: texture.size())
         spriteNode.name = "player"
+        
+        if(loadPhysics){
+            self.physicsBody = SKPhysicsBody(texture: texture, alphaThreshold: 0.7, size: texture.size())
+        }
+        
         self.addChild(spriteNode)
     }
     

@@ -23,24 +23,26 @@ class Config: NSObject {
     
     static func sceneSize() -> CGSize {
         
-        let sceneSize:CGSize = CGSize(width: 1334/2, height: 750/2)
-        
-        let xScale = skViewBoundsSize.width / sceneSize.width
-        let yScale = skViewBoundsSize.height / sceneSize.height
-        let scale = min(xScale, yScale)
-        
-        
         if(UIDevice.currentDevice().systemVersion.hasPrefix("8")) {
+            let sceneSize:CGSize = CGSize(width: 1334/2, height: 750/2)
+            
+            let xScale = skViewBoundsSize.width / sceneSize.width
+            let yScale = skViewBoundsSize.height / sceneSize.height
+            var scale = min(xScale, yScale)
+            
             Config.translate = CGPoint(x: ((skViewBoundsSize.width - (sceneSize.width * scale))/2)/scale,
                                        y: ((skViewBoundsSize.height - (sceneSize.height * scale))/2)/scale)
+            
+            return CGSize(width: skViewBoundsSize.width / scale, height: skViewBoundsSize.height / scale)
         } else {
             //TODO: caculo de translate causa comportamento estranho no iOS 7
+            var scale = 1
+            
             Config.translate = CGPoint.zeroPoint
+            
+            return CGSize(width: 1334/2, height: 750/2)
+            
         }
-        
-        println(skViewBoundsSize)
-        
-        return CGSize(width: skViewBoundsSize.width / scale, height: skViewBoundsSize.height / scale)
     }
     
     enum PhysicsCategory : UInt32 {
