@@ -41,7 +41,12 @@ class Button: Control {
     class func resetButtons(scene: SKScene) {
         NSArray(array: scene.children).enumerateObjectsUsingBlock({ object, index, stop in
             var node = object as! SKNode
-            (node as! Button).resetPosition()
+            if let name = node.name
+            {
+                if(name.hasPrefix("button")) {
+                    (node as! Button).resetPosition()
+                }
+            }
         })
     }
     

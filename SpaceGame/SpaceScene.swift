@@ -45,7 +45,7 @@ class SpaceScene: SKScene {
     }
     
     override func update(currentTime: NSTimeInterval) {
-        
+        (self.childNodeWithName("//player") as! PlayerShip).update(currentTime)
         
     }
     
