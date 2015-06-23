@@ -697,7 +697,6 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"/Users/Uriel/Downloads/parse-library-1.7.4",
 					"$(PROJECT_DIR)/SpaceGame",
 				);
 				INFOPLIST_FILE = SpaceGame/Info.plist;
@@ -714,7 +713,6 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"/Users/Uriel/Downloads/parse-library-1.7.4",
 					"$(PROJECT_DIR)/SpaceGame",
 				);
 				INFOPLIST_FILE = SpaceGame/Info.plist;
