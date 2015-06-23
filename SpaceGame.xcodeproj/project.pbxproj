@@ -35,6 +35,17 @@
 		13DB506A1B14FBC300E543E9 /* Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13DB50691B14FBC300E543E9 /* Label.swift */; };
 		13E539021B29F61200F0C573 /* GameMath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E539011B29F61200F0C573 /* GameMath.swift */; };
 		13E539041B2A003900F0C573 /* GameColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E539031B2A003900F0C573 /* GameColors.swift */; };
+		A4E05EC61B388602008D31CF /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4E05EC01B388602008D31CF /* Bolts.framework */; };
+		A4E05EC71B388602008D31CF /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4E05EC11B388602008D31CF /* Parse.framework */; };
+		A4E05EC81B388602008D31CF /* ParseCrashReporting.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4E05EC21B388602008D31CF /* ParseCrashReporting.framework */; };
+		A4E05EC91B388602008D31CF /* ParseFacebookUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4E05EC31B388602008D31CF /* ParseFacebookUtils.framework */; };
+		A4E05ECA1B388602008D31CF /* ParseFacebookUtilsV4.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4E05EC41B388602008D31CF /* ParseFacebookUtilsV4.framework */; };
+		A4E05ECB1B388602008D31CF /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4E05EC51B388602008D31CF /* ParseUI.framework */; };
+		A4E05ECE1B38913D008D31CF /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A4E05ECD1B38913D008D31CF /* libsqlite3.dylib */; };
+		A4E05ED01B38915B008D31CF /* libstdc++.6.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A4E05ECF1B38915B008D31CF /* libstdc++.6.dylib */; };
+		A4E05ED21B38917A008D31CF /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4E05ED11B38917A008D31CF /* MobileCoreServices.framework */; };
+		A4E05ED41B389184008D31CF /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4E05ED31B389184008D31CF /* SystemConfiguration.framework */; };
+		A4E05ED61B38918E008D31CF /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4E05ED51B38918E008D31CF /* AudioToolbox.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +91,18 @@
 		13DB50691B14FBC300E543E9 /* Label.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Label.swift; sourceTree = "<group>"; };
 		13E539011B29F61200F0C573 /* GameMath.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameMath.swift; sourceTree = "<group>"; };
 		13E539031B2A003900F0C573 /* GameColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameColors.swift; sourceTree = "<group>"; };
+		A4E05EC01B388602008D31CF /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
+		A4E05EC11B388602008D31CF /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
+		A4E05EC21B388602008D31CF /* ParseCrashReporting.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseCrashReporting.framework; sourceTree = "<group>"; };
+		A4E05EC31B388602008D31CF /* ParseFacebookUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseFacebookUtils.framework; sourceTree = "<group>"; };
+		A4E05EC41B388602008D31CF /* ParseFacebookUtilsV4.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseFacebookUtilsV4.framework; sourceTree = "<group>"; };
+		A4E05EC51B388602008D31CF /* ParseUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseUI.framework; sourceTree = "<group>"; };
+		A4E05ECC1B3890D5008D31CF /* ParseStarterProject-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ParseStarterProject-Bridging-Header.h"; sourceTree = "<group>"; };
+		A4E05ECD1B38913D008D31CF /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		A4E05ECF1B38915B008D31CF /* libstdc++.6.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.6.dylib"; path = "usr/lib/libstdc++.6.dylib"; sourceTree = SDKROOT; };
+		A4E05ED11B38917A008D31CF /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		A4E05ED31B389184008D31CF /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		A4E05ED51B38918E008D31CF /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +110,17 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A4E05ED61B38918E008D31CF /* AudioToolbox.framework in Frameworks */,
+				A4E05ED41B389184008D31CF /* SystemConfiguration.framework in Frameworks */,
+				A4E05ED21B38917A008D31CF /* MobileCoreServices.framework in Frameworks */,
+				A4E05ED01B38915B008D31CF /* libstdc++.6.dylib in Frameworks */,
+				A4E05ECE1B38913D008D31CF /* libsqlite3.dylib in Frameworks */,
+				A4E05ECB1B388602008D31CF /* ParseUI.framework in Frameworks */,
+				A4E05EC71B388602008D31CF /* Parse.framework in Frameworks */,
+				A4E05EC81B388602008D31CF /* ParseCrashReporting.framework in Frameworks */,
+				A4E05EC91B388602008D31CF /* ParseFacebookUtils.framework in Frameworks */,
+				A4E05EC61B388602008D31CF /* Bolts.framework in Frameworks */,
+				A4E05ECA1B388602008D31CF /* ParseFacebookUtilsV4.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -116,6 +150,11 @@
 		13C13B791B0CB01900E6AC5E = {
 			isa = PBXGroup;
 			children = (
+				A4E05ED51B38918E008D31CF /* AudioToolbox.framework */,
+				A4E05ED31B389184008D31CF /* SystemConfiguration.framework */,
+				A4E05ED11B38917A008D31CF /* MobileCoreServices.framework */,
+				A4E05ECF1B38915B008D31CF /* libstdc++.6.dylib */,
+				A4E05ECD1B38913D008D31CF /* libsqlite3.dylib */,
 				13C13B841B0CB01A00E6AC5E /* SpaceGame */,
 				13C13B9E1B0CB01A00E6AC5E /* SpaceGameTests */,
 				13C13B831B0CB01A00E6AC5E /* Products */,
@@ -134,6 +173,7 @@
 		13C13B841B0CB01A00E6AC5E /* SpaceGame */ = {
 			isa = PBXGroup;
 			children = (
+				A4E05EBF1B3885B1008D31CF /* Frameworks */,
 				13843C0F1B27503A00F67EA3 /* CoreData */,
 				13D1BCE41B0E5EAE003E596F /* src */,
 				13D1BCE31B0E5EA1003E596F /* Scenes */,
@@ -151,6 +191,7 @@
 			isa = PBXGroup;
 			children = (
 				13C13B861B0CB01A00E6AC5E /* Info.plist */,
+				A4E05ECC1B3890D5008D31CF /* ParseStarterProject-Bridging-Header.h */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -200,6 +241,19 @@
 				13E539031B2A003900F0C573 /* GameColors.swift */,
 			);
 			name = src;
+			sourceTree = "<group>";
+		};
+		A4E05EBF1B3885B1008D31CF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A4E05EC01B388602008D31CF /* Bolts.framework */,
+				A4E05EC11B388602008D31CF /* Parse.framework */,
+				A4E05EC21B388602008D31CF /* ParseCrashReporting.framework */,
+				A4E05EC31B388602008D31CF /* ParseFacebookUtils.framework */,
+				A4E05EC41B388602008D31CF /* ParseFacebookUtilsV4.framework */,
+				A4E05EC51B388602008D31CF /* ParseUI.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -454,6 +508,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/SpaceGame",
+				);
 				INFOPLIST_FILE = SpaceGame/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -465,6 +524,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/SpaceGame",
+				);
 				INFOPLIST_FILE = SpaceGame/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
