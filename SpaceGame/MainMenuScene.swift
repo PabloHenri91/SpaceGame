@@ -20,6 +20,7 @@ class MainMenuScene: SKScene {
     
     var state = states.mainMenu
     var nextState = states.mainMenu
+   
     
     override init() {
         Control.locations = NSMutableArray()
