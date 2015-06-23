@@ -8,6 +8,7 @@
 
 import UIKit
 import SpriteKit
+import Foundation
 
 class Button: Control {
     
@@ -38,26 +39,49 @@ class Button: Control {
     }
     
     class func resetButtons(scene: SKScene) {
-        scene.enumerateChildNodesWithName("button*", usingBlock: { (node:SKNode!, stop:UnsafeMutablePointer<ObjCBool>) -> Void in
-            (node as! Button).resetPosition()
+        NSArray(array: scene.children).enumerateObjectsUsingBlock({ object, index, stop in
+            var node = object as! SKNode
+            if let name = node.name
+            {
+                if(name.hasPrefix("button")) {
+                    (node as! Button).resetPosition()
+                }
+            }
         })
     }
     
     class func update(scene: SKNode) {
-        scene.enumerateChildNodesWithName("button*", usingBlock: { (node:SKNode!, stop:UnsafeMutablePointer<ObjCBool>) -> Void in
-            var i = 0
-            for touch in Control.touchesArray {
-                let location = touch.locationInNode(node.parent)
-                if node.containsPoint(location) {
-                    i++
+        
+        
+        NSArray(array: scene.children).enumerateObjectsUsingBlock({ object, index, stop in
+            var node = object as! SKNode
+            
+            if let name = node.name
+            {
+            
+                if(name.hasPrefix("button")) {
+                    
+                                var i = 0
+                                for touch in Control.touchesArray {
+                                    let location = touch.locationInNode(node.parent)
+                                    if node.containsPoint(location) {
+                                        i++
+                                    }
+                                }
+                                if(i > 0){
+                                    (node as! Button).buttonPressed()
+                                } else {
+                                    (node as! Button).buttonReleased()
+                                }
+                        
+
+                
                 }
-            }
-            if(i > 0){
-                (node as! Button).buttonPressed()
-            } else {
-                (node as! Button).buttonReleased()
+                
             }
         })
+        
+      
     }
     
     private func buttonPressed() {
