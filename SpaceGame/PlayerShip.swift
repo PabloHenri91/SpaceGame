@@ -110,13 +110,13 @@ class PlayerShip: Control {
             } else {
                 switch(self.touchesArrayCount) {
                 case 0:
-                    self.physicsBody!.applyForce(CGVector(dx: -sin(self.zRotation) * 100, dy: cos(self.zRotation) * 100))
+                    self.physicsBody!.applyForce(CGVector(dx: -sin(self.zRotation) * 1000, dy: cos(self.zRotation) * 1000))
                     
                     break
                     
                 default:
                     //aplicar forca em direcao ao destino
-                    self.physicsBody!.applyForce(CGVector(dx: (dX/distanceToDestination) * 100, dy: (dY/distanceToDestination) * 100))
+                    self.physicsBody!.applyForce(CGVector(dx: (dX/distanceToDestination) * 1000, dy: (dY/distanceToDestination) * 1000))
                     break
                 }
             }

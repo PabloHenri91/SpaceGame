@@ -24,6 +24,9 @@
 		13C13B931B0CB01A00E6AC5E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13C13B921B0CB01A00E6AC5E /* Images.xcassets */; };
 		13C13B961B0CB01A00E6AC5E /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13C13B941B0CB01A00E6AC5E /* LaunchScreen.xib */; };
 		13C13BA21B0CB01A00E6AC5E /* SpaceGameTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C13BA11B0CB01A00E6AC5E /* SpaceGameTests.swift */; };
+		13CA5A4C1B3ACC6B007EFDAF /* Chunk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13CA5A4B1B3ACC6B007EFDAF /* Chunk.swift */; };
+		13CA5A4E1B3ACCE8007EFDAF /* MapManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13CA5A4D1B3ACCE8007EFDAF /* MapManager.swift */; };
+		13CA5A501B3ACD55007EFDAF /* Meteor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13CA5A4F1B3ACD55007EFDAF /* Meteor.swift */; };
 		13D1BCE61B0E5ECA003E596F /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13D1BCE51B0E5ECA003E596F /* Config.swift */; };
 		13D1BCE81B0E5EF6003E596F /* MainMenuScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13D1BCE71B0E5EF6003E596F /* MainMenuScene.swift */; };
 		13D1BCEA1B0E5F9F003E596F /* Control.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13D1BCE91B0E5F9F003E596F /* Control.swift */; };
@@ -116,6 +119,9 @@
 		13C13B9B1B0CB01A00E6AC5E /* SpaceGameTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpaceGameTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		13C13BA01B0CB01A00E6AC5E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		13C13BA11B0CB01A00E6AC5E /* SpaceGameTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceGameTests.swift; sourceTree = "<group>"; };
+		13CA5A4B1B3ACC6B007EFDAF /* Chunk.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Chunk.swift; sourceTree = "<group>"; };
+		13CA5A4D1B3ACCE8007EFDAF /* MapManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapManager.swift; sourceTree = "<group>"; };
+		13CA5A4F1B3ACD55007EFDAF /* Meteor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Meteor.swift; sourceTree = "<group>"; };
 		13D1BCE51B0E5ECA003E596F /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		13D1BCE71B0E5EF6003E596F /* MainMenuScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainMenuScene.swift; sourceTree = "<group>"; };
 		13D1BCE91B0E5F9F003E596F /* Control.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Control.swift; sourceTree = "<group>"; };
@@ -292,6 +298,9 @@
 				135DC5FC1B177A3700A7E4EC /* Event.swift */,
 				13E539011B29F61200F0C573 /* GameMath.swift */,
 				13E539031B2A003900F0C573 /* GameColors.swift */,
+				13CA5A4B1B3ACC6B007EFDAF /* Chunk.swift */,
+				13CA5A4D1B3ACCE8007EFDAF /* MapManager.swift */,
+				13CA5A4F1B3ACD55007EFDAF /* Meteor.swift */,
 			);
 			name = src;
 			sourceTree = "<group>";
@@ -524,13 +533,16 @@
 				13843C321B275E5100F67EA3 /* SpaceGame.xcdatamodeld in Sources */,
 				13D29B941B0FA4FA00AED094 /* MemoryCard.swift in Sources */,
 				13DB506A1B14FBC300E543E9 /* Label.swift in Sources */,
+				13CA5A4E1B3ACCE8007EFDAF /* MapManager.swift in Sources */,
 				135DC5FD1B177A3700A7E4EC /* Event.swift in Sources */,
 				13D1BCE61B0E5ECA003E596F /* Config.swift in Sources */,
 				13C13B8E1B0CB01A00E6AC5E /* GameViewController.swift in Sources */,
 				1397BD8B1B28A13000842123 /* WeaponData.swift in Sources */,
+				13CA5A501B3ACD55007EFDAF /* Meteor.swift in Sources */,
 				135DC5FF1B17CD5300A7E4EC /* SupplyRoomScene.swift in Sources */,
 				13E539041B2A003900F0C573 /* GameColors.swift in Sources */,
 				13C13B881B0CB01A00E6AC5E /* AppDelegate.swift in Sources */,
+				13CA5A4C1B3ACC6B007EFDAF /* Chunk.swift in Sources */,
 				130E88701B0F75A00030FA7A /* NewGameScene.swift in Sources */,
 				13D29B961B0FB30D00AED094 /* PlayerShip.swift in Sources */,
 				1397BD8D1B28A13000842123 /* PlayerData.swift in Sources */,
