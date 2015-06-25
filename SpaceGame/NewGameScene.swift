@@ -21,6 +21,10 @@ class NewGameScene: SKScene {
     var timeToFade = 2.0
     var shipIndex:Int = 0
     
+    //Tutorial
+    var tutorialIndex:Int = 1
+    var tutorialLabels:NSMutableArray!
+    
     
     override init() {
         Control.locations = NSMutableArray()
@@ -46,32 +50,25 @@ class NewGameScene: SKScene {
         self.addChild(Button(name: "buttonRight", x:663, y:241, align:.center))
 
         
-        if(!NSUserDefaults.standardUserDefaults().boolForKey("firstlaunch")){
-        
-
-            newgameTutorial()
-
-            
-            
-        }
-
-        else{
-        
+    
         self.addChild(Label(name: "labelSpeed", textureName:"999", x:1014, y:264, align:.center))
         self.addChild(Label(name: "labelAcceleration", textureName:"999", x:1014, y:342, align:.center))
         self.addChild(Label(name: "labelAgility", textureName:"999", x:1014, y:420, align:.center))
         self.addChild(Label(name: "labelArmor", textureName:"999", x:1014, y:498, align:.center))
         self.addChild(Label(name: "labelShieldPower", textureName:"999", x:1014, y:576, align:.center))
         self.addChild(Label(name: "labelShieldRecharge", textureName:"999", x:1014, y:655, align:.center))
-        
         self.addChild(Label(name: "labelScore", textureName:"$10000", x:645, y:357, align:.center))
         self.addChild(Label(name: "labelLevel", textureName:"Level: 1", x:645, y:420, align:.center))
-        
         self.addChild(Label(name: "labelMaximumUP", textureName:"Maximum UP: 9999", x:408, y:507, align:.center))
         self.addChild(Label(name: "labelCurrentUP", textureName:"Current UP 9999", x:408, y:589, align:.center))
         self.addChild(Label(name: "labelAvailableUP", textureName:"Available UP 9999", x:408, y:671, align:.center))
-         
-        
+            
+    
+        if(!NSUserDefaults.standardUserDefaults().boolForKey("firstlaunch")){
+            
+            newgameTutorial()
+            
+            
             
         }
         
@@ -104,6 +101,22 @@ class NewGameScene: SKScene {
         Control.touchesEnded(self, touches: touches as! Set<UITouch>)
         for touch in (touches as! Set<UITouch>) {
             let location = touch.locationInNode(self)
+            
+            if(!NSUserDefaults.standardUserDefaults().boolForKey("firstlaunch")){
+                if(self.tutorialIndex <= 12){
+                    
+                    self.childNodeWithName("labelTutorial" + self.tutorialIndex.description)!.zPosition *= 4
+                    self.childNodeWithName("labelTutorial" + self.tutorialIndex.description)!.hidden = false
+                    animation(self.childNodeWithName("labelTutorial" + self.tutorialIndex.description)! , timeToFade: 2.0 )
+                    self.tutorialIndex++
+                    self.childNodeWithName("labelTutorial" + self.tutorialIndex.description)!.zPosition *= 4
+                    self.childNodeWithName("labelTutorial" + self.tutorialIndex.description)!.hidden = false
+                    animation(self.childNodeWithName("labelTutorial" + self.tutorialIndex.description)! , timeToFade: 2.0 )
+                    self.tutorialIndex++
+                
+
+                }
+            }
             
             if (self.childNodeWithName("buttonLeft")!.containsPoint(location)) {
                 shipIndex--
@@ -152,39 +165,46 @@ class NewGameScene: SKScene {
     
     func newgameTutorial(){
         
+        var label = Label(name: "labelTutorial1", textureName:"This is your ", x:1171, y:264, align:.center);
+        self.addChild(label);
         
+        label = Label(name: "labelTutorial2", textureName:"maximum speed", x:1171, y:300, align:.center);
+        self.addChild(label);
         
+        label = Label(name: "labelTutorial3", textureName:"This is your", x:1179, y:356, align:.center)
+        label.hidden = true
+        self.addChild(label)
+        label = Label(name: "labelTutorial4", textureName:"Acceleration rate", x:1179, y:392, align:.center)
+        label.hidden = true
+        self.addChild(label)
         
-        self.addChild(Label(name: "labelTutorial1" , textureName: "This is your maximum speed " , x:1189, y:264, align:.center))
-        self.addChild(Label(name: "labelSpeed", textureName:"999", x:1014, y:264, align:.center))
+        label = Label(name: "labelTutorial5", textureName:"This is how", x:1171, y:420, align:.center)
+        label.hidden = true
+        self.addChild(label)
+        label = Label(name: "labelTutorial6", textureName:"fast you turn", x:1171, y:456, align:.center)
+        label.hidden = true
+        self.addChild(label)
         
-        animation(childNodeWithName("labelTutorial1")!,timeToFade: timeToFade)
+        label = Label(name: "labelTutorial7", textureName:"This is how much", x:1180, y:497, align:.center)
+        label.hidden = true
+        self.addChild(label)
+        label = Label(name: "labelTutorial8", textureName:" you resist damage", x:1185, y:533, align:.center)
+        label.hidden = true
+        self.addChild(label)
+
+        label = Label(name: "labelTutorial9", textureName:"This is how much your", x:1200, y:576, align:.center)
+        label.hidden = true
+        self.addChild(label)
+        label = Label(name: "labelTutorial10", textureName:"shield resist damage", x:1200, y:612, align:.center)
+        label.hidden = true
+        self.addChild(label)
         
-        self.addChild(Label(name: "labelTutorial2" , textureName: "This is your Acceleration rate " , x:1189, y:264, align:.center))
-        self.addChild(Label(name: "labelAcceleration", textureName:"999", x:1014, y:342, align:.center))
-        
-        animation(childNodeWithName("labelTutorial2")!,timeToFade: timeToFade)
-        
-        self.addChild(Label(name: "labelTutorial3" , textureName: "This is how fast you turn " , x:1189, y:264, align:.center))
-        self.addChild(Label(name: "labelAgility", textureName:"999", x:1014, y:420, align:.center))
-        
-        animation(childNodeWithName("labelTutorial3")!,timeToFade: timeToFade)
-        
-        self.addChild(Label(name: "labelTutorial4" , textureName: "This is how much you resist damage " , x:1189, y:264, align:.center))
-        self.addChild(Label(name: "labelArmor", textureName:"999", x:1014, y:498, align:.center))
-        
-        animation(childNodeWithName("labelTutorial4")!,timeToFade: timeToFade)
-        
-        self.addChild(Label(name: "labelTutorial5" , textureName: "This is how much your shild resist " , x:1189, y:264, align:.center))
-        self.addChild(Label(name: "labelShieldPower", textureName:"999", x:1014, y:576, align:.center))
-        
-        animation(childNodeWithName("labelTutorial5")!,timeToFade: timeToFade)
-        
-        self.addChild(Label(name: "labelTutorial6" , textureName: "This is how much your recharge persec " , x:1189, y:264, align:.center))
-        self.addChild(Label(name: "labelShieldRecharge", textureName:"999", x:1014, y:655, align:.center))
-        
-        animation(childNodeWithName("labelTutorial6")!,timeToFade: timeToFade)
-        
+        label = Label(name: "labelTutorial11", textureName:"This is how much your ", x:1200, y:655, align:.center)
+        label.hidden = true
+        self.addChild(label)
+        label = Label(name: "labelTutorial12", textureName:"shield recharge persec", x:1202, y:691, align:.center)
+        label.hidden = true
+        self.addChild(label)
         
         self.addChild(Label(name: "labelScore", textureName:"$10000", x:645, y:357, align:.center))
         self.addChild(Label(name: "labelLevel", textureName:"Level: 1", x:645, y:420, align:.center))
@@ -195,8 +215,8 @@ class NewGameScene: SKScene {
         
         
         
-       // NSUserDefaults.standardUserDefaults().setBool(true, forKey: "firstlaunch")
-       // NSUserDefaults.standardUserDefaults().synchronize();
+        NSUserDefaults.standardUserDefaults().setBool(true, forKey: "firstlaunch")
+        NSUserDefaults.standardUserDefaults().synchronize();
         
         
     }
@@ -208,9 +228,10 @@ class NewGameScene: SKScene {
         
         var pause:SKAction = SKAction.waitForDuration(1)
         self.timeToFade = self.timeToFade + 2.0
+        var fadeIn = SKAction.fadeInWithDuration(timeToFade)
         var fadeAway = SKAction.fadeOutWithDuration(timeToFade)
         var remove = SKAction.removeFromParent()
-        var moveSequence = SKAction.sequence([pause, fadeAway, remove])
+        var moveSequence = SKAction.sequence([fadeIn , pause, fadeAway, remove])
         
         node.runAction(moveSequence)
         
