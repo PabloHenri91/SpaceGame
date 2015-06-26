@@ -42,6 +42,9 @@
 		3A5A06931B38484F00F001D8 /* SpaceGame WatchKit App.app in Resources */ = {isa = PBXBuildFile; fileRef = 3A5A06921B38484F00F001D8 /* SpaceGame WatchKit App.app */; };
 		3A5A069B1B38484F00F001D8 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A5A06991B38484F00F001D8 /* Interface.storyboard */; };
 		3A5A069D1B38484F00F001D8 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A5A069C1B38484F00F001D8 /* Images.xcassets */; };
+		A4625D2A1B3AD39200411D80 /* SocialScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4625D291B3AD39200411D80 /* SocialScene.swift */; };
+		A4625D2C1B3ADD6C00411D80 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4625D2B1B3ADD6C00411D80 /* Reachability.swift */; };
+		A4625D2E1B3AE2C100411D80 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4625D2D1B3AE2C100411D80 /* Alert.swift */; };
 		A4B239CF1B3993C700D693EC /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4B239CE1B3993C700D693EC /* AudioToolbox.framework */; };
 		A4B239D11B3993D000D693EC /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4B239D01B3993D000D693EC /* SystemConfiguration.framework */; };
 		A4B239D31B3993DB00D693EC /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4B239D21B3993DB00D693EC /* MobileCoreServices.framework */; };
@@ -54,6 +57,7 @@
 		A4B239EF1B39A72300D693EC /* ParseFacebookUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4B239E91B39A72300D693EC /* ParseFacebookUtils.framework */; };
 		A4B239F01B39A72300D693EC /* ParseFacebookUtilsV4.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4B239EA1B39A72300D693EC /* ParseFacebookUtilsV4.framework */; };
 		A4B239F11B39A72300D693EC /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4B239EB1B39A72300D693EC /* ParseUI.framework */; };
+		A4F1461F1B3AEF0400811752 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4F1461E1B3AEF0400811752 /* GameKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -138,6 +142,9 @@
 		3A5A06981B38484F00F001D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3A5A069A1B38484F00F001D8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
 		3A5A069C1B38484F00F001D8 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		A4625D291B3AD39200411D80 /* SocialScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocialScene.swift; sourceTree = "<group>"; };
+		A4625D2B1B3ADD6C00411D80 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
+		A4625D2D1B3AE2C100411D80 /* Alert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		A4B239CE1B3993C700D693EC /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		A4B239D01B3993D000D693EC /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		A4B239D21B3993DB00D693EC /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
@@ -150,6 +157,7 @@
 		A4B239E91B39A72300D693EC /* ParseFacebookUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseFacebookUtils.framework; sourceTree = "<group>"; };
 		A4B239EA1B39A72300D693EC /* ParseFacebookUtilsV4.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseFacebookUtilsV4.framework; sourceTree = "<group>"; };
 		A4B239EB1B39A72300D693EC /* ParseUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseUI.framework; sourceTree = "<group>"; };
+		A4F1461E1B3AEF0400811752 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,6 +168,7 @@
 				A4B239F11B39A72300D693EC /* ParseUI.framework in Frameworks */,
 				A4B239D71B3993F100D693EC /* libsqlite3.dylib in Frameworks */,
 				A4B239D51B3993E700D693EC /* libstdc++.6.dylib in Frameworks */,
+				A4F1461F1B3AEF0400811752 /* GameKit.framework in Frameworks */,
 				A4B239EF1B39A72300D693EC /* ParseFacebookUtils.framework in Frameworks */,
 				A4B239D31B3993DB00D693EC /* MobileCoreServices.framework in Frameworks */,
 				A4B239F01B39A72300D693EC /* ParseFacebookUtilsV4.framework in Frameworks */,
@@ -275,6 +284,7 @@
 				13DB50671B14EC9700E543E9 /* HangarScene.swift */,
 				135DC5FE1B17CD5300A7E4EC /* SupplyRoomScene.swift */,
 				13C13B8B1B0CB01A00E6AC5E /* SpaceScene.swift */,
+				A4625D291B3AD39200411D80 /* SocialScene.swift */,
 			);
 			name = Scenes;
 			sourceTree = "<group>";
@@ -292,6 +302,8 @@
 				135DC5FC1B177A3700A7E4EC /* Event.swift */,
 				13E539011B29F61200F0C573 /* GameMath.swift */,
 				13E539031B2A003900F0C573 /* GameColors.swift */,
+				A4625D2B1B3ADD6C00411D80 /* Reachability.swift */,
+				A4625D2D1B3AE2C100411D80 /* Alert.swift */,
 			);
 			name = src;
 			sourceTree = "<group>";
@@ -338,6 +350,7 @@
 		A4B239C11B39934200D693EC /* Framework */ = {
 			isa = PBXGroup;
 			children = (
+				A4F1461E1B3AEF0400811752 /* GameKit.framework */,
 				A4B239D61B3993F100D693EC /* libsqlite3.dylib */,
 				A4B239E61B39A72200D693EC /* Bolts.framework */,
 				A4B239E71B39A72200D693EC /* ParseCrashReporting.framework */,
@@ -437,6 +450,12 @@
 				TargetAttributes = {
 					13C13B811B0CB01A00E6AC5E = {
 						CreatedOnToolsVersion = 6.3.2;
+						DevelopmentTeam = DXGTJAG2UY;
+						SystemCapabilities = {
+							com.apple.GameCenter = {
+								enabled = 1;
+							};
+						};
 					};
 					13C13B9A1B0CB01A00E6AC5E = {
 						CreatedOnToolsVersion = 6.3.2;
@@ -447,6 +466,7 @@
 					};
 					3A5A06911B38484F00F001D8 = {
 						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = DXGTJAG2UY;
 					};
 				};
 			};
@@ -523,13 +543,16 @@
 				13C13B8C1B0CB01A00E6AC5E /* SpaceScene.swift in Sources */,
 				13843C321B275E5100F67EA3 /* SpaceGame.xcdatamodeld in Sources */,
 				13D29B941B0FA4FA00AED094 /* MemoryCard.swift in Sources */,
+				A4625D2E1B3AE2C100411D80 /* Alert.swift in Sources */,
 				13DB506A1B14FBC300E543E9 /* Label.swift in Sources */,
 				135DC5FD1B177A3700A7E4EC /* Event.swift in Sources */,
 				13D1BCE61B0E5ECA003E596F /* Config.swift in Sources */,
+				A4625D2C1B3ADD6C00411D80 /* Reachability.swift in Sources */,
 				13C13B8E1B0CB01A00E6AC5E /* GameViewController.swift in Sources */,
 				1397BD8B1B28A13000842123 /* WeaponData.swift in Sources */,
 				135DC5FF1B17CD5300A7E4EC /* SupplyRoomScene.swift in Sources */,
 				13E539041B2A003900F0C573 /* GameColors.swift in Sources */,
+				A4625D2A1B3AD39200411D80 /* SocialScene.swift in Sources */,
 				13C13B881B0CB01A00E6AC5E /* AppDelegate.swift in Sources */,
 				130E88701B0F75A00030FA7A /* NewGameScene.swift in Sources */,
 				13D29B961B0FB30D00AED094 /* PlayerShip.swift in Sources */,
@@ -695,6 +718,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/SpaceGame",
@@ -703,6 +727,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -711,6 +736,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/SpaceGame",
@@ -719,6 +745,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
@@ -786,6 +813,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -794,6 +823,7 @@
 				INFOPLIST_FILE = "SpaceGame WatchKit App/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 4;
 				"TARGETED_DEVICE_FAMILY[sdk=iphonesimulator*]" = "1,4";
@@ -804,10 +834,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				IBSC_MODULE = SpaceGame_WatchKit_Extension;
 				INFOPLIST_FILE = "SpaceGame WatchKit App/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 4;
 				"TARGETED_DEVICE_FAMILY[sdk=iphonesimulator*]" = "1,4";
