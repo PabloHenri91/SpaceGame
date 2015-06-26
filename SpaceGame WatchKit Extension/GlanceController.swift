@@ -12,8 +12,13 @@ import Foundation
 
 class GlanceController: WKInterfaceController {
 
+    @IBOutlet weak var imgTop: WKInterfaceImage!
     override func awakeWithContext(context: AnyObject?) {
         super.awakeWithContext(context)
+        
+        imgTop.setImageNamed("message")
+        
+        imgTop.startAnimatingWithImagesInRange(NSMakeRange(0, 50), duration: 2, repeatCount: 4)
         
         // Configure interface objects here.
     }
