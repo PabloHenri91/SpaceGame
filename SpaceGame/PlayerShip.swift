@@ -25,6 +25,7 @@ class PlayerShip: Control {
     var destination:CGPoint = CGPoint.zeroPoint
     var rotation:CGFloat = 0
     var totalRotation:CGFloat = 0
+    var startMoving:Double = 0
     
     //Toques
     var lastNoTouchTime:Double = 0
@@ -68,6 +69,7 @@ class PlayerShip: Control {
             //Um toque curto
             if((self.lastTouchesArrayCount == 1) && currentTime - lastNoTouchTime < 1) {
                 self.needToMove = true
+                self.startMoving = currentTime
                 self.destination = self.firstTouchLocation
             }
             self.lastNoTouchTime = currentTime
@@ -92,11 +94,25 @@ class PlayerShip: Control {
             self.lastTouchLocation = (Control.touchesArray.lastObject as! UITouch).locationInNode(self.parent)
             
             self.needToMove = true
+            self.startMoving = currentTime
             self.destination = lastTouchLocation
             
             self.setRotationToPoint(self.firstTouchLocation)
             
             break
+        }
+        
+        if(currentTime - self.startMoving > 1){
+            self.needToMove = false
+        }
+        
+        if(abs(self.physicsBody!.angularVelocity) < CGFloat(M_PI * 2) && (self.needToMove || self.touchesArrayCount > 0)) {
+            self.totalRotation = self.rotation - self.zRotation
+            
+            while(self.totalRotation < -CGFloat(M_PI)) { self.totalRotation += CGFloat(M_PI * 2) }
+            while(self.totalRotation >  CGFloat(M_PI)) { self.totalRotation -= CGFloat(M_PI * 2) }
+            
+            self.physicsBody!.applyAngularImpulse(self.totalRotation *  0.005)
         }
         
         if (self.needToMove) {
@@ -110,8 +126,9 @@ class PlayerShip: Control {
             } else {
                 switch(self.touchesArrayCount) {
                 case 0:
-                    self.physicsBody!.applyForce(CGVector(dx: -sin(self.zRotation) * 1000, dy: cos(self.zRotation) * 1000))
-                    
+                    if(abs(self.totalRotation) < 1){
+                        self.physicsBody!.applyForce(CGVector(dx: -sin(self.zRotation) * 1000, dy: cos(self.zRotation) * 1000))
+                    }
                     break
                     
                 default:
@@ -120,15 +137,6 @@ class PlayerShip: Control {
                     break
                 }
             }
-        }
-        
-        if(abs(self.physicsBody!.angularVelocity) < CGFloat(M_PI * 2) && (self.needToMove || self.touchesArrayCount > 0)) {
-            self.totalRotation = self.rotation - self.zRotation
-            
-            while(self.totalRotation < -CGFloat(M_PI)) { self.totalRotation += CGFloat(M_PI * 2) }
-            while(self.totalRotation >  CGFloat(M_PI)) { self.totalRotation -= CGFloat(M_PI * 2) }
-            
-            self.physicsBody!.applyAngularImpulse(self.totalRotation *  0.005)
         }
     }
     
