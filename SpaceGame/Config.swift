@@ -11,7 +11,7 @@ import SpriteKit
 class Config: NSObject {
     
     static var tileSize:CGFloat = 64
-    static var chunkSize:CGFloat = Config.tileSize * 21// 21 tiles per chunk
+    static var chunkSize:CGFloat = Config.tileSize * CGFloat(MapManager.tilesPerChunk)
     
     static var playerZPosition:CGFloat = 100
     

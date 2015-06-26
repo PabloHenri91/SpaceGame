@@ -27,17 +27,22 @@ class SpaceScene: SKScene {
         self.backgroundColor = UIColor.blackColor()
         self.anchorPoint = CGPoint(x: 0, y: 1)
         
-        var world = SKNode()//Criar classe World?
+        let world = SKNode()//Criar classe World?
         world.name = "world"
         self.addChild(world)
         
-        var camera = SKNode()//Criar classe Camera?
+        let camera = SKNode()//Criar classe Camera?
         camera.name = "camera"
         world.addChild(camera)
         
-        var player = PlayerShip(playerShipData: self.playerData.currentPlayerShip, x: 0, y: 0, loadPhysics:true)
+        let player = PlayerShip(playerShipData: self.playerData.currentPlayerShip, x: 0, y: 0, loadPhysics:true)
         Control.locations.removeObject("player")
         world.addChild(player)
+        
+        let mapManager = MapManager()
+        mapManager.name = "mapManager"
+        world.addChild(mapManager);
+        mapManager.reloadMap()
         
         self.addChild(Button(name: "buttonBack", x:81, y:633, xAlign:.left, yAlign:.down))
         
@@ -46,6 +51,8 @@ class SpaceScene: SKScene {
     
     override func update(currentTime: NSTimeInterval) {
         (self.childNodeWithName("//player") as! PlayerShip).update(currentTime)
+        
+        (self.childNodeWithName("//mapManager")! as! MapManager).update(currentTime)
         
     }
     
@@ -60,7 +67,7 @@ class SpaceScene: SKScene {
     ///The centerOnNode: method converts the camera’s current position into scene coordinates, then subtracts those coordinates from the world’s position to slide the character to the (0,0) position.
     func centerOnNode(node:SKNode)
     {
-        var cameraPositionInScene:CGPoint = node.scene!.convertPoint(node.position, fromNode: node.parent!)
+        let cameraPositionInScene:CGPoint = node.scene!.convertPoint(node.position, fromNode: node.parent!)
         node.parent!.position = CGPoint(x: node.parent!.position.x - cameraPositionInScene.x, y: node.parent!.position.y - cameraPositionInScene.y)
     }
     
