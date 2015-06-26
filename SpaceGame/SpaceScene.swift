@@ -46,17 +46,36 @@ class SpaceScene: SKScene {
         
         self.addChild(Button(name: "buttonBack", x:81, y:633, xAlign:.left, yAlign:.down))
         
+        //HUD
+        //self.addChild(Control(name: "hudLeftUp", x: 0, y: 0, xAlign:.left, yAlign:.up))
+        var label = Label(name: "labelRegion", textureName: "Region:  0", x: 14, y: 98, xAlign: .left, yAlign: .up)
+        (label.childNodeWithName("labelRegion") as! SKLabelNode).horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.Left
+        self.addChild(label)
+        
+        label = Label(name: "labelDistance", textureName: "Distance: 0", x: 14, y: 37, xAlign: .left, yAlign: .up)
+        (label.childNodeWithName("labelDistance") as! SKLabelNode).horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.Left
+        self.addChild(label)
+        
         self.physicsWorld.gravity = CGVector.zeroVector
     }
     
     override func update(currentTime: NSTimeInterval) {
-        (self.childNodeWithName("//player") as! PlayerShip).update(currentTime)
+        let player = (self.childNodeWithName("//player") as! PlayerShip)
+        player.update(currentTime)
         
-        (self.childNodeWithName("//mapManager")! as! MapManager).update(currentTime)
+        let mapManager = (self.childNodeWithName("//mapManager")! as! MapManager)
+        mapManager.update(currentTime)
+        
+        var distance = Int(sqrt(player.position.x * player.position.x + player.position.y * player.position.y))
+        let labelRegion = self.childNodeWithName("//labelRegion")! as! Label
+        labelRegion.setText("Region: \(distance/10000)")
+        
+        let labelDistance = self.childNodeWithName("//labelDistance")! as! Label
+        labelDistance.setText("Distance: \(distance/10)")
         
     }
     
-    override func didFinishUpdate ()
+    override func didFinishUpdate()
     {
         let player = self.childNodeWithName("//player")!
         let camera = self.childNodeWithName("//camera")!
