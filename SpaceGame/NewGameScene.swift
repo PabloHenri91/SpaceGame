@@ -113,6 +113,11 @@ class NewGameScene: SKScene {
                     self.childNodeWithName("labelTutorial" + self.tutorialIndex.description)!.hidden = false
                     animation(self.childNodeWithName("labelTutorial" + self.tutorialIndex.description)! , timeToFade: 2.0 )
                     self.tutorialIndex++
+                    
+                    if(self.tutorialIndex == 12){
+                        NSUserDefaults.standardUserDefaults().setBool(true, forKey: "firstlaunch")
+                        NSUserDefaults.standardUserDefaults().synchronize();
+                    }
                 
 
                 }
@@ -215,8 +220,7 @@ class NewGameScene: SKScene {
         
         
         
-        NSUserDefaults.standardUserDefaults().setBool(true, forKey: "firstlaunch")
-        NSUserDefaults.standardUserDefaults().synchronize();
+        
         
         
     }
