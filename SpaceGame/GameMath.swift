@@ -18,24 +18,24 @@ class GameMath: NSObject {
         return level * 3
     }
     
-    static func currentUP(playerShip:PlayerShip) -> Int {
-        var playerType = PlayerShips.types[playerShip.type] as! PlayerShipType
+    static func currentUP(ship:Ship) -> Int {
+        var shipType = Ships.types[ship.type] as! ShipType
         
         var totalBaseAtributePoints:Int = 0
-        totalBaseAtributePoints += playerType.speed
-        totalBaseAtributePoints += playerType.acceleration
-        totalBaseAtributePoints += playerType.agility
-        totalBaseAtributePoints += playerType.armor
-        totalBaseAtributePoints += playerType.shieldPower
-        totalBaseAtributePoints += playerType.shieldRecharge
+        totalBaseAtributePoints += shipType.speed
+        totalBaseAtributePoints += shipType.acceleration
+        totalBaseAtributePoints += shipType.agility
+        totalBaseAtributePoints += shipType.armor
+        totalBaseAtributePoints += shipType.shieldPower
+        totalBaseAtributePoints += shipType.shieldRecharge
         
         var totalAtributePoints:Int = 0
-        totalAtributePoints += Int(playerShip.speedAtribute)
-        totalAtributePoints += Int(playerShip.acceleration)
-        totalAtributePoints += Int(playerShip.agility)
-        totalAtributePoints += Int(playerShip.armor)
-        totalAtributePoints += Int(playerShip.shieldPower)
-        totalAtributePoints += Int(playerShip.shieldRecharge)
+        totalAtributePoints += Int(ship.speedAtribute)
+        totalAtributePoints += Int(ship.acceleration)
+        totalAtributePoints += Int(ship.agility)
+        totalAtributePoints += Int(ship.armor)
+        totalAtributePoints += Int(ship.shieldPower)
+        totalAtributePoints += Int(ship.shieldRecharge)
         
         return totalAtributePoints - totalBaseAtributePoints
     }

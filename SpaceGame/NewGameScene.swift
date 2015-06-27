@@ -65,28 +65,21 @@ class NewGameScene: SKScene {
             
     
         if(!NSUserDefaults.standardUserDefaults().boolForKey("firstlaunch")){
-            
             newgameTutorial()
-            
-            
-            
         }
         
-        let playerShip = PlayerShip(index: shipIndex, x:667, y:589)
+        let playerShip = PlayerShip(index: shipIndex, x: 667, y: 589)
         self.reloadAtributeLabels(playerShip)
         self.addChild(playerShip)
-        
-      
-       
     }
     
-    func reloadAtributeLabels(playerShip:PlayerShip) {
-        (self.childNodeWithName("labelSpeed") as! Label).setText(playerShip.speedAtribute.description)
-        (self.childNodeWithName("labelAcceleration") as! Label).setText(playerShip.acceleration.description)
-        (self.childNodeWithName("labelAgility") as! Label).setText(playerShip.agility.description)
-        (self.childNodeWithName("labelArmor") as! Label).setText(playerShip.armor.description)
-        (self.childNodeWithName("labelShieldPower") as! Label).setText(playerShip.shieldPower.description)
-        (self.childNodeWithName("labelShieldRecharge") as! Label).setText(playerShip.shieldRecharge.description)
+    func reloadAtributeLabels(ship:Ship) {
+        (self.childNodeWithName("labelSpeed") as! Label).setText(ship.speedAtribute.description)
+        (self.childNodeWithName("labelAcceleration") as! Label).setText(ship.acceleration.description)
+        (self.childNodeWithName("labelAgility") as! Label).setText(ship.agility.description)
+        (self.childNodeWithName("labelArmor") as! Label).setText(ship.armor.description)
+        (self.childNodeWithName("labelShieldPower") as! Label).setText(ship.shieldPower.description)
+        (self.childNodeWithName("labelShieldRecharge") as! Label).setText(ship.shieldRecharge.description)
     }
     
     override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {

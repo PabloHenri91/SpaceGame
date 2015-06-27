@@ -120,7 +120,7 @@ class HangarScene: SKScene {
         (self.childNodeWithName("buttonRightShieldPower") as! Button).hidden = aux || playerShip.shieldPower >= 100
         (self.childNodeWithName("buttonRightShieldRecharge") as! Button).hidden = aux || playerShip.shieldRecharge >= 100
         
-        let playerType = PlayerShips.types[playerShip.type] as! PlayerShipType
+        let playerType = Ships.types[playerShip.type] as! ShipType
         (self.childNodeWithName("buttonLeftSpeed") as! Button).hidden = playerShip.speedAtribute <= playerType.speed
         (self.childNodeWithName("buttonLeftAcceleration") as! Button).hidden = playerShip.acceleration <= playerType.acceleration
         (self.childNodeWithName("buttonLeftAgility") as! Button).hidden = playerShip.agility <= playerType.agility
@@ -197,7 +197,7 @@ class HangarScene: SKScene {
                     }
                     
                     let playerShip = self.childNodeWithName("player") as! PlayerShip
-                    let playerType = PlayerShips.types[playerShip.type] as! PlayerShipType
+                    let playerType = Ships.types[playerShip.type] as! ShipType
                     
                     if (self.childNodeWithName("buttonLevelUp")!.containsPoint(location)) {
                         let requiredPoints = GameMath.requiredPoints(playerShip.level)
