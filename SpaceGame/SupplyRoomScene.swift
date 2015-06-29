@@ -101,15 +101,13 @@ class SupplyRoomScene: SKScene {
         self.addChild(Button(name: "buttonRightShips", textureName: "buttonRight", x: 1053, y: 547, align:.center))
         
         
-        self.addChild(Label(name:"labelPreco0", textureName:"0", x:340, y:660, align:.center))
-        self.addChild(Label(name:"labelPreco1", textureName:"0", x:530, y:660, align:.center))
-        self.addChild(Label(name:"labelPreco2", textureName:"0", x:720, y:660, align:.center))
-        self.addChild(Label(name:"labelPreco3", textureName:"0", x:910, y:660, align:.center))
         
         
         
         
-        let playerShip = PlayerShip(playerShipData: self.playerData.currentPlayerShip, x: 670, y: 192)
+        
+        //let playerShip = PlayerShip(playerShipData: self.playerData.currentPlayerShip, x: 670, y: 192, loadPhysics:false)
+        let playerShip = PlayerShip(playerShipData: self.playerData.currentPlayerShip, x: 670, y: 192, loadPhysics: false)
         self.addChild(playerShip)
         
         let playerShip0 = PlayerShip(index:(4*pagina+0), x: 385, y: 570)
@@ -127,6 +125,14 @@ class SupplyRoomScene: SKScene {
         let playerShip3 = PlayerShip(index:(4*pagina+3), x: 950, y: 570)
         playerShip3.name = "playerShip3"
         self.addChild(playerShip3)
+        
+        println(playerShip0.type)
+        
+        let playerType = Ships.types[playerShip0.type] as! ShipType
+        self.addChild(Label(name:"labelPreco0", textureName:"0", x:340, y:660, align:.center))
+        self.addChild(Label(name:"labelPreco1", textureName:"0", x:530, y:660, align:.center))
+        self.addChild(Label(name:"labelPreco2", textureName:"0", x:720, y:660, align:.center))
+        self.addChild(Label(name:"labelPreco3", textureName:"0", x:910, y:660, align:.center))
         
         
         
