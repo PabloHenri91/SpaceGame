@@ -37,7 +37,7 @@ class Ship: Control {
         //Physics Config
         self.physicsBody = SKPhysicsBody(texture: texture, alphaThreshold: 0.7, size: texture.size())
         self.physicsBody!.angularDamping = 10
-        self.physicsBody!.linearDamping = 10
+        self.physicsBody!.linearDamping = 5
     }
     
     override init() {

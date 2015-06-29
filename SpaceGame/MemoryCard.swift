@@ -23,7 +23,7 @@ class MemoryCard: NSObject {
         
         self.playerData = NSEntityDescription.insertNewObjectForEntityForName("PlayerData", inManagedObjectContext: self.managedObjectContext!) as! PlayerData
         self.playerData.playerShips = NSSet(array: [playerShipData])
-        self.playerData.score = 10000
+        self.playerData.score = 100000000
         self.playerData.currentPlayerShip = playerShipData
         
         self.autoSave = true
