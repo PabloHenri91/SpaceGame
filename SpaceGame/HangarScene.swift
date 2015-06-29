@@ -59,7 +59,7 @@ class HangarScene: SKScene {
         self.addChild(Button(name: "buttonRightShieldPower", textureName: "buttonRight", x: 532, y: 515, align:.center))
         self.addChild(Button(name: "buttonRightShieldRecharge", textureName: "buttonRight", x: 532, y: 623, align:.center))
         
-        let playerShip = PlayerShip(playerShipData: self.playerData.currentPlayerShip, x: 776, y: 364)
+        let playerShip = PlayerShip(playerShipData: self.playerData.currentPlayerShip, x: 776, y: 364, loadPhysics:false)
         self.addChild(playerShip)
         
         self.addChild(Label(name:"labelSpeed", textureName:"0", x:487, y:130, align:.center))

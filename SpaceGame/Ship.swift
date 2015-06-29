@@ -38,12 +38,6 @@ class Ship: Control {
         self.physicsBody = SKPhysicsBody(texture: texture, alphaThreshold: 0.7, size: texture.size())
         self.physicsBody!.angularDamping = 10
         self.physicsBody!.linearDamping = 10
-        
-        ///TODO: Exportar para GameMath
-        self.angularImpulse = CGFloat(self.agility / 100) * 0.005
-        self.maxAngularVelocity = CGFloat(self.agility / 100) * CGFloat(M_PI * 4)
-        self.maxLinearVelocity = CGFloat(self.speed / 100)/// * x TODO: maxLinearVelocity
-        self.force = CGFloat(self.acceleration / 100) * 1000
     }
     
     override init() {

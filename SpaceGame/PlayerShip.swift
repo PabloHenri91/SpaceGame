@@ -23,7 +23,7 @@ class PlayerShip: Ship {
     }
     
     ///Inicializa nave com dados do CoreData e física opcional.
-    init(playerShipData:PlayerShipData, x:Int, y:Int, loadPhysics:Bool = false) {
+    init(playerShipData:PlayerShipData, x:Int, y:Int, loadPhysics:Bool) {
         super.init()
         self.loadNewShip(Int(playerShipData.shopIndex), name:"player", x: x, y: y, loadPhysics:loadPhysics)
         
@@ -35,10 +35,19 @@ class PlayerShip: Ship {
         self.armor += Int(playerShipData.bonusArmor)
         self.shieldPower += Int(playerShipData.bonusShieldPower)
         self.shieldRecharge += Int(playerShipData.bonusShieldRecharge)
+        
+        if(loadPhysics){
+            ///TODO: Exportar para GameMath
+            self.angularImpulse = 0.05
+            self.maxAngularVelocity = CGFloat(M_PI * 4)
+            self.maxLinearVelocity = CGFloat(self.speed / 100)/// * x TODO: maxLinearVelocity
+            self.force = CGFloat(self.acceleration * 10)
+        }
     }
 
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+        
     }
     
     func update(currentTime: NSTimeInterval) {
