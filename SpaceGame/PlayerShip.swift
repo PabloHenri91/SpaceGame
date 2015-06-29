@@ -8,24 +8,7 @@
 
 import SpriteKit
 
-class PlayerShip: Control {
-    
-    var type:Int = 0
-    var level:Int = 0
-    
-    var speedAtribute:Int = 0
-    var acceleration:Int = 0
-    var agility:Int = 0
-    var armor:Int = 0
-    var shieldPower:Int = 0
-    var shieldRecharge:Int = 0
-    
-    //Movimentação
-    var needToMove:Bool = false
-    var destination:CGPoint = CGPoint.zeroPoint
-    var rotation:CGFloat = 0
-    var totalRotation:CGFloat = 0
-    var startMoving:Double = 0
+class PlayerShip: Ship {
     
     //Toques
     var lastNoTouchTime:Double = 0
@@ -34,14 +17,15 @@ class PlayerShip: Control {
     var firstTouchLocation:CGPoint = CGPoint.zeroPoint
     var lastTouchLocation:CGPoint = CGPoint.zeroPoint
     
+    ///Inicializa nave nova sem física.
     init(index:Int, x:Int, y:Int) {
-        super.init()
-        loadNewShip(index, x: x, y: y)
+        super.init(index: index, name: "player", x: x, y: y)
     }
     
-    init(playerShipData:PlayerShipData, x:Int, y:Int, loadPhysics:Bool = false) {
+    ///Inicializa nave com dados do CoreData e física opcional.
+    init(playerShipData:PlayerShipData, x:Int, y:Int, loadPhysics:Bool) {
         super.init()
-        loadNewShip(Int(playerShipData.shopIndex), x: x, y: y, loadPhysics:loadPhysics)
+        self.loadNewShip(Int(playerShipData.shopIndex), name:"player", x: x, y: y, loadPhysics:loadPhysics)
         
         self.level = Int(playerShipData.level)
         
@@ -51,10 +35,19 @@ class PlayerShip: Control {
         self.armor += Int(playerShipData.bonusArmor)
         self.shieldPower += Int(playerShipData.bonusShieldPower)
         self.shieldRecharge += Int(playerShipData.bonusShieldRecharge)
+        
+        if(loadPhysics){
+            ///TODO: Exportar para GameMath
+            self.angularImpulse = 0.05
+            self.maxAngularVelocity = CGFloat(M_PI * 4)
+            self.maxLinearVelocity = CGFloat(self.speed / 100)/// * x TODO: maxLinearVelocity
+            self.force = CGFloat(self.acceleration * 10)
+        }
     }
-    
+
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+        
     }
     
     func update(currentTime: NSTimeInterval) {
@@ -106,13 +99,13 @@ class PlayerShip: Control {
             self.needToMove = false
         }
         
-        if(abs(self.physicsBody!.angularVelocity) < CGFloat(M_PI * 2) && (self.needToMove || self.touchesArrayCount > 0)) {
+        if(abs(self.physicsBody!.angularVelocity) < self.maxAngularVelocity && (self.needToMove || self.touchesArrayCount > 0)) {
             self.totalRotation = self.rotation - self.zRotation
             
             while(self.totalRotation < -CGFloat(M_PI)) { self.totalRotation += CGFloat(M_PI * 2) }
             while(self.totalRotation >  CGFloat(M_PI)) { self.totalRotation -= CGFloat(M_PI * 2) }
             
-            self.physicsBody!.applyAngularImpulse(self.totalRotation *  0.005)
+            self.physicsBody!.applyAngularImpulse(self.totalRotation *  self.angularImpulse)
         }
         
         if (self.needToMove) {
@@ -127,124 +120,30 @@ class PlayerShip: Control {
                 switch(self.touchesArrayCount) {
                 case 0:
                     if(abs(self.totalRotation) < 1){
-                        self.physicsBody!.applyForce(CGVector(dx: -sin(self.zRotation) * 1000, dy: cos(self.zRotation) * 1000))
+                        self.physicsBody!.applyForce(CGVector(dx: -sin(self.zRotation) * self.force, dy: cos(self.zRotation) * self.force))
                     }
                     break
                     
                 default:
                     //aplicar forca em direcao ao destino
-                    self.physicsBody!.applyForce(CGVector(dx: (dX/distanceToDestination) * 1000, dy: (dY/distanceToDestination) * 1000))
+                    self.physicsBody!.applyForce(CGVector(dx: (dX/distanceToDestination) * self.force, dy: (dY/distanceToDestination) * self.force))
                     break
                 }
             }
         }
     }
     
-    func setRotationToPoint(point:CGPoint) {
-        self.rotation = CGFloat(M_PI) + CGFloat(-atan2f(Float(self.position.x - point.x), Float(self.position.y - point.y)))
-    }
-    
-    func loadNewShip(index:Int, x:Int, y:Int, loadPhysics:Bool = false) {
-        
-        var playerType = PlayerShips.types[index] as! PlayerShipType
-        
-        self.type = index
-        self.level = 1
-        
-        self.speedAtribute = playerType.speed
-        self.acceleration = playerType.acceleration
-        self.agility = playerType.agility
-        self.armor = playerType.armor
-        self.shieldPower = playerType.shieldPower
-        self.shieldRecharge = playerType.shieldRecharge
-        
-        self.name = "player"
-        Control.locations.addObject("player")
-        self.sketchPosition = CGPoint(x: x, y: y)
-        self.yAlign = .center
-        self.xAlign = .center
-        self.zPosition = Config.HUDZPosition
-        
-        let texture = SKTexture(imageNamed: "player" + index.description)
-        let spriteNode = SKSpriteNode(texture: texture, color: nil, size: texture.size())
-        spriteNode.name = "player"
-        
-        if(loadPhysics){
-            //Physics Config
-            self.physicsBody = SKPhysicsBody(texture: texture, alphaThreshold: 0.7, size: texture.size())
-            self.physicsBody!.angularDamping = 10
-            self.physicsBody!.linearDamping = 5
-        }
-        
-        self.addChild(spriteNode)
-    }
-    
-    func reloadNewShip(index:Int) {
-        var playerShipType = PlayerShips.types[index] as! PlayerShipType
-        
-        self.speedAtribute = playerShipType.speed
-        self.acceleration = playerShipType.acceleration
-        self.agility = playerShipType.agility
-        self.armor = playerShipType.armor
-        self.shieldPower = playerShipType.shieldPower
-        self.shieldRecharge = playerShipType.shieldRecharge
-        
-        (self.childNodeWithName("player"))!.removeFromParent()
-        
-        let texture = SKTexture(imageNamed: "player" + index.description)
-        let spriteNode = SKSpriteNode(texture: texture, color: nil, size: texture.size())
-        spriteNode.name = "player"
-        spriteNode.zPosition = Config.HUDZPosition/2
-        self.addChild(spriteNode)
-    }
-    
     func updatePlayerDataCurrentPlayerShip() {
         var currentPlayerShip = GameViewController.memoryCard.playerData.currentPlayerShip
-        var playerShipType = PlayerShips.types[self.type] as! PlayerShipType
+        var shipType = Ships.types[self.type] as! ShipType
         
         currentPlayerShip.level = self.level
         
-        currentPlayerShip.bonusSpeed = self.speedAtribute - playerShipType.speed
-        currentPlayerShip.bonusAcceleration = self.acceleration - playerShipType.acceleration
-        currentPlayerShip.bonusAgility = self.agility - playerShipType.agility
-        currentPlayerShip.bonusArmor = self.armor - playerShipType.armor
-        currentPlayerShip.bonusShieldPower = self.shieldPower - playerShipType.shieldPower
-        currentPlayerShip.bonusShieldRecharge = self.shieldRecharge - playerShipType.shieldRecharge
+        currentPlayerShip.bonusSpeed = self.speedAtribute - shipType.speed
+        currentPlayerShip.bonusAcceleration = self.acceleration - shipType.acceleration
+        currentPlayerShip.bonusAgility = self.agility - shipType.agility
+        currentPlayerShip.bonusArmor = self.armor - shipType.armor
+        currentPlayerShip.bonusShieldPower = self.shieldPower - shipType.shieldPower
+        currentPlayerShip.bonusShieldRecharge = self.shieldRecharge - shipType.shieldRecharge
     }
-}
-
-class PlayerShipType: NSObject {
-    var speed:Int
-    var acceleration:Int
-    var agility:Int
-    var armor:Int
-    var shieldPower:Int
-    var shieldRecharge:Int
-    
-    init(speed:Int, acceleration:Int, agility:Int, armor:Int, shieldPower:Int, shieldRecharge:Int) {
-        self.speed = speed
-        self.acceleration = acceleration
-        self.agility = agility
-        self.armor = armor
-        self.shieldPower = shieldPower
-        self.shieldRecharge = shieldRecharge
-    }
-}
-
-class PlayerShips: NSObject {
-    static var types:NSArray = NSArray(array: [
-        PlayerShipType(speed: 70, acceleration: 10, agility: 10, armor: 10, shieldPower: 10, shieldRecharge: 10), //0
-        PlayerShipType(speed: 40, acceleration: 10, agility: 10, armor: 10, shieldPower: 10, shieldRecharge: 40), //1
-        PlayerShipType(speed: 10, acceleration: 70, agility: 10, armor: 10, shieldPower: 10, shieldRecharge: 10), //2
-        PlayerShipType(speed: 10, acceleration: 10, agility: 10, armor: 10, shieldPower: 40, shieldRecharge: 40), //3
-        PlayerShipType(speed: 10, acceleration: 10, agility: 70, armor: 10, shieldPower: 10, shieldRecharge: 10), //4
-        PlayerShipType(speed: 10, acceleration: 10, agility: 10, armor: 40, shieldPower: 40, shieldRecharge: 10), //5
-        PlayerShipType(speed: 10, acceleration: 10, agility: 10, armor: 70, shieldPower: 10, shieldRecharge: 10), //6
-        PlayerShipType(speed: 10, acceleration: 10, agility: 40, armor: 40, shieldPower: 10, shieldRecharge: 10), //7
-        PlayerShipType(speed: 10, acceleration: 10, agility: 10, armor: 10, shieldPower: 70, shieldRecharge: 10), //8
-        PlayerShipType(speed: 10, acceleration: 40, agility: 40, armor: 10, shieldPower: 10, shieldRecharge: 10), //9
-        PlayerShipType(speed: 10, acceleration: 10, agility: 10, armor: 10, shieldPower: 10, shieldRecharge: 70), //10
-        PlayerShipType(speed: 40, acceleration: 40, agility: 10, armor: 10, shieldPower: 10, shieldRecharge: 10), //11
-        PlayerShipType(speed: 20, acceleration: 20, agility: 20, armor: 20, shieldPower: 20, shieldRecharge: 20)  //12
-        ])
 }
