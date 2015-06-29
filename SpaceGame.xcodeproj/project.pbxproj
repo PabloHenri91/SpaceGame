@@ -8,10 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		130E88701B0F75A00030FA7A /* NewGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 130E886F1B0F75A00030FA7A /* NewGameScene.swift */; };
+		13487A1A1B3D878B004FFCEE /* EnemyShip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13487A191B3D878B004FFCEE /* EnemyShip.swift */; };
 		135DC5F91B17374500A7E4EC /* OptionsScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135DC5F81B17374500A7E4EC /* OptionsScene.swift */; };
 		135DC5FB1B17421D00A7E4EC /* MessageBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135DC5FA1B17421D00A7E4EC /* MessageBox.swift */; };
 		135DC5FD1B177A3700A7E4EC /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135DC5FC1B177A3700A7E4EC /* Event.swift */; };
 		135DC5FF1B17CD5300A7E4EC /* SupplyRoomScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135DC5FE1B17CD5300A7E4EC /* SupplyRoomScene.swift */; };
+		136DB6C91B3D8A91008B843D /* Ship.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136DB6C81B3D8A91008B843D /* Ship.swift */; };
 		13843C321B275E5100F67EA3 /* SpaceGame.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 13843C301B275E5100F67EA3 /* SpaceGame.xcdatamodeld */; };
 		1397BD871B28A12F00842123 /* HardPointData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1397BD861B28A12F00842123 /* HardPointData.swift */; };
 		1397BD891B28A13000842123 /* PlayerShipData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1397BD881B28A13000842123 /* PlayerShipData.swift */; };
@@ -103,10 +105,12 @@
 
 /* Begin PBXFileReference section */
 		130E886F1B0F75A00030FA7A /* NewGameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewGameScene.swift; sourceTree = "<group>"; };
+		13487A191B3D878B004FFCEE /* EnemyShip.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnemyShip.swift; sourceTree = "<group>"; };
 		135DC5F81B17374500A7E4EC /* OptionsScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionsScene.swift; sourceTree = "<group>"; };
 		135DC5FA1B17421D00A7E4EC /* MessageBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageBox.swift; sourceTree = "<group>"; };
 		135DC5FC1B177A3700A7E4EC /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		135DC5FE1B17CD5300A7E4EC /* SupplyRoomScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SupplyRoomScene.swift; sourceTree = "<group>"; };
+		136DB6C81B3D8A91008B843D /* Ship.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ship.swift; sourceTree = "<group>"; };
 		13843C311B275E5100F67EA3 /* SpaceGame.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SpaceGame.xcdatamodel; sourceTree = "<group>"; };
 		1397BD861B28A12F00842123 /* HardPointData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HardPointData.swift; sourceTree = "<group>"; };
 		1397BD881B28A13000842123 /* PlayerShipData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerShipData.swift; sourceTree = "<group>"; };
@@ -303,7 +307,6 @@
 				13D1BCEB1B0E5FDB003E596F /* Button.swift */,
 				13D1BCED1B0E5FFB003E596F /* Switch.swift */,
 				13DB50691B14FBC300E543E9 /* Label.swift */,
-				13D29B951B0FB30D00AED094 /* PlayerShip.swift */,
 				135DC5FA1B17421D00A7E4EC /* MessageBox.swift */,
 				135DC5FC1B177A3700A7E4EC /* Event.swift */,
 				13E539011B29F61200F0C573 /* GameMath.swift */,
@@ -551,6 +554,7 @@
 				13D1BCE81B0E5EF6003E596F /* MainMenuScene.swift in Sources */,
 				13C13B8C1B0CB01A00E6AC5E /* SpaceScene.swift in Sources */,
 				13843C321B275E5100F67EA3 /* SpaceGame.xcdatamodeld in Sources */,
+				13487A1A1B3D878B004FFCEE /* EnemyShip.swift in Sources */,
 				13D29B941B0FA4FA00AED094 /* MemoryCard.swift in Sources */,
 				A4625D2E1B3AE2C100411D80 /* Alert.swift in Sources */,
 				13DB506A1B14FBC300E543E9 /* Label.swift in Sources */,
@@ -573,6 +577,7 @@
 				1397BD891B28A13000842123 /* PlayerShipData.swift in Sources */,
 				13DB50681B14EC9700E543E9 /* HangarScene.swift in Sources */,
 				13E539021B29F61200F0C573 /* GameMath.swift in Sources */,
+				136DB6C91B3D8A91008B843D /* Ship.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

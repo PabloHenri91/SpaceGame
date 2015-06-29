@@ -59,7 +59,7 @@ class HangarScene: SKScene {
         self.addChild(Button(name: "buttonRightShieldPower", textureName: "buttonRight", x: 532, y: 515, align:.center))
         self.addChild(Button(name: "buttonRightShieldRecharge", textureName: "buttonRight", x: 532, y: 623, align:.center))
         
-        let playerShip = PlayerShip(playerShipData: self.playerData.currentPlayerShip, x: 776, y: 364)
+        let playerShip = PlayerShip(playerShipData: self.playerData.currentPlayerShip, x: 776, y: 364, loadPhysics:false)
         self.addChild(playerShip)
         
         self.addChild(Label(name:"labelSpeed", textureName:"0", x:487, y:130, align:.center))
@@ -120,7 +120,7 @@ class HangarScene: SKScene {
         (self.childNodeWithName("buttonRightShieldPower") as! Button).hidden = aux || playerShip.shieldPower >= 100
         (self.childNodeWithName("buttonRightShieldRecharge") as! Button).hidden = aux || playerShip.shieldRecharge >= 100
         
-        let playerType = PlayerShips.types[playerShip.type] as! PlayerShipType
+        let playerType = Ships.types[playerShip.type] as! ShipType
         (self.childNodeWithName("buttonLeftSpeed") as! Button).hidden = playerShip.speedAtribute <= playerType.speed
         (self.childNodeWithName("buttonLeftAcceleration") as! Button).hidden = playerShip.acceleration <= playerType.acceleration
         (self.childNodeWithName("buttonLeftAgility") as! Button).hidden = playerShip.agility <= playerType.agility
@@ -196,7 +196,7 @@ class HangarScene: SKScene {
                     }
                     
                     let playerShip = self.childNodeWithName("player") as! PlayerShip
-                    let playerType = PlayerShips.types[playerShip.type] as! PlayerShipType
+                    let playerType = Ships.types[playerShip.type] as! ShipType
                     
                     if (self.childNodeWithName("buttonLevelUp")!.containsPoint(location)) {
                         let requiredPoints = GameMath.requiredPoints(playerShip.level)
