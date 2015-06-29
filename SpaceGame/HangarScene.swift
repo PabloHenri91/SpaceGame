@@ -149,8 +149,7 @@ class HangarScene: SKScene {
                 break
                 
             case states.allyShip:
-                // TODO:
-                self.nextState = states.hangar
+                self.view!.presentScene(SocialScene(), transition: SKTransition.crossFadeWithDuration(1))
                 break
             case states.mainMenu:
                 self.view!.presentScene(MainMenuScene(), transition: SKTransition.crossFadeWithDuration(1))
