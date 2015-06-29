@@ -13,7 +13,8 @@ import GameKit
 class SocialScene: SKScene {
     
     var localPlayer = GKLocalPlayer.localPlayer()
-    var arrayFriends = NSMutableArray()
+    var playersArray = NSMutableArray()
+    var favoriteArray = NSMutableArray()
     
     override init() {
         Control.locations = NSMutableArray()
@@ -65,25 +66,33 @@ class SocialScene: SKScene {
                 if logou{
                     
                     let query = PFQuery(className: "_User")
-                    query.whereKey("username", equalTo: "Uriel")
                     query.findObjectsInBackgroundWithBlock({ (objects:[AnyObject]?, error:NSError?) -> Void in
                         if let e = error{
                             println(e)
                         }
                         else{
-                            let user1 = objects![0] as! PFUser
-                            let user = PFUser.currentUser()
                             
-                            var array  = user?.relationForKey("friends")//pegar amigos
-                            
-                            array?.addObject(user1)//add amigos
-                            user?.saveInBackgroundWithBlock({ (success, error) -> Void in
-                                if success{
-                                    print("dedado")
+                            var relation  = PFUser.currentUser()!.relationForKey("friends")//pegar favoritos
+                            relation.query()?.findObjectsInBackgroundWithBlock({ (objects:[AnyObject]?, error:NSError?) -> Void in
+                                if let e = error{
+                                    println(e)
+                                }
+                                else{
+                                    self.favoriteArray.addObjectsFromArray(objects!)
+                                    println(self.favoriteArray.description)
                                 }
                             })
-                            println(array?.description)
-                            //array?.removeObject(user1)//remover amigos
+                            //relation.addObject(user)//add favorito
+                            //array?.removeObject(user)//remover favorito
+                            
+                            
+                            for user in objects!{
+                                if !self.favoriteArray.containsObject(user){
+                                    if user as? PFUser != PFUser.currentUser(){
+                                        self.playersArray.addObject(user)
+                                    }
+                                }
+                            }
                         }
                     })
                     
