@@ -311,6 +311,8 @@
 				13CA5A4B1B3ACC6B007EFDAF /* Chunk.swift */,
 				13CA5A4D1B3ACCE8007EFDAF /* MapManager.swift */,
 				13CA5A4F1B3ACD55007EFDAF /* Meteor.swift */,
+				A4625D2B1B3ADD6C00411D80 /* Reachability.swift */,
+				A4625D2D1B3AE2C100411D80 /* Alert.swift */,
 			);
 			name = src;
 			sourceTree = "<group>";
