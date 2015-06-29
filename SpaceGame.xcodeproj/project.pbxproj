@@ -45,6 +45,7 @@
 		3A5A06931B38484F00F001D8 /* SpaceGame WatchKit App.app in Resources */ = {isa = PBXBuildFile; fileRef = 3A5A06921B38484F00F001D8 /* SpaceGame WatchKit App.app */; };
 		3A5A069B1B38484F00F001D8 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A5A06991B38484F00F001D8 /* Interface.storyboard */; };
 		3A5A069D1B38484F00F001D8 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A5A069C1B38484F00F001D8 /* Images.xcassets */; };
+		3A9857541B417EE90073EE2A /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A9857531B417EE90073EE2A /* GameKit.framework */; };
 		A4625D2A1B3AD39200411D80 /* SocialScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4625D291B3AD39200411D80 /* SocialScene.swift */; };
 		A4625D2C1B3ADD6C00411D80 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4625D2B1B3ADD6C00411D80 /* Reachability.swift */; };
 		A4625D2E1B3AE2C100411D80 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4625D2D1B3AE2C100411D80 /* Alert.swift */; };
@@ -60,7 +61,6 @@
 		A4B239EF1B39A72300D693EC /* ParseFacebookUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4B239E91B39A72300D693EC /* ParseFacebookUtils.framework */; };
 		A4B239F01B39A72300D693EC /* ParseFacebookUtilsV4.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4B239EA1B39A72300D693EC /* ParseFacebookUtilsV4.framework */; };
 		A4B239F11B39A72300D693EC /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4B239EB1B39A72300D693EC /* ParseUI.framework */; };
-		A4F1461F1B3AEF0400811752 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4F1461E1B3AEF0400811752 /* GameKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -148,6 +148,7 @@
 		3A5A06981B38484F00F001D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3A5A069A1B38484F00F001D8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
 		3A5A069C1B38484F00F001D8 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		3A9857531B417EE90073EE2A /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 		A4625D291B3AD39200411D80 /* SocialScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocialScene.swift; sourceTree = "<group>"; };
 		A4625D2B1B3ADD6C00411D80 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		A4625D2D1B3AE2C100411D80 /* Alert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
@@ -163,7 +164,6 @@
 		A4B239E91B39A72300D693EC /* ParseFacebookUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseFacebookUtils.framework; sourceTree = "<group>"; };
 		A4B239EA1B39A72300D693EC /* ParseFacebookUtilsV4.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseFacebookUtilsV4.framework; sourceTree = "<group>"; };
 		A4B239EB1B39A72300D693EC /* ParseUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseUI.framework; sourceTree = "<group>"; };
-		A4F1461E1B3AEF0400811752 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -174,7 +174,7 @@
 				A4B239F11B39A72300D693EC /* ParseUI.framework in Frameworks */,
 				A4B239D71B3993F100D693EC /* libsqlite3.dylib in Frameworks */,
 				A4B239D51B3993E700D693EC /* libstdc++.6.dylib in Frameworks */,
-				A4F1461F1B3AEF0400811752 /* GameKit.framework in Frameworks */,
+				3A9857541B417EE90073EE2A /* GameKit.framework in Frameworks */,
 				A4B239EF1B39A72300D693EC /* ParseFacebookUtils.framework in Frameworks */,
 				A4B239D31B3993DB00D693EC /* MobileCoreServices.framework in Frameworks */,
 				A4B239F01B39A72300D693EC /* ParseFacebookUtilsV4.framework in Frameworks */,
@@ -219,6 +219,7 @@
 		13C13B791B0CB01900E6AC5E = {
 			isa = PBXGroup;
 			children = (
+				3A9857531B417EE90073EE2A /* GameKit.framework */,
 				13C13B841B0CB01A00E6AC5E /* SpaceGame */,
 				13C13B9E1B0CB01A00E6AC5E /* SpaceGameTests */,
 				3A5A06841B38484F00F001D8 /* SpaceGame WatchKit Extension */,
@@ -359,7 +360,6 @@
 		A4B239C11B39934200D693EC /* Framework */ = {
 			isa = PBXGroup;
 			children = (
-				A4F1461E1B3AEF0400811752 /* GameKit.framework */,
 				A4B239D61B3993F100D693EC /* libsqlite3.dylib */,
 				A4B239E61B39A72200D693EC /* Bolts.framework */,
 				A4B239E71B39A72200D693EC /* ParseCrashReporting.framework */,
@@ -459,7 +459,7 @@
 				TargetAttributes = {
 					13C13B811B0CB01A00E6AC5E = {
 						CreatedOnToolsVersion = 6.3.2;
-						DevelopmentTeam = DXGTJAG2UY;
+						DevelopmentTeam = ER489438ZX;
 						SystemCapabilities = {
 							com.apple.GameCenter = {
 								enabled = 1;
@@ -472,10 +472,6 @@
 					};
 					3A5A06821B38484F00F001D8 = {
 						CreatedOnToolsVersion = 6.3.1;
-					};
-					3A5A06911B38484F00F001D8 = {
-						CreatedOnToolsVersion = 6.3.1;
-						DevelopmentTeam = DXGTJAG2UY;
 					};
 				};
 			};
