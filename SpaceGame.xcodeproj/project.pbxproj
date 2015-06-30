@@ -45,6 +45,22 @@
 		3A5A06931B38484F00F001D8 /* SpaceGame WatchKit App.app in Resources */ = {isa = PBXBuildFile; fileRef = 3A5A06921B38484F00F001D8 /* SpaceGame WatchKit App.app */; };
 		3A5A069B1B38484F00F001D8 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A5A06991B38484F00F001D8 /* Interface.storyboard */; };
 		3A5A069D1B38484F00F001D8 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A5A069C1B38484F00F001D8 /* Images.xcassets */; };
+		5CCFA6DE1B417A5000BB0E2A /* CreditsScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCFA6DD1B417A5000BB0E2A /* CreditsScene.swift */; };
+		5CCFA6E01B41888F00BB0E2A /* starWars.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5CCFA6DF1B41888F00BB0E2A /* starWars.mp3 */; };
+		5CCFA6F21B42C3A200BB0E2A /* bossExplosionWhenDead.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5CCFA6E31B42C3A200BB0E2A /* bossExplosionWhenDead.mp3 */; };
+		5CCFA6F41B42C3A200BB0E2A /* misseleCoolDownOverSOund.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5CCFA6E51B42C3A200BB0E2A /* misseleCoolDownOverSOund.mp3 */; };
+		5CCFA6F51B42C3A200BB0E2A /* assemblyWeapon.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5CCFA6E61B42C3A200BB0E2A /* assemblyWeapon.mp3 */; };
+		5CCFA6F61B42C3A200BB0E2A /* buySound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5CCFA6E71B42C3A200BB0E2A /* buySound.mp3 */; };
+		5CCFA6F71B42C3A200BB0E2A /* atributtesDistibuitionSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5CCFA6E81B42C3A200BB0E2A /* atributtesDistibuitionSound.mp3 */; };
+		5CCFA6F81B42C3A200BB0E2A /* soundWhenGetCloserToTheBoss.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5CCFA6E91B42C3A200BB0E2A /* soundWhenGetCloserToTheBoss.mp3 */; };
+		5CCFA6F91B42C3A200BB0E2A /* MissleShootingSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5CCFA6EA1B42C3A200BB0E2A /* MissleShootingSound.mp3 */; };
+		5CCFA6FA1B42C3A200BB0E2A /* soundWhenBossAppear.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5CCFA6EB1B42C3A200BB0E2A /* soundWhenBossAppear.mp3 */; };
+		5CCFA6FB1B42C3A200BB0E2A /* enemyWeapon.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5CCFA6EC1B42C3A200BB0E2A /* enemyWeapon.mp3 */; };
+		5CCFA6FC1B42C3A200BB0E2A /* MachineGunFiring.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5CCFA6ED1B42C3A200BB0E2A /* MachineGunFiring.mp3 */; };
+		5CCFA6FD1B42C3A200BB0E2A /* openWeaponMenu.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5CCFA6EE1B42C3A200BB0E2A /* openWeaponMenu.mp3 */; };
+		5CCFA6FE1B42C3A200BB0E2A /* lowOnHEalthAndHAveNoShildSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5CCFA6EF1B42C3A200BB0E2A /* lowOnHEalthAndHAveNoShildSound.mp3 */; };
+		5CCFA6FF1B42C3A200BB0E2A /* playerDeadAndWillBETeleportBackToBase.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5CCFA6F01B42C3A200BB0E2A /* playerDeadAndWillBETeleportBackToBase.mp3 */; };
+		5CCFA7001B42C3A200BB0E2A /* gameBackGroundSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5CCFA6F11B42C3A200BB0E2A /* gameBackGroundSound.mp3 */; };
 		A4B239CF1B3993C700D693EC /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4B239CE1B3993C700D693EC /* AudioToolbox.framework */; };
 		A4B239D11B3993D000D693EC /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4B239D01B3993D000D693EC /* SystemConfiguration.framework */; };
 		A4B239D31B3993DB00D693EC /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4B239D21B3993DB00D693EC /* MobileCoreServices.framework */; };
@@ -144,6 +160,22 @@
 		3A5A06981B38484F00F001D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3A5A069A1B38484F00F001D8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
 		3A5A069C1B38484F00F001D8 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		5CCFA6DD1B417A5000BB0E2A /* CreditsScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreditsScene.swift; sourceTree = "<group>"; };
+		5CCFA6DF1B41888F00BB0E2A /* starWars.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = starWars.mp3; sourceTree = "<group>"; };
+		5CCFA6E31B42C3A200BB0E2A /* bossExplosionWhenDead.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bossExplosionWhenDead.mp3; sourceTree = "<group>"; };
+		5CCFA6E51B42C3A200BB0E2A /* misseleCoolDownOverSOund.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = misseleCoolDownOverSOund.mp3; sourceTree = "<group>"; };
+		5CCFA6E61B42C3A200BB0E2A /* assemblyWeapon.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = assemblyWeapon.mp3; sourceTree = "<group>"; };
+		5CCFA6E71B42C3A200BB0E2A /* buySound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = buySound.mp3; sourceTree = "<group>"; };
+		5CCFA6E81B42C3A200BB0E2A /* atributtesDistibuitionSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = atributtesDistibuitionSound.mp3; sourceTree = "<group>"; };
+		5CCFA6E91B42C3A200BB0E2A /* soundWhenGetCloserToTheBoss.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = soundWhenGetCloserToTheBoss.mp3; sourceTree = "<group>"; };
+		5CCFA6EA1B42C3A200BB0E2A /* MissleShootingSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = MissleShootingSound.mp3; sourceTree = "<group>"; };
+		5CCFA6EB1B42C3A200BB0E2A /* soundWhenBossAppear.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = soundWhenBossAppear.mp3; sourceTree = "<group>"; };
+		5CCFA6EC1B42C3A200BB0E2A /* enemyWeapon.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = enemyWeapon.mp3; sourceTree = "<group>"; };
+		5CCFA6ED1B42C3A200BB0E2A /* MachineGunFiring.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = MachineGunFiring.mp3; sourceTree = "<group>"; };
+		5CCFA6EE1B42C3A200BB0E2A /* openWeaponMenu.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = openWeaponMenu.mp3; sourceTree = "<group>"; };
+		5CCFA6EF1B42C3A200BB0E2A /* lowOnHEalthAndHAveNoShildSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = lowOnHEalthAndHAveNoShildSound.mp3; sourceTree = "<group>"; };
+		5CCFA6F01B42C3A200BB0E2A /* playerDeadAndWillBETeleportBackToBase.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = playerDeadAndWillBETeleportBackToBase.mp3; sourceTree = "<group>"; };
+		5CCFA6F11B42C3A200BB0E2A /* gameBackGroundSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = gameBackGroundSound.mp3; sourceTree = "<group>"; };
 		A4B239CE1B3993C700D693EC /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		A4B239D01B3993D000D693EC /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		A4B239D21B3993DB00D693EC /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
@@ -232,6 +264,7 @@
 		13C13B841B0CB01A00E6AC5E /* SpaceGame */ = {
 			isa = PBXGroup;
 			children = (
+				5CCFA6E21B42B96A00BB0E2A /* Sounds */,
 				A4B239C11B39934200D693EC /* Framework */,
 				13843C0F1B27503A00F67EA3 /* CoreData */,
 				13D1BCE41B0E5EAE003E596F /* src */,
@@ -281,6 +314,7 @@
 				13DB50671B14EC9700E543E9 /* HangarScene.swift */,
 				135DC5FE1B17CD5300A7E4EC /* SupplyRoomScene.swift */,
 				13C13B8B1B0CB01A00E6AC5E /* SpaceScene.swift */,
+				5CCFA6DD1B417A5000BB0E2A /* CreditsScene.swift */,
 			);
 			name = Scenes;
 			sourceTree = "<group>";
@@ -342,6 +376,28 @@
 				3A5A06981B38484F00F001D8 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		5CCFA6E21B42B96A00BB0E2A /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				5CCFA6DF1B41888F00BB0E2A /* starWars.mp3 */,
+				5CCFA6E31B42C3A200BB0E2A /* bossExplosionWhenDead.mp3 */,
+				5CCFA6E51B42C3A200BB0E2A /* misseleCoolDownOverSOund.mp3 */,
+				5CCFA6E61B42C3A200BB0E2A /* assemblyWeapon.mp3 */,
+				5CCFA6E71B42C3A200BB0E2A /* buySound.mp3 */,
+				5CCFA6E81B42C3A200BB0E2A /* atributtesDistibuitionSound.mp3 */,
+				5CCFA6E91B42C3A200BB0E2A /* soundWhenGetCloserToTheBoss.mp3 */,
+				5CCFA6EA1B42C3A200BB0E2A /* MissleShootingSound.mp3 */,
+				5CCFA6EB1B42C3A200BB0E2A /* soundWhenBossAppear.mp3 */,
+				5CCFA6EC1B42C3A200BB0E2A /* enemyWeapon.mp3 */,
+				5CCFA6ED1B42C3A200BB0E2A /* MachineGunFiring.mp3 */,
+				5CCFA6EE1B42C3A200BB0E2A /* openWeaponMenu.mp3 */,
+				5CCFA6EF1B42C3A200BB0E2A /* lowOnHEalthAndHAveNoShildSound.mp3 */,
+				5CCFA6F01B42C3A200BB0E2A /* playerDeadAndWillBETeleportBackToBase.mp3 */,
+				5CCFA6F11B42C3A200BB0E2A /* gameBackGroundSound.mp3 */,
+			);
+			name = Sounds;
 			sourceTree = "<group>";
 		};
 		A4B239C11B39934200D693EC /* Framework */ = {
@@ -485,9 +541,24 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5CCFA6F21B42C3A200BB0E2A /* bossExplosionWhenDead.mp3 in Resources */,
+				5CCFA6FD1B42C3A200BB0E2A /* openWeaponMenu.mp3 in Resources */,
 				13C13B961B0CB01A00E6AC5E /* LaunchScreen.xib in Resources */,
+				5CCFA7001B42C3A200BB0E2A /* gameBackGroundSound.mp3 in Resources */,
+				5CCFA6FE1B42C3A200BB0E2A /* lowOnHEalthAndHAveNoShildSound.mp3 in Resources */,
+				5CCFA6F51B42C3A200BB0E2A /* assemblyWeapon.mp3 in Resources */,
+				5CCFA6FA1B42C3A200BB0E2A /* soundWhenBossAppear.mp3 in Resources */,
+				5CCFA6F81B42C3A200BB0E2A /* soundWhenGetCloserToTheBoss.mp3 in Resources */,
+				5CCFA6FC1B42C3A200BB0E2A /* MachineGunFiring.mp3 in Resources */,
+				5CCFA6FF1B42C3A200BB0E2A /* playerDeadAndWillBETeleportBackToBase.mp3 in Resources */,
+				5CCFA6E01B41888F00BB0E2A /* starWars.mp3 in Resources */,
+				5CCFA6FB1B42C3A200BB0E2A /* enemyWeapon.mp3 in Resources */,
+				5CCFA6F91B42C3A200BB0E2A /* MissleShootingSound.mp3 in Resources */,
 				13C13B931B0CB01A00E6AC5E /* Images.xcassets in Resources */,
+				5CCFA6F71B42C3A200BB0E2A /* atributtesDistibuitionSound.mp3 in Resources */,
+				5CCFA6F41B42C3A200BB0E2A /* misseleCoolDownOverSOund.mp3 in Resources */,
 				13C13B911B0CB01A00E6AC5E /* Main.storyboard in Resources */,
+				5CCFA6F61B42C3A200BB0E2A /* buySound.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -540,6 +611,7 @@
 				1397BD8B1B28A13000842123 /* WeaponData.swift in Sources */,
 				13CA5A501B3ACD55007EFDAF /* Meteor.swift in Sources */,
 				135DC5FF1B17CD5300A7E4EC /* SupplyRoomScene.swift in Sources */,
+				5CCFA6DE1B417A5000BB0E2A /* CreditsScene.swift in Sources */,
 				13E539041B2A003900F0C573 /* GameColors.swift in Sources */,
 				13C13B881B0CB01A00E6AC5E /* AppDelegate.swift in Sources */,
 				13CA5A4C1B3ACC6B007EFDAF /* Chunk.swift in Sources */,

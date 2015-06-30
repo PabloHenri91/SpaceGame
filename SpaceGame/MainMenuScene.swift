@@ -67,6 +67,10 @@ class MainMenuScene: SKScene {
                 self.view!.presentScene(OptionsScene(), transition: SKTransition.crossFadeWithDuration(1))
                 break
                 
+            case states.credits:
+                self.view!.presentScene(creditScene(), transition: SKTransition.crossFadeWithDuration(1))
+                break
+                
             default:
                 break
             }
@@ -101,6 +105,10 @@ class MainMenuScene: SKScene {
                     
                     if (self.childNodeWithName("buttonOptions")!.containsPoint(location)) {
                         self.nextState = .options
+                        return
+                    }
+                    if (self.childNodeWithName("buttonCredits")!.containsPoint(location)) {
+                        self.nextState = .credits
                         return
                     }
                 }
