@@ -17,9 +17,9 @@ class EnemyShip: Ship {
         
         let shipType:Int = Int(arc4random_uniform(UInt32(Config.playerTypesCount)))
         
-        let x:Int = Int(playerShip.position.x) + Int(arc4random_uniform(UInt32(Config.sceneSize().width * 1 - Config.sceneSize().width * 1))) + Int(Config.sceneSize().width * 1)
+        let x:Int = Int(playerShip.position.x) + Int(arc4random_uniform(UInt32(Config.sceneSize().width/2 - -Config.sceneSize().width/2))) + -Int(Config.sceneSize().width/2)
         
-        let y = Int(playerShip.position.y) + Int(arc4random_uniform(UInt32(Config.sceneSize().height * 1 - Config.sceneSize().height * 1))) + Int(Config.sceneSize().height * 1)
+        let y:Int = Int(playerShip.position.y) + Int(arc4random_uniform(UInt32(Config.sceneSize().height/2 - -Config.sceneSize().height/2))) + -Int(Config.sceneSize().height/2)
         
         println(x.description + " " + y.description)
         self.loadNewShip(shipType, name:"player", x: x, y: y, loadPhysics:loadPhysics)

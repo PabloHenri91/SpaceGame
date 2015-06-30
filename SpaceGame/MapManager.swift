@@ -77,7 +77,7 @@ class MapManager: SKNode {
         {
             if(self.enemyCount/5 <= region) {
                 self.lastSpawn = currentTime
-                self.parent!.addChild(EnemyShip(level: region, playerShip:playerShip,loadPhysics: true))
+                self.parent!.addChild(EnemyShip(level: region, playerShip:playerShip, loadPhysics: true))
                 self.enemyCount++
             }
         }
