@@ -15,16 +15,14 @@ class EnemyShip: Ship {
     init(level:Int, playerShip:PlayerShip, loadPhysics:Bool) {
         super.init()
         
-        let shipType:Int = Int(arc4random_uniform(UInt32(Config.playerTypesCount)))
+        let shipType:Int = Int.random(Config.playerTypesCount)
         
-        let x:Int = Int(playerShip.position.x) + Int(arc4random_uniform(UInt32(Config.sceneSize().width/2 - -Config.sceneSize().width/2))) + -Int(Config.sceneSize().width/2)
+        let x:Int = Int.random(min: -Config.sceneSize().width/2, max: Config.sceneSize().width/2) + Int(playerShip.position.x)
+        let y:Int = Int.random(min: -Config.sceneSize().height/2, max: Config.sceneSize().height/2) + Int(playerShip.position.y)
         
-        let y:Int = Int(playerShip.position.y) + Int(arc4random_uniform(UInt32(Config.sceneSize().height/2 - -Config.sceneSize().height/2))) + -Int(Config.sceneSize().height/2)
-        
-        println(x.description + " " + y.description)
         self.loadNewShip(shipType, name:"player", x: x, y: y, loadPhysics:loadPhysics)
         
-        self.level = Int(arc4random_uniform(UInt32(level)))
+        self.level = Int.random(level)
         
         self.speedAtribute += Int(0)
         self.acceleration += Int(0)
