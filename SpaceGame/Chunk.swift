@@ -69,8 +69,8 @@ class Chunk: SKSpriteNode {
         default:
             var data:NSMutableArray = NSMutableArray()
             for (var i = 0; i <  MapManager.tilesPerChunk * MapManager.tilesPerChunk; i++) {
-                if(arc4random_uniform(1000) <= 1) {
-                    var randomTile =  Int(arc4random_uniform(UInt32(MapManager.meteorTypeCount)))
+                if(Int.random(1000) <= 1) {
+                    var randomTile = Int.random(MapManager.meteorTypeCount)
                     data.addObject(randomTile)
                 } else {
                     data.addObject(0)
