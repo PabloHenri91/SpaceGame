@@ -12,6 +12,9 @@ class SpaceScene: SKScene {
     
     let playerData:PlayerData = GameViewController.memoryCard.playerData!
     
+    var region:Int = 0
+    var lastRegion:Int = 0
+    
     override init() {
         Control.locations = NSMutableArray()
         super.init(size: Config.sceneSize())
@@ -64,9 +67,10 @@ class SpaceScene: SKScene {
         player.update(currentTime)
         
         let mapManager = (self.childNodeWithName("//mapManager")! as! MapManager)
-        mapManager.update(currentTime)
-        
         var distance = Int(sqrt(player.position.x * player.position.x + player.position.y * player.position.y))
+        mapManager.update(currentTime, playerShip:player, region:distance/10000)
+        
+        
         let labelRegion = self.childNodeWithName("//labelRegion")! as! Label
         labelRegion.setText("Region: \(distance/10000)")
         

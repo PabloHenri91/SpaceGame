@@ -83,6 +83,7 @@ class Ship: Control {
         spriteNode.name = "ship"
         
         if(loadPhysics){
+            self.position = CGPoint(x: x, y: y)
             self.loadPhysics(texture)
         } else {
             self.sketchPosition = CGPoint(x: x, y: y)

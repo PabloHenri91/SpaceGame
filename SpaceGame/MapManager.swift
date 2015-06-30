@@ -23,6 +23,10 @@ class MapManager: SKNode {
     static var loading:Bool = false
     var lastUpdate:NSTimeInterval = 0
     
+    //Enemies
+    var lastSpawn:Double = 0
+    var enemyCount:Int = 0
+    
     func reloadMap() {
         
         self.updatePlayerRegion()
@@ -53,8 +57,8 @@ class MapManager: SKNode {
         }
     }
     
-    func update(currentTime: NSTimeInterval) {
-        if(!MapManager.loading){
+    func update(currentTime: NSTimeInterval, playerShip:PlayerShip, region:Int) {
+        if(!MapManager.loading) {
             if(currentTime - self.lastUpdate > 0.1) {
                 self.updatePlayerRegion()
                 if (self.playerRegionX != self.loadedRegionX || self.playerRegionY != self.loadedRegionY) {
@@ -67,6 +71,17 @@ class MapManager: SKNode {
                 }
             }
         }
+        
+        //Enemies
+        if (currentTime - self.lastSpawn > Config.spawningInterval)
+        {
+            if(self.enemyCount/5 <= region) {
+                self.lastSpawn = currentTime
+                self.parent!.addChild(EnemyShip(level: region, playerShip:playerShip,loadPhysics: true))
+                self.enemyCount++
+            }
+        }
+        
     }
     
     func updatePlayerRegion() {
