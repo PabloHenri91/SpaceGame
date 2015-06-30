@@ -45,6 +45,9 @@ class Config: NSObject {
         }
     }
     
+    //GamePlay
+    static var spawningInterval:Double = 1
+    
     enum PhysicsCategory : UInt32 {
         case none   = 0
         case player = 1
