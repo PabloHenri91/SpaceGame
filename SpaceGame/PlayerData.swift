@@ -19,3 +19,12 @@ class PlayerData: NSManagedObject {
     @NSManaged var currentPlayerShip: PlayerShipData
 
 }
+
+extension PlayerData {
+    func addPlayerShipObject(value: PlayerShipData) {
+        var items = self.mutableSetValueForKey("playerShips");
+        items.addObject(value)
+    }
+    
+    
+}
