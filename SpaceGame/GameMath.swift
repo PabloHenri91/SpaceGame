@@ -43,4 +43,22 @@ class GameMath: NSObject {
     static func availableUP(playerShip:PlayerShip) -> Int {
         return GameMath.maximumUP(playerShip.level) - GameMath.currentUP(playerShip)
     }
+    
+    
+    //Física
+    static func angularImpulse(agility:Int) -> CGFloat{
+        return CGFloat((Double(agility - 10)/90) * (0.01 - 0.001) + 0.001)
+    }
+    
+    static func maxAngularVelocity(agility:Int) -> CGFloat{
+        return CGFloat((Double(agility - 10)/90) * (M_PI*2 - M_PI/2) + M_PI/2)
+    }
+    
+    static func maxLinearVelocity(speedAtribute:Int) -> CGFloat{
+        return CGFloat((Double(speedAtribute - 10)/90) * (2000 - 100) + 100)
+    }
+    
+    static func force(acceleration:Int) -> CGFloat{
+        return CGFloat((Double(acceleration - 10)/90) * (1000 - 100) + 100)
+    }
 }

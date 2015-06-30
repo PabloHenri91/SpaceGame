@@ -37,11 +37,10 @@ class PlayerShip: Ship {
         self.shieldRecharge += Int(playerShipData.bonusShieldRecharge)
         
         if(loadPhysics){
-            ///TODO: Exportar para GameMath
-            self.angularImpulse = 0.05
-            self.maxAngularVelocity = CGFloat(M_PI * 4)
-            self.maxLinearVelocity = CGFloat(self.speed / 100)/// * x TODO: maxLinearVelocity
-            self.force = CGFloat(self.acceleration * 10)
+            self.angularImpulse = GameMath.angularImpulse(self.agility)
+            self.maxAngularVelocity = GameMath.maxAngularVelocity(self.agility)
+            self.maxLinearVelocity = GameMath.maxLinearVelocity(self.speedAtribute)
+            self.force = GameMath.force(self.acceleration)
         }
     }
 
@@ -95,7 +94,7 @@ class PlayerShip: Ship {
             break
         }
         
-        if(currentTime - self.startMoving > 1){
+        if(currentTime - self.startMoving > 5){
             self.needToMove = false
         }
         
@@ -117,17 +116,22 @@ class PlayerShip: Ship {
             if(distanceToDestination < 64) {
                 needToMove = false
             } else {
-                switch(self.touchesArrayCount) {
-                case 0:
-                    if(abs(self.totalRotation) < 1){
-                        self.physicsBody!.applyForce(CGVector(dx: -sin(self.zRotation) * self.force, dy: cos(self.zRotation) * self.force))
+                let velocity = self.physicsBody!.velocity
+                if (sqrt(velocity.dx * velocity.dx + velocity.dy * velocity.dy) < self.maxLinearVelocity) {
+                    switch(self.touchesArrayCount) {
+                    case 0:
+                        if(abs(self.totalRotation) < 1){
+                            self.physicsBody!.applyForce(CGVector(dx: -sin(self.zRotation) * self.force, dy: cos(self.zRotation) * self.force))
+                        }
+                        break
+                        
+                    default:
+                        //aplicar forca em direcao ao destino
+                        self.physicsBody!.applyForce(CGVector(dx: (dX/distanceToDestination) * self.force, dy: (dY/distanceToDestination) * self.force))
+                        break
                     }
-                    break
-                    
-                default:
-                    //aplicar forca em direcao ao destino
-                    self.physicsBody!.applyForce(CGVector(dx: (dX/distanceToDestination) * self.force, dy: (dY/distanceToDestination) * self.force))
-                    break
+                } else {
+                    var a = 0
                 }
             }
         }
