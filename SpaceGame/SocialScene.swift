@@ -15,6 +15,7 @@ class SocialScene: SKScene {
     var localPlayer = GKLocalPlayer.localPlayer()
     var playersArray = NSMutableArray()
     var favoriteArray = NSMutableArray()
+    var connect = false
     
     override init() {
         Control.locations = NSMutableArray()
@@ -34,16 +35,52 @@ class SocialScene: SKScene {
         
         self.addChild(Button(name: "buttonBack", x:81, y:633, xAlign:.left, yAlign:.down))
         
-        if !(Reachability.isConnectedToNetwork()){
-            let alert = Alert(text: "Oops! An error occurred while connecting to server.")
-            alert.touchesEndedAtButtonOK.addHandler({
-                self.view?.presentScene(HangarScene(), transition: SKTransition.crossFadeWithDuration(1))
-            })
-            self.addChild(alert)
-        }else{
+        dispatch_async(dispatch_get_global_queue(QOS_CLASS_BACKGROUND, 0)) { () -> Void in
+            var con = Reachability.isConnectedToNetwork()
+            dispatch_async(dispatch_get_main_queue()){
+                self.connect = con
+                self.inicio()
+            }
+        }
+    }
+    
+    func buscaPlayers(){
+        let query = PFQuery(className: "_User")
+        query.findObjectsInBackgroundWithBlock({ (objects:[AnyObject]?, error:NSError?) -> Void in
+            if let e = error{
+                println(e)
+            }
+            else{
+                var relation  = PFUser.currentUser()!.relationForKey("friends")//pegar favoritos
+                relation.query()?.findObjectsInBackgroundWithBlock({ (objects:[AnyObject]?, error:NSError?) -> Void in
+                    if let e = error{
+                        println(e)
+                    }
+                    else{
+                        self.favoriteArray.addObjectsFromArray(objects!)
+                        println(self.favoriteArray.description)
+                    }
+                })
+                
+                for user in objects!{
+                    if !self.favoriteArray.containsObject(user){
+                        if user as? PFUser != PFUser.currentUser(){
+                            self.playersArray.addObject(user)
+                        }
+                    }
+                }
+            }
+        })
+    }
+    
+    func inicio(){
+        if self.connect {
             if self.authenticateLocalPlayer(){
                 var logou = false
-                if(PFUser.currentUser() != nil){ logou = true}
+                
+                if PFUser.currentUser() != nil{
+                    logou = true
+                }
                 else{
                     PFUser.logInWithUsernameInBackground(self.localPlayer.displayName, password: "123", block: { (user, error) -> Void in
                         if let usr = user{
@@ -55,50 +92,18 @@ class SocialScene: SKScene {
                             user.password = "123"
                             user["Installation"] = PFInstallation.currentInstallation()
                             user.signUpInBackgroundWithBlock({ (succeeded, error) -> Void in
-                                println(succeeded)
                                 if succeeded{
                                     logou = true
+                                }
+                                else{
+                                    println(error)
                                 }
                             })
                         }
                     })
                 }
                 if logou{
-                    
-                    let query = PFQuery(className: "_User")
-                    query.findObjectsInBackgroundWithBlock({ (objects:[AnyObject]?, error:NSError?) -> Void in
-                        if let e = error{
-                            println(e)
-                        }
-                        else{
-                            
-                            var relation  = PFUser.currentUser()!.relationForKey("friends")//pegar favoritos
-                            relation.query()?.findObjectsInBackgroundWithBlock({ (objects:[AnyObject]?, error:NSError?) -> Void in
-                                if let e = error{
-                                    println(e)
-                                }
-                                else{
-                                    self.favoriteArray.addObjectsFromArray(objects!)
-                                    println(self.favoriteArray.description)
-                                }
-                            })
-                            //relation.addObject(user)//add favorito
-                            //array?.removeObject(user)//remover favorito
-                            
-                            
-                            for user in objects!{
-                                if !self.favoriteArray.containsObject(user){
-                                    if user as? PFUser != PFUser.currentUser(){
-                                        self.playersArray.addObject(user)
-                                    }
-                                }
-                            }
-                        }
-                    })
-                    
-                    
-                    
-                    
+                    self.buscaPlayers()
                 }
             }
             else{
@@ -106,6 +111,40 @@ class SocialScene: SKScene {
                 
             }
         }
+        else{
+            let alert = Alert(text: "Oops! An error occurred while connecting to server.")
+            alert.touchesEndedAtButtonOK.addHandler({
+                self.view?.presentScene(HangarScene(), transition: SKTransition.crossFadeWithDuration(1))
+            })
+            self.addChild(alert)
+        }
+    }
+    
+    func sendShip(user:PFObject, data:[NSObject : AnyObject]){
+        let objectId = (user["Installation"] as! PFInstallation).objectId
+        let pushQuery = PFInstallation.query()
+        pushQuery?.whereKey("objectId", equalTo: objectId!)
+        var push = PFPush()
+        push.setQuery(pushQuery)
+        var dict = NSMutableDictionary()
+        dict.setObject(data, forKey: "ship")
+        if let name = PFUser.currentUser()!.username{
+            dict.setObject("\(name) send a ship", forKey: "alert")
+        }
+        push.setData(dict as [NSObject : AnyObject])
+        push.sendPushInBackground()
+    }
+    
+    func addFavorite(user:PFObject){
+        var relation = PFUser.currentUser()!.relationForKey("friends")
+        relation.addObject(user)
+        PFUser.currentUser()!.saveInBackground()
+    }
+    
+    func removeFavorite(user:PFObject){
+        var relation = PFUser.currentUser()!.relationForKey("friends")
+        relation.removeObject(user)
+        PFUser.currentUser()!.saveInBackground()
     }
     
     func authenticateLocalPlayer()->Bool{

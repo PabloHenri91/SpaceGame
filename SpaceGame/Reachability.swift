@@ -11,7 +11,6 @@ import UIKit
 class Reachability: NSObject {
     class func isConnectedToNetwork() -> Bool {
         var status:Bool = false
-        //dispatch_async(dispatch_get_global_queue(QOS_CLASS_BACKGROUND, 0)) { () -> Void in
             let url = NSURL(string: "http://google.com")
             let request = NSMutableURLRequest(URL: url!)
             request.HTTPMethod = "HEAD"
@@ -27,7 +26,6 @@ class Reachability: NSObject {
                     status = true
                 }
             }
-       // }
         return status
     }
 }
