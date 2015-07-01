@@ -364,7 +364,7 @@ class SupplyRoomScene: SKScene {
             {
                 
                 aux = 1
-                return ("Comprada", GameColors.white )
+                return ("Purchased", GameColors.white )
                 
             }
         }

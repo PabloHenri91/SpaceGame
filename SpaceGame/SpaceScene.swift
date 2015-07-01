@@ -66,6 +66,24 @@ class SpaceScene: SKScene {
         let player = (self.childNodeWithName("//player") as! PlayerShip)
         player.update(currentTime)
         
+        NSArray(array: player.parent!.children).enumerateObjectsUsingBlock({ object, index, stop in
+            var node = object as! SKNode
+            
+            if let name = node.name
+            {
+                
+                if(name.hasPrefix("enemy")) {
+                    (node as! EnemyShip).update(currentTime, playerPosition: player.position)
+                } else {
+                    
+                }
+                
+            }
+         })
+            
+        
+
+        
         let mapManager = (self.childNodeWithName("//mapManager")! as! MapManager)
         var distance = Int(sqrt(player.position.x * player.position.x + player.position.y * player.position.y))
         mapManager.update(currentTime, playerShip:player, region:distance/10000)
