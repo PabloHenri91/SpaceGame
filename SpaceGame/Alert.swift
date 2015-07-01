@@ -13,11 +13,11 @@ class Alert: Control {
     var touchesEndedAtButtonOK:Event<Void> = Event()
 
      init(text:String) {
-        super.init(name: "messegeBox", textureName: "messageBoxBackground2", x: 412, y: 283, align:.center)
+        super.init(name: "messegeBox", textureName: "messageBoxBackground2", x: 284, y: 283, align:.center)
         
         self.zPosition = Config.HUDZPosition * CGFloat(2)
         
-        self.addChild(Label(name:"label0", textureName:text, x:255, y:46))
+        self.addChild(Label(name:"label0", textureName:text, x:365, y:46))
         self.addChild(Button(name: "buttonOK", x:268, y:93))
         self.hidden = false
     }
