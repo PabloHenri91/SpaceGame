@@ -97,6 +97,19 @@ class SpaceScene: SKScene {
         let labelDistance = self.childNodeWithName("//labelDistance")! as! Label
         labelDistance.setText("Distance: \(distance/10)")
         
+        NSArray(array: player.parent!.children).enumerateObjectsUsingBlock({ object, index, stop in
+            var node = object as! SKNode
+            
+            if let name = node.name
+            {
+                if(name == "shot") {
+                    (node as! Shot).update()
+                } else {
+                    
+                }
+            }
+        })
+        
     }
     
     override func didFinishUpdate()

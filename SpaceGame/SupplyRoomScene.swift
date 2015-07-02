@@ -12,6 +12,16 @@ import CoreData
 
 class SupplyRoomScene: SKScene {
     
+    enum states {
+        case supplyRoom
+        case hangar
+        case weapons
+    }
+    
+    var state = states.supplyRoom
+    var nextState = states.supplyRoom
+    
+    var pagina = 0
     
     //var shipsShopIndex = NSMutableArray()
     //var PlayerShipDataItems = [PlayerShipData]()
@@ -20,11 +30,6 @@ class SupplyRoomScene: SKScene {
         Control.locations = NSMutableArray()
         super.init(size: Config.sceneSize())
     }
-    
-
-
-    
-    var pagina = 0
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -42,10 +47,6 @@ class SupplyRoomScene: SKScene {
         
         self.addChild(Button(name: "buttonLeftShips", textureName: "buttonLeft", x: 203, y: 547, align:.center))
         self.addChild(Button(name: "buttonRightShips", textureName: "buttonRight", x: 1053, y: 547, align:.center))
-        
-        
-        
-   
         
         //let playerShip = PlayerShip(playerShipData: self.playerData.currentPlayerShip, x: 670, y: 192, loadPhysics:false)
         let playerShip = PlayerShip(playerShipData: self.playerData.currentPlayerShip, x: 670, y: 192, loadPhysics: false)
@@ -67,35 +68,24 @@ class SupplyRoomScene: SKScene {
         playerShip3.name = "playerShip3"
         self.addChild(playerShip3)
         
-        
-
-        
         self.addChild(Label(name:"labelPreco0", textureName:"0", x:380, y:660, align:.center))
         self.addChild(Label(name:"labelPreco1", textureName:"0", x:570, y:660, align:.center))
         self.addChild(Label(name:"labelPreco2", textureName:"0", x:760, y:660, align:.center))
         self.addChild(Label(name:"labelPreco3", textureName:"0", x:950, y:660, align:.center))
         
-        
-        
-
-        
         self.addChild(Label(name:"labelScore", textureName:"$0", x:267, y:39, align:.center))
         
         self.updateControls()
-        
-        
     }
     
     func updateControls() {
         
-       let playerShip = self.childNodeWithName("player") as! PlayerShip
-
-         
+        let playerShip = self.childNodeWithName("player") as! PlayerShip
+        
         (self.childNodeWithName("playerShip0") as! PlayerShip).reloadNewShip(4*pagina+0)
         (self.childNodeWithName("playerShip1") as! PlayerShip).reloadNewShip(4*pagina+1)
         (self.childNodeWithName("playerShip2") as! PlayerShip).reloadNewShip(4*pagina+2)
         (self.childNodeWithName("playerShip3") as! PlayerShip).reloadNewShip(4*pagina+3)
-        
         
         let playerShip0 = PlayerShip(index:(4*pagina+0), x: 385, y: 570)
         let playerShip1 = PlayerShip(index:(4*pagina+1), x: 570, y: 570)
@@ -107,10 +97,6 @@ class SupplyRoomScene: SKScene {
         let playerType2 = Ships.types[playerShip2.type] as! ShipType
         let playerType3 = Ships.types[playerShip3.type] as! ShipType
         
-        
-        
-        
-        
         (self.childNodeWithName("labelScore") as! Label).setText("$" + self.playerData.score.description)
         (self.childNodeWithName("labelPreco0") as! Label).setText(self.price(0).priceDescription, color:self.price(0).priceColor)
         (self.childNodeWithName("labelPreco1") as! Label).setText(self.price(1).priceDescription, color:self.price(1).priceColor)
@@ -119,8 +105,6 @@ class SupplyRoomScene: SKScene {
         
         (self.childNodeWithName("buttonRightShips") as! Button).hidden = pagina == 2
         (self.childNodeWithName("buttonLeftShips") as! Button).hidden = pagina == 0
-        
-        
     }
     
     override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
@@ -142,21 +126,21 @@ class SupplyRoomScene: SKScene {
             }
             
             if (self.childNodeWithName("buttonLeftShips")!.containsPoint(location)) {
-                    if (pagina > 0)
-                    {
-                        pagina--
-                        self.updateControls()
-                        return
-                    }
+                if (pagina > 0)
+                {
+                    pagina--
+                    self.updateControls()
+                    return
+                }
             }
             
             if (self.childNodeWithName("buttonRightShips")!.containsPoint(location)) {
-                    if (pagina < 2)
-                    {
-                        pagina++
-                        self.updateControls()
-                        return
-                    }
+                if (pagina < 2)
+                {
+                    pagina++
+                    self.updateControls()
+                    return
+                }
             }
             
             let playerShip = self.childNodeWithName("player") as! PlayerShip
@@ -169,7 +153,7 @@ class SupplyRoomScene: SKScene {
                     if ((ship as! PlayerShipData).shopIndex == 4*pagina+0)
                     {
                         
-                       
+                        
                         playerShip.reloadNewShip(4*pagina+0)
                         self.playerData.currentPlayerShip = ship as! PlayerShipData
                         aux = 1
@@ -183,21 +167,21 @@ class SupplyRoomScene: SKScene {
                     let playerType = Ships.types[4*pagina+0] as! ShipType
                     
                     
-                     if(Int(self.playerData.score) >= playerType.price)
+                    if(Int(self.playerData.score) >= playerType.price)
                     {
                         
                         self.buyShip(0)
                     }
-                 
+                    
                     
                     
                 }
-
                 
                 
-                    self.updateControls()
                 
-                    return
+                self.updateControls()
+                
+                return
                 
             }
             
@@ -209,7 +193,7 @@ class SupplyRoomScene: SKScene {
                     if ((ship as! PlayerShipData).shopIndex == 4*pagina+1)
                     {
                         
-                      
+                        
                         playerShip.reloadNewShip(4*pagina+1)
                         self.playerData.currentPlayerShip = ship as! PlayerShipData
                         aux = 1
@@ -225,14 +209,14 @@ class SupplyRoomScene: SKScene {
                     
                     if(Int(self.playerData.score) >= playerType.price)
                     {
-                    
+                        
                         self.buyShip(1)
                     }
-                 
+                    
                     
                     
                 }
-
+                
                 self.updateControls()
                 
                 return
@@ -247,7 +231,7 @@ class SupplyRoomScene: SKScene {
                     if ((ship as! PlayerShipData).shopIndex == 4*pagina+2)
                     {
                         
-                      
+                        
                         playerShip.reloadNewShip(4*pagina+2)
                         self.playerData.currentPlayerShip = ship as! PlayerShipData
                         aux = 1
@@ -263,10 +247,10 @@ class SupplyRoomScene: SKScene {
                     
                     if(Int(self.playerData.score) >= playerType.price)
                     {
-                  
+                        
                         self.buyShip(2)
                     }
-                
+                    
                     
                     
                 }
@@ -304,7 +288,7 @@ class SupplyRoomScene: SKScene {
                         
                         self.buyShip(3)
                     }
-                   
+                    
                     
                     
                 }
@@ -313,7 +297,7 @@ class SupplyRoomScene: SKScene {
                 return
                 
             }
-
+            
             
         }
     }
@@ -349,10 +333,9 @@ class SupplyRoomScene: SKScene {
         // Insere o objeto no core data atraves da extension na classe playerData
         self.playerData.addPlayerShipObject(playerShipData)
         
-       
+        
         // Define a nave comprada como a atual
         self.playerData.currentPlayerShip = playerShipData
-        
     }
     
     func price(indexPrice: Int) -> (priceDescription: String, priceColor: UIColor)
@@ -371,9 +354,9 @@ class SupplyRoomScene: SKScene {
         
         if (aux == 0)
         {
-           
             
-
+            
+            
             
             let playerType = Ships.types[4*pagina+indexPrice] as! ShipType
             
@@ -384,9 +367,7 @@ class SupplyRoomScene: SKScene {
                 color = GameColors.red
             }
             
-           return (("$"+playerType.price.description), color)
+            return (("$" + playerType.price.description), color)
         }
     }
-    
-    
 }

@@ -17,6 +17,9 @@ class PlayerShip: Ship {
     var firstTouchLocation:CGPoint = CGPoint.zeroPoint
     var lastTouchLocation:CGPoint = CGPoint.zeroPoint
     
+    //Tiros
+    var lastFire:Double = 0
+    
     ///Inicializa nave nova sem física.
     init(index:Int, x:Int, y:Int) {
         super.init(index: index, name: "player", x: x, y: y)
@@ -47,9 +50,14 @@ class PlayerShip: Ship {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
         
+        
     }
     
     func update(currentTime: NSTimeInterval) {
+        if (currentTime - self.lastFire > 0.5) {
+            self.parent!.addChild(Shot(position: self.position, zRotation: self.zRotation))
+            self.lastFire = currentTime
+        }
         
         self.lastTouchesArrayCount = self.touchesArrayCount
         self.touchesArrayCount = Control.touchesArray.count
