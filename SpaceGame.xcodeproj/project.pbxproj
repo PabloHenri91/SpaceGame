@@ -61,6 +61,7 @@
 		5CCFA6FE1B42C3A200BB0E2A /* lowOnHEalthAndHAveNoShildSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5CCFA6EF1B42C3A200BB0E2A /* lowOnHEalthAndHAveNoShildSound.mp3 */; };
 		5CCFA6FF1B42C3A200BB0E2A /* playerDeadAndWillBETeleportBackToBase.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5CCFA6F01B42C3A200BB0E2A /* playerDeadAndWillBETeleportBackToBase.mp3 */; };
 		5CCFA7001B42C3A200BB0E2A /* gameBackGroundSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5CCFA6F11B42C3A200BB0E2A /* gameBackGroundSound.mp3 */; };
+		5CCFA7021B440F6E00BB0E2A /* Audio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCFA7011B440F6E00BB0E2A /* Audio.swift */; };
 		A4B239CF1B3993C700D693EC /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4B239CE1B3993C700D693EC /* AudioToolbox.framework */; };
 		A4B239D11B3993D000D693EC /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4B239D01B3993D000D693EC /* SystemConfiguration.framework */; };
 		A4B239D31B3993DB00D693EC /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4B239D21B3993DB00D693EC /* MobileCoreServices.framework */; };
@@ -176,6 +177,7 @@
 		5CCFA6EF1B42C3A200BB0E2A /* lowOnHEalthAndHAveNoShildSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = lowOnHEalthAndHAveNoShildSound.mp3; sourceTree = "<group>"; };
 		5CCFA6F01B42C3A200BB0E2A /* playerDeadAndWillBETeleportBackToBase.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = playerDeadAndWillBETeleportBackToBase.mp3; sourceTree = "<group>"; };
 		5CCFA6F11B42C3A200BB0E2A /* gameBackGroundSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = gameBackGroundSound.mp3; sourceTree = "<group>"; };
+		5CCFA7011B440F6E00BB0E2A /* Audio.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Audio.swift; sourceTree = "<group>"; };
 		A4B239CE1B3993C700D693EC /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		A4B239D01B3993D000D693EC /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		A4B239D21B3993DB00D693EC /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
@@ -335,6 +337,7 @@
 				13CA5A4B1B3ACC6B007EFDAF /* Chunk.swift */,
 				13CA5A4D1B3ACCE8007EFDAF /* MapManager.swift */,
 				13CA5A4F1B3ACD55007EFDAF /* Meteor.swift */,
+				5CCFA7011B440F6E00BB0E2A /* Audio.swift */,
 			);
 			name = src;
 			sourceTree = "<group>";
@@ -599,6 +602,7 @@
 				135DC5F91B17374500A7E4EC /* OptionsScene.swift in Sources */,
 				13D1BCEE1B0E5FFB003E596F /* Switch.swift in Sources */,
 				135DC5FB1B17421D00A7E4EC /* MessageBox.swift in Sources */,
+				5CCFA7021B440F6E00BB0E2A /* Audio.swift in Sources */,
 				13D1BCE81B0E5EF6003E596F /* MainMenuScene.swift in Sources */,
 				13C13B8C1B0CB01A00E6AC5E /* SpaceScene.swift in Sources */,
 				13843C321B275E5100F67EA3 /* SpaceGame.xcdatamodeld in Sources */,

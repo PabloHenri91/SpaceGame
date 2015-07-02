@@ -16,13 +16,12 @@ class creditScene : SKScene{
         
         case mainMenu
         case credits
+        case loading
     }
     
-    var sound:AVAudioPlayer = AVAudioPlayer()
-    
-    var state = states.credits
+    var state = states.loading
     var nextState = states.credits
-    
+ 
     
     override init() {
         Control.locations = NSMutableArray()
@@ -41,13 +40,32 @@ class creditScene : SKScene{
         
         self.addChild(Control(name: "CreditsBackground", x:0, y:0, align:.center))
         self.addChild(Button(name: "buttonBack", x:81, y:633, xAlign:.left, yAlign:.down))
-        
-        prepareAudios()
-        self.sound.play()
     
+       
+        
     }
     
     override func update(currentTime: NSTimeInterval) {
+        if(self.state == self.nextState){
+            switch (self.state) {
+            default:
+                break
+            }
+        }  else {
+            self.state = self.nextState
+            
+            switch (self.nextState) {
+                
+            case states.credits:
+                Audio.prepareAudios("starWars")
+                break
+                
+            default:
+                break
+            }
+        }
+
+        
         
     }
     
@@ -68,7 +86,8 @@ class creditScene : SKScene{
             let location = touch.locationInNode(self)
         
         if (self.childNodeWithName("buttonBack")!.containsPoint(location)) {
-            sound.stop()
+         //   sound.stop()
+            Audio.stopAudio("starWars")
             self.view!.presentScene(MainMenuScene(), transition: SKTransition.crossFadeWithDuration(1))
             return
             
@@ -78,14 +97,5 @@ class creditScene : SKScene{
     override func touchesCancelled(touches: Set<NSObject>!, withEvent event: UIEvent!) {
         Control.touchesEnded(self, touches: touches as! Set<UITouch>)
     }
-
-    func prepareAudios() {
-        
-        let path = NSBundle.mainBundle().pathForResource("starWars", ofType: "mp3")
-        let fileURL = NSURL(fileURLWithPath: path!)
-        self.sound = AVAudioPlayer(contentsOfURL: fileURL, error: nil)
-        self.sound.prepareToPlay()
-        
-    }
-
+    
 }
