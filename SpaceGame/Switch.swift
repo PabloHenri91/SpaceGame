@@ -52,9 +52,9 @@ class Switch: Control {
     }
     
     func switchPressed() {
-        var switch0:SKNode = self.childNodeWithName("\(self.name)0")!
+        var switch0:SKNode = self.childNodeWithName("\(self.name!)0")!
         switch0.hidden = !switch0.hidden
-        var switch1:SKNode = self.childNodeWithName("\(self.name)1")!
+        var switch1:SKNode = self.childNodeWithName("\(self.name!)1")!
         switch1.hidden = !switch1.hidden
     }
 }
