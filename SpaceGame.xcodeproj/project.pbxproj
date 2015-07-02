@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1304A74A1B4569DD00FC4284 /* Shot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1304A7491B4569DD00FC4284 /* Shot.swift */; };
+		130D30D11B43404800DD36E9 /* HardPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 130D30D01B43404800DD36E9 /* HardPoint.swift */; };
 		130E88701B0F75A00030FA7A /* NewGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 130E886F1B0F75A00030FA7A /* NewGameScene.swift */; };
 		135DC5F91B17374500A7E4EC /* OptionsScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135DC5F81B17374500A7E4EC /* OptionsScene.swift */; };
 		135DC5FB1B17421D00A7E4EC /* MessageBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135DC5FA1B17421D00A7E4EC /* MessageBox.swift */; };
@@ -103,6 +105,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1304A7491B4569DD00FC4284 /* Shot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Shot.swift; sourceTree = "<group>"; };
+		130D30D01B43404800DD36E9 /* HardPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HardPoint.swift; sourceTree = "<group>"; };
 		130E886F1B0F75A00030FA7A /* NewGameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewGameScene.swift; sourceTree = "<group>"; };
 		135DC5F81B17374500A7E4EC /* OptionsScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionsScene.swift; sourceTree = "<group>"; };
 		135DC5FA1B17421D00A7E4EC /* MessageBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageBox.swift; sourceTree = "<group>"; };
@@ -316,6 +320,8 @@
 				13CA5A4F1B3ACD55007EFDAF /* Meteor.swift */,
 				A4625D2B1B3ADD6C00411D80 /* Reachability.swift */,
 				A4625D2D1B3AE2C100411D80 /* Alert.swift */,
+				130D30D01B43404800DD36E9 /* HardPoint.swift */,
+				1304A7491B4569DD00FC4284 /* Shot.swift */,
 			);
 			name = src;
 			sourceTree = "<group>";
@@ -549,6 +555,7 @@
 				13C13B8C1B0CB01A00E6AC5E /* SpaceScene.swift in Sources */,
 				13843C321B275E5100F67EA3 /* SpaceGame.xcdatamodeld in Sources */,
 				13D29B941B0FA4FA00AED094 /* MemoryCard.swift in Sources */,
+				130D30D11B43404800DD36E9 /* HardPoint.swift in Sources */,
 				A4625D2E1B3AE2C100411D80 /* Alert.swift in Sources */,
 				3A9857591B4180FC0073EE2A /* PlayerShip.swift in Sources */,
 				13DB506A1B14FBC300E543E9 /* Label.swift in Sources */,
@@ -558,6 +565,7 @@
 				A4625D2C1B3ADD6C00411D80 /* Reachability.swift in Sources */,
 				13C13B8E1B0CB01A00E6AC5E /* GameViewController.swift in Sources */,
 				1397BD8B1B28A13000842123 /* WeaponData.swift in Sources */,
+				1304A74A1B4569DD00FC4284 /* Shot.swift in Sources */,
 				13CA5A501B3ACD55007EFDAF /* Meteor.swift in Sources */,
 				135DC5FF1B17CD5300A7E4EC /* SupplyRoomScene.swift in Sources */,
 				13E539041B2A003900F0C573 /* GameColors.swift in Sources */,

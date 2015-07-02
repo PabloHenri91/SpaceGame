@@ -25,6 +25,4 @@ extension PlayerData {
         var items = self.mutableSetValueForKey("playerShips");
         items.addObject(value)
     }
-    
-    
 }

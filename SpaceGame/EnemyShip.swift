@@ -44,6 +44,6 @@ class EnemyShip: Ship {
     }
     
     func update(currentTime: NSTimeInterval) {
-    
+        
     }
 }

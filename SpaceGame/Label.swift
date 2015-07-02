@@ -37,7 +37,7 @@ class Label: Control {
         })
     }
     
-    func setText(text:String){
+    func setText(text:String) {
         let label = self.childNodeWithName(self.name!) as! SKLabelNode
         label.text = text
         label.zPosition = Config.HUDZPosition/2
