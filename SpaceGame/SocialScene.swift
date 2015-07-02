@@ -15,7 +15,11 @@ class SocialScene: SKScene {
     var localPlayer = GKLocalPlayer.localPlayer()
     var playersArray = NSMutableArray()
     var favoriteArray = NSMutableArray()
+    let playerData:PlayerData = GameViewController.memoryCard.playerData!
     var connect = false
+    var indexShip =  0;
+    var shipArray = NSMutableArray()
+    var labelIndex = NSMutableArray()
     
     override init() {
         Control.locations = NSMutableArray()
@@ -33,7 +37,15 @@ class SocialScene: SKScene {
         self.backgroundColor = GameColors.gray
         self.anchorPoint = CGPoint(x: 0, y: 1)
         
-        self.addChild(Button(name: "buttonBack", x:81, y:633, xAlign:.left, yAlign:.down))
+        self.addChild(Button(name: "buttonBack", x:28, y:657, xAlign:.left, yAlign:.down))
+        self.addChild(Control(name: "socialBackground", x: 0, y: 0, align:.center))
+        self.addChild(Button(name: "buttonLeftShips", textureName: "buttonLeft", x: 250, y: 452, align:.center))
+        self.addChild(Button(name: "buttonRightShips", textureName: "buttonRight", x: 385, y: 452, align:.center))
+        
+        let playerShip = PlayerShip(index:(self.playerData.currentPlayerShip.shopIndex as Int), x: 356, y: 325)
+        
+        playerShip.name = "playerShip"
+        self.addChild(playerShip)
         
         dispatch_async(dispatch_get_global_queue(QOS_CLASS_BACKGROUND, 0)) { () -> Void in
             var con = Reachability.isConnectedToNetwork()
@@ -42,33 +54,75 @@ class SocialScene: SKScene {
                 self.inicio()
             }
         }
+        for ship in self.playerData.playerShips{
+            shipArray.addObject(ship.shopIndex)
+        }
     }
     
+    func addPlayersScene(){
+        var y = 73
+        var i = 0
+        for user in self.favoriteArray{
+            if let name = user.username!{
+                var label = (Label(name:"label\(i)", textureName:"\(name)", x:637, y:y+35, align:.center))
+                (label.childNodeWithName("label\(i)") as! SKLabelNode).horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.Left
+                var switch1 = (Switch(name: "switch\(name)", textureName: "switchFavorite", x: 1106, y: y+8, align: .center))
+                switch1.switchPressed()
+                self.addChild(switch1)
+                self.addChild(label)
+                self.addChild(Control(name: "control\(i)", textureName: "bordaPlayers", x: 598, y: y))
+                y += 75
+                self.labelIndex.addObject(i)
+                i++
+            }
+        }
+        for user in self.playersArray{
+            if let name = user.username!{
+                var label = Label(name:"label\(i)", textureName:"\(name)", x:637, y:y+35, align:.center)
+                (label.childNodeWithName("label\(i)") as! SKLabelNode).horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.Left
+                self.addChild(Switch(name: "switch\(name)", textureName: "switchFavorite", x: 1106, y: y+8, align: .center))
+                self.addChild(label)
+                self.addChild(Control(name: "control\(i)", textureName: "bordaPlayers", x: 598, y: y))
+                y += 75
+                self.labelIndex.addObject(i)
+                i++
+            }
+        }
+    }
+    
+    
     func buscaPlayers(){
-        let query = PFQuery(className: "_User")
-        query.findObjectsInBackgroundWithBlock({ (objects:[AnyObject]?, error:NSError?) -> Void in
+        var relation  = PFUser.currentUser()!.relationForKey("friends")//pegar favoritos
+        relation.query()?.findObjectsInBackgroundWithBlock({ (objects:[AnyObject]?, error:NSError?) -> Void in
             if let e = error{
                 println(e)
             }
             else{
-                var relation  = PFUser.currentUser()!.relationForKey("friends")//pegar favoritos
-                relation.query()?.findObjectsInBackgroundWithBlock({ (objects:[AnyObject]?, error:NSError?) -> Void in
+                self.favoriteArray.addObjectsFromArray(objects!)
+                let query = PFQuery(className: "_User")
+                query.findObjectsInBackgroundWithBlock({ (objects:[AnyObject]?, error:NSError?) -> Void in
                     if let e = error{
                         println(e)
                     }
                     else{
-                        self.favoriteArray.addObjectsFromArray(objects!)
-                        println(self.favoriteArray.description)
+                        
+                        for user in objects!{
+                            var contains = false
+                            for favorite in self.favoriteArray{
+                                if user.objectId == favorite.objectId{
+                                    contains = true
+                                    break
+                                }
+                            }
+                            if !contains{
+                                if (user as! PFUser).username!  != PFUser.currentUser()!.username!{
+                                    self.playersArray.addObject(user)
+                                }
+                            }
+                        }
+                        self.addPlayersScene()
                     }
                 })
-                
-                for user in objects!{
-                    if !self.favoriteArray.containsObject(user){
-                        if user as? PFUser != PFUser.currentUser(){
-                            self.playersArray.addObject(user)
-                        }
-                    }
-                }
             }
         })
     }
@@ -139,12 +193,20 @@ class SocialScene: SKScene {
         var relation = PFUser.currentUser()!.relationForKey("friends")
         relation.addObject(user)
         PFUser.currentUser()!.saveInBackground()
+        var switch1 = (self.childNodeWithName("switch\((user as! PFUser).username!)") as! Switch)
+        switch1.switchPressed()
+        self.playersArray.removeObject(user)
+        self.favoriteArray.addObject(user)
     }
     
     func removeFavorite(user:PFObject){
         var relation = PFUser.currentUser()!.relationForKey("friends")
         relation.removeObject(user)
         PFUser.currentUser()!.saveInBackground()
+        var switch1 = (self.childNodeWithName("switch\((user as! PFUser).username!)") as! Switch)
+        switch1.switchPressed()
+        self.favoriteArray.removeObject(user)
+        self.playersArray.addObject(user)
     }
     
     func authenticateLocalPlayer()->Bool{
@@ -180,6 +242,45 @@ class SocialScene: SKScene {
             if (self.childNodeWithName("buttonBack")!.containsPoint(location)) {
                 self.view?.presentScene(HangarScene(), transition: SKTransition.crossFadeWithDuration(1))
                 return
+            }
+            if (self.childNodeWithName("buttonLeftShips")!.containsPoint(location)){
+                if(self.indexShip == 0){
+                    self.indexShip = self.shipArray.count-1
+                }
+                else{
+                    self.indexShip--
+                    
+                }
+                
+                (self.childNodeWithName("playerShip") as! PlayerShip).reloadNewShip(self.shipArray[indexShip] as! Int)
+            }
+            if (self.childNodeWithName("buttonRightShips")!.containsPoint(location)){
+                if(self.indexShip == self.shipArray.count-1){
+                    self.indexShip = 0
+                }
+                else{
+                    self.indexShip++
+                    
+                }
+                (self.childNodeWithName("playerShip") as! PlayerShip).reloadNewShip(self.shipArray[indexShip] as! Int)
+            }
+            for i in self.labelIndex{
+                if(self.childNodeWithName("control\(i)")!.containsPoint(location)){
+                    var flag = false
+                    for user in self.favoriteArray{
+                        if user.username! == (self.childNodeWithName("label\(i)") as! Label).getText(){
+                            self.removeFavorite(user as! PFObject)
+                            flag = true
+                        }
+                    }
+                    if(!flag){
+                        for user in self.playersArray{
+                            if user.username! == (self.childNodeWithName("label\(i)") as! Label).getText(){
+                                self.addFavorite(user as! PFObject)
+                            }
+                        }
+                    }
+                }
             }
         }
     }
