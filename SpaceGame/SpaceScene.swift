@@ -66,6 +66,8 @@ class SpaceScene: SKScene {
         let player = (self.childNodeWithName("//player") as! PlayerShip)
         player.update(currentTime)
         
+        
+        
         NSArray(array: player.parent!.children).enumerateObjectsUsingBlock({ object, index, stop in
             var node = object as! SKNode
             
@@ -80,7 +82,7 @@ class SpaceScene: SKScene {
                 
             }
          })
-            
+    
         
 
         

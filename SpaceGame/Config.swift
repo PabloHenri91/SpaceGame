@@ -55,5 +55,5 @@ class Config: NSObject {
         case bullet = 4
     }
     
-    static var playerTypesCount = 13
+    static var playerTypesCount = 7
 }

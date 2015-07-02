@@ -61,6 +61,14 @@ class GameMath: NSObject {
     static func force(acceleration:Int) -> CGFloat{
         return CGFloat((Double(acceleration - 10)/90) * (1000 - 100) + 100)
     }
+    
+    static func lifePoints(armor:Int,level:Int) -> CGFloat{
+        return CGFloat( (armor * 5) + ( level * 2))
+    }
+    
+    static func enemyLifePoints(armor:Int,level:Int) -> CGFloat{
+        return CGFloat( (armor * 5) + ( level * 2))
+    }
 }
 
 public extension Int {
