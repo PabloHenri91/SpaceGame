@@ -66,8 +66,6 @@ class SpaceScene: SKScene {
         let player = (self.childNodeWithName("//player") as! PlayerShip)
         player.update(currentTime)
         
-        
-        
         NSArray(array: player.parent!.children).enumerateObjectsUsingBlock({ object, index, stop in
             var node = object as! SKNode
             
@@ -77,14 +75,14 @@ class SpaceScene: SKScene {
                 if(name.hasPrefix("enemy")) {
                     (node as! EnemyShip).update(currentTime, playerPosition: player.position)
                 } else {
-                    
+                    if(name == "shot") {
+                        (node as! Shot).update()
+                    } else {
+                        
+                    }
                 }
-                
             }
          })
-    
-        
-
         
         let mapManager = (self.childNodeWithName("//mapManager")! as! MapManager)
         var distance = Int(sqrt(player.position.x * player.position.x + player.position.y * player.position.y))
@@ -96,19 +94,6 @@ class SpaceScene: SKScene {
         
         let labelDistance = self.childNodeWithName("//labelDistance")! as! Label
         labelDistance.setText("Distance: \(distance/10)")
-        
-        NSArray(array: player.parent!.children).enumerateObjectsUsingBlock({ object, index, stop in
-            var node = object as! SKNode
-            
-            if let name = node.name
-            {
-                if(name == "shot") {
-                    (node as! Shot).update()
-                } else {
-                    
-                }
-            }
-        })
         
     }
     

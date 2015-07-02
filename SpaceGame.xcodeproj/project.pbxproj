@@ -356,7 +356,11 @@
 				13CA5A4F1B3ACD55007EFDAF /* Meteor.swift */,
 				A4625D2B1B3ADD6C00411D80 /* Reachability.swift */,
 				A4625D2D1B3AE2C100411D80 /* Alert.swift */,
-				5CCFA7011B440F6E00BB0E2A /* Audio.swift */,
+				5CCFA7011B440F6E00BB0E2A /*
+                    Audio.swift */,
+				130D30D01B43404800DD36E9 /* HardPoint.swift */,
+				1304A7491B4569DD00FC4284 /*
+                    Shot.swift */,
 			);
 			name = src;
 			sourceTree = "<group>";
