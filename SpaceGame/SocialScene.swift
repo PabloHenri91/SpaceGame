@@ -20,6 +20,7 @@ class SocialScene: SKScene {
     var indexShip =  0;
     var shipArray = NSMutableArray()
     var labelIndex = NSMutableArray()
+    var open = false
     
     override init() {
         Control.locations = NSMutableArray()
@@ -70,7 +71,7 @@ class SocialScene: SKScene {
                 switch1.switchPressed()
                 self.addChild(switch1)
                 self.addChild(label)
-                self.addChild(Control(name: "control\(i)", textureName: "bordaPlayers", x: 598, y: y))
+                self.addChild(Control(name: "control\(i)", textureName: "bordaPlayers", x: 598, y: y, align: .center))
                 y += 75
                 self.labelIndex.addObject(i)
                 i++
@@ -82,7 +83,7 @@ class SocialScene: SKScene {
                 (label.childNodeWithName("label\(i)") as! SKLabelNode).horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.Left
                 self.addChild(Switch(name: "switch\(name)", textureName: "switchFavorite", x: 1106, y: y+8, align: .center))
                 self.addChild(label)
-                self.addChild(Control(name: "control\(i)", textureName: "bordaPlayers", x: 598, y: y))
+                self.addChild(Control(name: "control\(i)", textureName: "bordaPlayers", x: 598, y: y, align: .center))
                 y += 75
                 self.labelIndex.addObject(i)
                 i++
@@ -284,6 +285,7 @@ class SocialScene: SKScene {
                                 }
                             }
                         }
+                        self.open = false
                     })
                     menu.touchesEndedAtButtonSendShip.addHandler({
                         var flag = false
@@ -303,8 +305,15 @@ class SocialScene: SKScene {
                             }
                         }
                         self.sendShip(player)
+                        self.open = false
                     })
-                    self.addChild(menu)
+                    menu.touchesEndedAtButtonCancel.addHandler({
+                        self.open = false
+                    })
+                    if !self.open{
+                        self.addChild(menu)
+                        self.open = true
+                    }
                 }
             }
         }
