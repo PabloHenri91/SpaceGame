@@ -174,14 +174,14 @@ class SocialScene: SKScene {
         }
     }
     
-    func sendShip(user:PFObject, data:[NSObject : AnyObject]){
+    func sendShip(user:PFObject/*, data:[NSObject : AnyObject]*/){
         let objectId = (user["Installation"] as! PFInstallation).objectId
         let pushQuery = PFInstallation.query()
         pushQuery?.whereKey("objectId", equalTo: objectId!)
         var push = PFPush()
         push.setQuery(pushQuery)
         var dict = NSMutableDictionary()
-        dict.setObject(data, forKey: "ship")
+        //dict.setObject(data, forKey: "ship")
         if let name = PFUser.currentUser()!.username{
             dict.setObject("\(name) send a ship", forKey: "alert")
         }
@@ -266,20 +266,45 @@ class SocialScene: SKScene {
             }
             for i in self.labelIndex{
                 if(self.childNodeWithName("control\(i)")!.containsPoint(location)){
-                    var flag = false
-                    for user in self.favoriteArray{
-                        if user.username! == (self.childNodeWithName("label\(i)") as! Label).getText(){
-                            self.removeFavorite(user as! PFObject)
-                            flag = true
-                        }
-                    }
-                    if(!flag){
-                        for user in self.playersArray{
+                    
+                    let menu = MenuSocial(text: "")
+                    menu.touchesEndedAtButtonFavorite.addHandler({
+                        var flag = false
+                        for user in self.favoriteArray{
                             if user.username! == (self.childNodeWithName("label\(i)") as! Label).getText(){
-                                self.addFavorite(user as! PFObject)
+                                self.removeFavorite(user as! PFObject)
+                                flag = true
+                                break
                             }
                         }
-                    }
+                        if(!flag){
+                            for user in self.playersArray{
+                                if user.username! == (self.childNodeWithName("label\(i)") as! Label).getText(){
+                                    self.addFavorite(user as! PFObject)
+                                }
+                            }
+                        }
+                    })
+                    menu.touchesEndedAtButtonSendShip.addHandler({
+                        var flag = false
+                        var player = PFObject(className: "User")
+                        for user in self.favoriteArray{
+                            if user.username! == (self.childNodeWithName("label\(i)") as! Label).getText(){
+                                player = user as! PFObject
+                                flag = true
+                                break
+                            }
+                        }
+                        if(!flag){
+                            for user in self.playersArray{
+                                if user.username! == (self.childNodeWithName("label\(i)") as! Label).getText(){
+                                    player = user as! PFObject
+                                }
+                            }
+                        }
+                        self.sendShip(player)
+                    })
+                    self.addChild(menu)
                 }
             }
         }

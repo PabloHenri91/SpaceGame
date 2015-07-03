@@ -49,9 +49,6 @@
 		3A9857581B4180FC0073EE2A /* EnemyShip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A9857551B4180FC0073EE2A /* EnemyShip.swift */; };
 		3A9857591B4180FC0073EE2A /* PlayerShip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A9857561B4180FC0073EE2A /* PlayerShip.swift */; };
 		3A98575A1B4180FC0073EE2A /* Ship.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A9857571B4180FC0073EE2A /* Ship.swift */; };
-		A4625D2A1B3AD39200411D80 /* SocialScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4625D291B3AD39200411D80 /* SocialScene.swift */; };
-		A4625D2C1B3ADD6C00411D80 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4625D2B1B3ADD6C00411D80 /* Reachability.swift */; };
-		A4625D2E1B3AE2C100411D80 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4625D2D1B3AE2C100411D80 /* Alert.swift */; };
 		5CCFA6DE1B417A5000BB0E2A /* CreditsScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCFA6DD1B417A5000BB0E2A /* CreditsScene.swift */; };
 		5CCFA6E01B41888F00BB0E2A /* starWars.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5CCFA6DF1B41888F00BB0E2A /* starWars.mp3 */; };
 		5CCFA6F21B42C3A200BB0E2A /* bossExplosionWhenDead.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5CCFA6E31B42C3A200BB0E2A /* bossExplosionWhenDead.mp3 */; };
@@ -69,6 +66,9 @@
 		5CCFA6FF1B42C3A200BB0E2A /* playerDeadAndWillBETeleportBackToBase.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5CCFA6F01B42C3A200BB0E2A /* playerDeadAndWillBETeleportBackToBase.mp3 */; };
 		5CCFA7001B42C3A200BB0E2A /* gameBackGroundSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5CCFA6F11B42C3A200BB0E2A /* gameBackGroundSound.mp3 */; };
 		5CCFA7021B440F6E00BB0E2A /* Audio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCFA7011B440F6E00BB0E2A /* Audio.swift */; };
+		A4625D2A1B3AD39200411D80 /* SocialScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4625D291B3AD39200411D80 /* SocialScene.swift */; };
+		A4625D2C1B3ADD6C00411D80 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4625D2B1B3ADD6C00411D80 /* Reachability.swift */; };
+		A4625D2E1B3AE2C100411D80 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4625D2D1B3AE2C100411D80 /* Alert.swift */; };
 		A4B239CF1B3993C700D693EC /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4B239CE1B3993C700D693EC /* AudioToolbox.framework */; };
 		A4B239D11B3993D000D693EC /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4B239D01B3993D000D693EC /* SystemConfiguration.framework */; };
 		A4B239D31B3993DB00D693EC /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4B239D21B3993DB00D693EC /* MobileCoreServices.framework */; };
@@ -81,6 +81,7 @@
 		A4B239EF1B39A72300D693EC /* ParseFacebookUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4B239E91B39A72300D693EC /* ParseFacebookUtils.framework */; };
 		A4B239F01B39A72300D693EC /* ParseFacebookUtilsV4.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4B239EA1B39A72300D693EC /* ParseFacebookUtilsV4.framework */; };
 		A4B239F11B39A72300D693EC /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4B239EB1B39A72300D693EC /* ParseUI.framework */; };
+		A4D348E61B460ADE008AE036 /* MenuSocial.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D348E51B460ADE008AE036 /* MenuSocial.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -172,9 +173,6 @@
 		3A9857551B4180FC0073EE2A /* EnemyShip.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnemyShip.swift; sourceTree = "<group>"; };
 		3A9857561B4180FC0073EE2A /* PlayerShip.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerShip.swift; sourceTree = "<group>"; };
 		3A9857571B4180FC0073EE2A /* Ship.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ship.swift; sourceTree = "<group>"; };
-		A4625D291B3AD39200411D80 /* SocialScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocialScene.swift; sourceTree = "<group>"; };
-		A4625D2B1B3ADD6C00411D80 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
-		A4625D2D1B3AE2C100411D80 /* Alert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		5CCFA6DD1B417A5000BB0E2A /* CreditsScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreditsScene.swift; sourceTree = "<group>"; };
 		5CCFA6DF1B41888F00BB0E2A /* starWars.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = starWars.mp3; sourceTree = "<group>"; };
 		5CCFA6E31B42C3A200BB0E2A /* bossExplosionWhenDead.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bossExplosionWhenDead.mp3; sourceTree = "<group>"; };
@@ -192,6 +190,9 @@
 		5CCFA6F01B42C3A200BB0E2A /* playerDeadAndWillBETeleportBackToBase.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = playerDeadAndWillBETeleportBackToBase.mp3; sourceTree = "<group>"; };
 		5CCFA6F11B42C3A200BB0E2A /* gameBackGroundSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = gameBackGroundSound.mp3; sourceTree = "<group>"; };
 		5CCFA7011B440F6E00BB0E2A /* Audio.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Audio.swift; sourceTree = "<group>"; };
+		A4625D291B3AD39200411D80 /* SocialScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocialScene.swift; sourceTree = "<group>"; };
+		A4625D2B1B3ADD6C00411D80 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
+		A4625D2D1B3AE2C100411D80 /* Alert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		A4B239CE1B3993C700D693EC /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		A4B239D01B3993D000D693EC /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		A4B239D21B3993DB00D693EC /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
@@ -204,6 +205,7 @@
 		A4B239E91B39A72300D693EC /* ParseFacebookUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseFacebookUtils.framework; sourceTree = "<group>"; };
 		A4B239EA1B39A72300D693EC /* ParseFacebookUtilsV4.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseFacebookUtilsV4.framework; sourceTree = "<group>"; };
 		A4B239EB1B39A72300D693EC /* ParseUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseUI.framework; sourceTree = "<group>"; };
+		A4D348E51B460ADE008AE036 /* MenuSocial.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuSocial.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -356,11 +358,10 @@
 				13CA5A4F1B3ACD55007EFDAF /* Meteor.swift */,
 				A4625D2B1B3ADD6C00411D80 /* Reachability.swift */,
 				A4625D2D1B3AE2C100411D80 /* Alert.swift */,
-				5CCFA7011B440F6E00BB0E2A /*
-                    Audio.swift */,
+				5CCFA7011B440F6E00BB0E2A /* Audio.swift */,
 				130D30D01B43404800DD36E9 /* HardPoint.swift */,
-				1304A7491B4569DD00FC4284 /*
-                    Shot.swift */,
+				1304A7491B4569DD00FC4284 /* Shot.swift */,
+				A4D348E51B460ADE008AE036 /* MenuSocial.swift */,
 			);
 			name = src;
 			sourceTree = "<group>";
@@ -624,6 +625,7 @@
 			files = (
 				13D1BCEC1B0E5FDB003E596F /* Button.swift in Sources */,
 				1397BD871B28A12F00842123 /* HardPointData.swift in Sources */,
+				A4D348E61B460ADE008AE036 /* MenuSocial.swift in Sources */,
 				135DC5F91B17374500A7E4EC /* OptionsScene.swift in Sources */,
 				13D1BCEE1B0E5FFB003E596F /* Switch.swift in Sources */,
 				135DC5FB1B17421D00A7E4EC /* MessageBox.swift in Sources */,
