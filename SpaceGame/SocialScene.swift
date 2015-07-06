@@ -63,6 +63,7 @@ class SocialScene: SKScene {
     func addPlayersScene(){
         var y = 73
         var i = 0
+        
         for user in self.favoriteArray{
             if let name = user.username!{
                 var label = (Label(name:"label\(i)", textureName:"\(name)", x:637, y:y+35, align:.center))
@@ -158,6 +159,9 @@ class SocialScene: SKScene {
                     })
                 }
                 if logou{
+                    var label = (Label(name:"labelusername", textureName:"Nickname: \(PFUser.currentUser()!.username!)", x:155, y:75, align:.center))
+                    (label.childNodeWithName("labelusername") as! SKLabelNode).horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.Left
+                    self.addChild(label)
                     self.buscaPlayers()
                 }
             }
