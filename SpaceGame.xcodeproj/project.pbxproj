@@ -15,10 +15,10 @@
 		135DC5FD1B177A3700A7E4EC /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135DC5FC1B177A3700A7E4EC /* Event.swift */; };
 		135DC5FF1B17CD5300A7E4EC /* SupplyRoomScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135DC5FE1B17CD5300A7E4EC /* SupplyRoomScene.swift */; };
 		13843C321B275E5100F67EA3 /* SpaceGame.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 13843C301B275E5100F67EA3 /* SpaceGame.xcdatamodeld */; };
-		1397BD871B28A12F00842123 /* HardPointData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1397BD861B28A12F00842123 /* HardPointData.swift */; };
 		1397BD891B28A13000842123 /* PlayerShipData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1397BD881B28A13000842123 /* PlayerShipData.swift */; };
 		1397BD8B1B28A13000842123 /* WeaponData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1397BD8A1B28A13000842123 /* WeaponData.swift */; };
 		1397BD8D1B28A13000842123 /* PlayerData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1397BD8C1B28A13000842123 /* PlayerData.swift */; };
+		139EA4A21B50137100E7ABD8 /* HardPointData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139EA4A11B50137100E7ABD8 /* HardPointData.swift */; };
 		13C13B881B0CB01A00E6AC5E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C13B871B0CB01A00E6AC5E /* AppDelegate.swift */; };
 		13C13B8C1B0CB01A00E6AC5E /* SpaceScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C13B8B1B0CB01A00E6AC5E /* SpaceScene.swift */; };
 		13C13B8E1B0CB01A00E6AC5E /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C13B8D1B0CB01A00E6AC5E /* GameViewController.swift */; };
@@ -37,6 +37,8 @@
 		13D29B941B0FA4FA00AED094 /* MemoryCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13D29B931B0FA4FA00AED094 /* MemoryCard.swift */; };
 		13DB50681B14EC9700E543E9 /* HangarScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13DB50671B14EC9700E543E9 /* HangarScene.swift */; };
 		13DB506A1B14FBC300E543E9 /* Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13DB50691B14FBC300E543E9 /* Label.swift */; };
+		13E265FC1B4B151B0059FD53 /* ArmoryScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E265FB1B4B151B0059FD53 /* ArmoryScene.swift */; };
+		13E265FE1B4B1B460059FD53 /* Weapon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E265FD1B4B1B460059FD53 /* Weapon.swift */; };
 		13E539021B29F61200F0C573 /* GameMath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E539011B29F61200F0C573 /* GameMath.swift */; };
 		13E539041B2A003900F0C573 /* GameColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E539031B2A003900F0C573 /* GameColors.swift */; };
 		3A5A06891B38484F00F001D8 /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5A06881B38484F00F001D8 /* InterfaceController.swift */; };
@@ -131,10 +133,10 @@
 		135DC5FC1B177A3700A7E4EC /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		135DC5FE1B17CD5300A7E4EC /* SupplyRoomScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SupplyRoomScene.swift; sourceTree = "<group>"; };
 		13843C311B275E5100F67EA3 /* SpaceGame.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SpaceGame.xcdatamodel; sourceTree = "<group>"; };
-		1397BD861B28A12F00842123 /* HardPointData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HardPointData.swift; sourceTree = "<group>"; };
 		1397BD881B28A13000842123 /* PlayerShipData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerShipData.swift; sourceTree = "<group>"; };
 		1397BD8A1B28A13000842123 /* WeaponData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeaponData.swift; sourceTree = "<group>"; };
 		1397BD8C1B28A13000842123 /* PlayerData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerData.swift; sourceTree = "<group>"; };
+		139EA4A11B50137100E7ABD8 /* HardPointData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HardPointData.swift; path = ../HardPointData.swift; sourceTree = "<group>"; };
 		13C13B821B0CB01A00E6AC5E /* SpaceGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpaceGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13C13B861B0CB01A00E6AC5E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		13C13B871B0CB01A00E6AC5E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -157,6 +159,8 @@
 		13D29B931B0FA4FA00AED094 /* MemoryCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemoryCard.swift; sourceTree = "<group>"; };
 		13DB50671B14EC9700E543E9 /* HangarScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HangarScene.swift; sourceTree = "<group>"; };
 		13DB50691B14FBC300E543E9 /* Label.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Label.swift; sourceTree = "<group>"; };
+		13E265FB1B4B151B0059FD53 /* ArmoryScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArmoryScene.swift; sourceTree = "<group>"; };
+		13E265FD1B4B1B460059FD53 /* Weapon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Weapon.swift; sourceTree = "<group>"; };
 		13E539011B29F61200F0C573 /* GameMath.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameMath.swift; sourceTree = "<group>"; };
 		13E539031B2A003900F0C573 /* GameColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameColors.swift; sourceTree = "<group>"; };
 		3A5A06831B38484F00F001D8 /* SpaceGame WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "SpaceGame WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -252,7 +256,7 @@
 				1397BD8C1B28A13000842123 /* PlayerData.swift */,
 				1397BD8A1B28A13000842123 /* WeaponData.swift */,
 				1397BD881B28A13000842123 /* PlayerShipData.swift */,
-				1397BD861B28A12F00842123 /* HardPointData.swift */,
+				139EA4A11B50137100E7ABD8 /* HardPointData.swift */,
 			);
 			name = CoreData;
 			sourceTree = "<group>";
@@ -334,6 +338,7 @@
 				13C13B8B1B0CB01A00E6AC5E /* SpaceScene.swift */,
 				A4625D291B3AD39200411D80 /* SocialScene.swift */,
 				5CCFA6DD1B417A5000BB0E2A /* CreditsScene.swift */,
+				13E265FB1B4B151B0059FD53 /* ArmoryScene.swift */,
 			);
 			name = Scenes;
 			sourceTree = "<group>";
@@ -362,6 +367,7 @@
 				130D30D01B43404800DD36E9 /* HardPoint.swift */,
 				1304A7491B4569DD00FC4284 /* Shot.swift */,
 				A4D348E51B460ADE008AE036 /* MenuSocial.swift */,
+				13E265FD1B4B1B460059FD53 /* Weapon.swift */,
 			);
 			name = src;
 			sourceTree = "<group>";
@@ -542,6 +548,9 @@
 					3A5A06821B38484F00F001D8 = {
 						CreatedOnToolsVersion = 6.3.1;
 					};
+					3A5A06911B38484F00F001D8 = {
+						DevelopmentTeam = JZ3J7RVLD7;
+					};
 				};
 			};
 			buildConfigurationList = 13C13B7D1B0CB01A00E6AC5E /* Build configuration list for PBXProject "SpaceGame" */;
@@ -623,8 +632,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				13E265FC1B4B151B0059FD53 /* ArmoryScene.swift in Sources */,
 				13D1BCEC1B0E5FDB003E596F /* Button.swift in Sources */,
-				1397BD871B28A12F00842123 /* HardPointData.swift in Sources */,
 				A4D348E61B460ADE008AE036 /* MenuSocial.swift in Sources */,
 				135DC5F91B17374500A7E4EC /* OptionsScene.swift in Sources */,
 				13D1BCEE1B0E5FFB003E596F /* Switch.swift in Sources */,
@@ -639,6 +648,7 @@
 				3A9857591B4180FC0073EE2A /* PlayerShip.swift in Sources */,
 				13DB506A1B14FBC300E543E9 /* Label.swift in Sources */,
 				13CA5A4E1B3ACCE8007EFDAF /* MapManager.swift in Sources */,
+				13E265FE1B4B1B460059FD53 /* Weapon.swift in Sources */,
 				135DC5FD1B177A3700A7E4EC /* Event.swift in Sources */,
 				13D1BCE61B0E5ECA003E596F /* Config.swift in Sources */,
 				A4625D2C1B3ADD6C00411D80 /* Reachability.swift in Sources */,
@@ -650,6 +660,7 @@
 				5CCFA6DE1B417A5000BB0E2A /* CreditsScene.swift in Sources */,
 				13E539041B2A003900F0C573 /* GameColors.swift in Sources */,
 				3A9857581B4180FC0073EE2A /* EnemyShip.swift in Sources */,
+				139EA4A21B50137100E7ABD8 /* HardPointData.swift in Sources */,
 				A4625D2A1B3AD39200411D80 /* SocialScene.swift in Sources */,
 				13C13B881B0CB01A00E6AC5E /* AppDelegate.swift in Sources */,
 				13CA5A4C1B3ACC6B007EFDAF /* Chunk.swift in Sources */,

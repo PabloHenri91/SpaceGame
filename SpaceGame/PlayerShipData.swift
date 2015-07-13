@@ -25,3 +25,11 @@ class PlayerShipData: NSManagedObject {
     @NSManaged var player: PlayerData
 
 }
+
+extension PlayerShipData {
+    //Adiciona HardPointData no NSSet hardPoints
+    func addHardPointObject(value: HardPointData) {
+        var items = self.mutableSetValueForKey("hardPoints");
+        items.addObject(value)
+    }
+}

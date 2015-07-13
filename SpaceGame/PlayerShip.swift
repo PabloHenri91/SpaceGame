@@ -20,6 +20,8 @@ class PlayerShip: Ship {
     //Tiros
     var lastFire:Double = 0
     
+    var hardPoints:NSMutableArray = NSMutableArray()
+    
     ///Inicializa nave nova sem física.
     init(index:Int, x:Int, y:Int) {
         super.init(index: index, name: "player", x: x, y: y)
@@ -44,6 +46,10 @@ class PlayerShip: Ship {
             self.maxAngularVelocity = GameMath.maxAngularVelocity(self.agility)
             self.maxLinearVelocity = GameMath.maxLinearVelocity(self.speedAtribute)
             self.force = GameMath.force(self.acceleration)
+        }
+        
+        for hardPointData in playerShipData.hardPoints {
+            self.hardPoints.addObject(HardPoint(hardPointData: hardPointData as! HardPointData))
         }
     }
 

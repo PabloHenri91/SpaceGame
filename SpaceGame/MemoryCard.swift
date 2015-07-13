@@ -22,11 +22,27 @@ class MemoryCard: NSObject {
         playerShipData.level = 1
         
         self.playerData = NSEntityDescription.insertNewObjectForEntityForName("PlayerData", inManagedObjectContext: self.managedObjectContext!) as! PlayerData
-        self.playerData.playerShips = NSSet(array: [playerShipData])
+        self.playerData.addPlayerShipObject(playerShipData)
         self.playerData.score = 100000000
         self.playerData.currentPlayerShip = playerShipData
         
         self.autoSave = true
+        
+        var firstWeapon = NSEntityDescription.insertNewObjectForEntityForName("WeaponData", inManagedObjectContext: self.managedObjectContext!) as! WeaponData
+        firstWeapon.bonusAmmoPerMag = 0
+        firstWeapon.bonusDemage = 0
+        firstWeapon.bonusReloadTime = 0
+        firstWeapon.shopIndex = 0
+        
+        var hardPointL1 = NSEntityDescription.insertNewObjectForEntityForName("HardPointData", inManagedObjectContext: self.managedObjectContext!) as! HardPointData
+        hardPointL1.locked = NSNumber(bool: false)
+        hardPointL1.weapon = firstWeapon
+        hardPointL1.postion = positions.centerFront.hashValue
+        
+        
+        
+        
+        playerShipData.addHardPointObject(hardPointL1)
         
         self.saveGame()
     }

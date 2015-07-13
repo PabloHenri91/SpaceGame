@@ -14,6 +14,7 @@ class HangarScene: SKScene {
         case hangar
         case playMission
         case supplyRoom
+        case armory
         case allyShip
         case mainMenu
     }
@@ -144,6 +145,10 @@ class HangarScene: SKScene {
                 self.view!.presentScene(SpaceScene(), transition: SKTransition.crossFadeWithDuration(1))
                 break
                 
+            case states.armory:
+                self.view!.presentScene(ArmoryScene(), transition: SKTransition.crossFadeWithDuration(1))
+                break
+                
             case states.supplyRoom:
                 self.view!.presentScene(SupplyRoomScene(), transition: SKTransition.crossFadeWithDuration(1))
                 break
@@ -183,7 +188,7 @@ class HangarScene: SKScene {
                         return
                     }
                     if (self.childNodeWithName("buttonSupplyRoom")!.containsPoint(location)) {
-                        self.nextState = .supplyRoom
+                        self.nextState = .armory
                         return
                     }
                     if (self.childNodeWithName("buttonAllyShip")!.containsPoint(location)) {
@@ -196,6 +201,12 @@ class HangarScene: SKScene {
                     }
                     
                     let playerShip = self.childNodeWithName("player") as! PlayerShip
+                    
+                    if(playerShip.containsPoint(location)){
+                        self.nextState = .supplyRoom
+                        return
+                    }
+                    
                     let playerType = Ships.types[playerShip.type] as! ShipType
                     
                     if (self.childNodeWithName("buttonLevelUp")!.containsPoint(location)) {

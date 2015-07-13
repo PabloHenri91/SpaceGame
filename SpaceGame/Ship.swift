@@ -35,7 +35,7 @@ class Ship: Control {
     
     func loadPhysics(texture:SKTexture){
         //Physics Config
-        self.physicsBody = SKPhysicsBody(texture: texture, alphaThreshold: 0.7, size: texture.size())
+        self.physicsBody = SKPhysicsBody(rectangleOfSize: CGSize(width: texture.size().width * 0.9, height: texture.size().height * 0.9))
         self.physicsBody!.angularDamping = 10
         self.physicsBody!.linearDamping = 5
     }

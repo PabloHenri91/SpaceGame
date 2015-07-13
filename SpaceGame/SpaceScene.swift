@@ -45,7 +45,7 @@ class SpaceScene: SKScene {
         let mapManager = MapManager()
         mapManager.name = "mapManager"
         world.addChild(mapManager);
-        mapManager.reloadMap()
+        mapManager.reloadMap(player.position)
         
         self.addChild(Button(name: "buttonBack", x:81, y:633, xAlign:.left, yAlign:.down))
         
