@@ -11,7 +11,7 @@ import SpriteKit
 class Chunk: SKSpriteNode {
     init(regionX:Int, regionY:Int) {
         let texture = SKTexture(imageNamed: "chunkBackground0")
-        super.init(texture: texture, color: nil, size: CGSize(width: Config.chunkSize, height: Config.chunkSize))
+        super.init(texture: texture, color: UIColor.clearColor(), size: CGSize(width: Config.chunkSize, height: Config.chunkSize))
         self.anchorPoint = CGPointZero
         self.load(regionX, regionY: regionY)
     }
@@ -28,11 +28,11 @@ class Chunk: SKSpriteNode {
     
     func loadData(data: NSArray){
         var i = 0
-        var tiles:NSMutableArray = NSMutableArray()
+        let tiles:NSMutableArray = NSMutableArray()
         for (var y = 0; y < MapManager.tilesPerChunk; y++) {
             for (var x = 0; x <  MapManager.tilesPerChunk; x++) {
                 if(data[i].integerValue != 0) {
-                    var tile = Meteor(id: data[i].integerValue, x:x, y:y)
+                    let tile = Meteor(id: data[i].integerValue, x:x, y:y)
                     
                     //MapManager.loading é setado para true durante o update do MapManager. No carregamento inicial seu valor é false
                     if(MapManager.loading) {
@@ -67,10 +67,10 @@ class Chunk: SKSpriteNode {
 //            break
             
         default:
-            var data:NSMutableArray = NSMutableArray()
+            let data:NSMutableArray = NSMutableArray()
             for (var i = 0; i <  MapManager.tilesPerChunk * MapManager.tilesPerChunk; i++) {
                 if(Int.random(1000) <= 1) {
-                    var randomTile = Int.random(MapManager.meteorTypeCount)
+                    let randomTile = Int.random(MapManager.meteorTypeCount)
                     data.addObject(randomTile)
                 } else {
                     data.addObject(0)

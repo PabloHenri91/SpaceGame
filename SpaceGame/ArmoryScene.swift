@@ -58,21 +58,21 @@ class ArmoryScene: SKScene {
         }
     }
     
-    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
-        Control.touchesBegan(self, touches: touches as! Set<UITouch>)
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        Control.touchesBegan(self, touches: touches )
     }
     
-    override func touchesMoved(touches: Set<NSObject>, withEvent event: UIEvent) {
+    override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
         Control.touchesMoved(self)
     }
     
-    override func touchesEnded(touches: Set<NSObject>, withEvent event: UIEvent) {
-        Control.touchesEnded(self, touches: touches as! Set<UITouch>)
+    override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        Control.touchesEnded(self, touches: touches )
         
         if (self.state == self.nextState) {
             switch (self.state) {
             case states.armory:
-                for touch in (touches as! Set<UITouch>) {
+                for touch in (touches ) {
                     let location = touch.locationInNode(self)
                     
                     if (self.childNodeWithName("buttonBack")!.containsPoint(location)) {
@@ -88,7 +88,7 @@ class ArmoryScene: SKScene {
         }
     }
     
-    override func touchesCancelled(touches: Set<NSObject>!, withEvent event: UIEvent!) {
-        Control.touchesEnded(self, touches: touches as! Set<UITouch>)
+    override func touchesCancelled(touches: Set<UITouch>?, withEvent event: UIEvent?) {
+        Control.touchesEnded(self, touches: touches! as Set<UITouch>)
     }
 }

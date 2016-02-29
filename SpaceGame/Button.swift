@@ -25,13 +25,13 @@ class Button: Control {
         self.zPosition = Config.HUDZPosition
         
         let texture = SKTexture(imageNamed: textureName)
-        let button = SKSpriteNode(texture: texture, color: nil, size: texture.size())
+        let button = SKSpriteNode(texture: texture, color: UIColor.clearColor(), size: texture.size())
         button.anchorPoint = CGPoint(x: 0, y: 1)
         button.name = name
         self.addChild(button)
         
         let texturePressed = SKTexture(imageNamed: "\(textureName)Pressed")
-        let buttonPressed = SKSpriteNode(texture: texturePressed, color: nil, size: texturePressed.size())
+        let buttonPressed = SKSpriteNode(texture: texturePressed, color: UIColor.clearColor(), size: texturePressed.size())
         buttonPressed.name = "\(name)Pressed"
         buttonPressed.anchorPoint = CGPoint(x: 0, y: 1)
         buttonPressed.hidden = true
@@ -40,7 +40,7 @@ class Button: Control {
     
     class func resetButtons(scene: SKScene) {
         NSArray(array: scene.children).enumerateObjectsUsingBlock({ object, index, stop in
-            var node = object as! SKNode
+            let node = object as! SKNode
             if let name = node.name
             {
                 if(name.hasPrefix("button")) {
@@ -63,7 +63,7 @@ class Button: Control {
                     
                                 var i = 0
                                 for touch in Control.touchesArray {
-                                    let location = touch.locationInNode(node.parent)
+                                    let location = touch.locationInNode(node.parent!)
                                     if node.containsPoint(location) {
                                         i++
                                     }

@@ -11,7 +11,7 @@ import SpriteKit
 class Meteor: SKSpriteNode {
     init(id:Int, x:Int, y:Int) {
         let texture = SKTexture(imageNamed: "meteor\(id)")
-        super.init(texture: texture, color: nil, size: texture.size())
+        super.init(texture: texture, color: UIColor.clearColor(), size: texture.size())
         self.position = CGPoint(x: x * (Int)(Config.tileSize), y: y * -(Int)(Config.tileSize) + (Int)(Config.chunkSize - Config.tileSize))
         
         self.physicsBody = SKPhysicsBody(bodies: [MapManager.bodies[id]])

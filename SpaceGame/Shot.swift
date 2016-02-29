@@ -15,7 +15,7 @@ class Shot: SKSpriteNode {
     
     init(position:CGPoint, zRotation:CGFloat) {
         let texture = SKTexture(imageNamed: "shot")
-        super.init(texture: texture, color: nil, size: texture.size())
+        super.init(texture: texture, color: UIColor.clearColor(), size: texture.size())
         self.dx = -sin(zRotation)
         self.dy = cos(zRotation)
         self.position = CGPoint(x:position.x + (dx * 64), y:position.y + (dy * 64))

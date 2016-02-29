@@ -58,9 +58,9 @@ class EnemyShip: Ship {
         }
         
         
-        var dX:CGFloat = playerPosition.x - self.position.x
-        var dY:CGFloat = playerPosition.y - self.position.y
-        var distanceToDestination:CGFloat = sqrt((dX * dX) + (dY * dY))
+        let dX:CGFloat = playerPosition.x - self.position.x
+        let dY:CGFloat = playerPosition.y - self.position.y
+        let distanceToDestination:CGFloat = sqrt((dX * dX) + (dY * dY))
         
         
         if(distanceToDestination < 200) {

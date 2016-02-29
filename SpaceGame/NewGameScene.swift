@@ -82,17 +82,17 @@ class NewGameScene: SKScene {
         (self.childNodeWithName("labelShieldRecharge") as! Label).setText(ship.shieldRecharge.description)
     }
     
-    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
-        Control.touchesBegan(self, touches: touches as! Set<UITouch>)
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        Control.touchesBegan(self, touches: touches )
     }
     
-    override func touchesMoved(touches: Set<NSObject>, withEvent event: UIEvent) {
+    override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
         Control.touchesMoved(self)
     }
     
-    override func touchesEnded(touches: Set<NSObject>, withEvent event: UIEvent) {
-        Control.touchesEnded(self, touches: touches as! Set<UITouch>)
-        for touch in (touches as! Set<UITouch>) {
+    override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        Control.touchesEnded(self, touches: touches )
+        for touch in (touches ) {
             let location = touch.locationInNode(self)
             
             if(!NSUserDefaults.standardUserDefaults().boolForKey("firstlaunch")){
@@ -154,8 +154,8 @@ class NewGameScene: SKScene {
         }
     }
     
-    override func touchesCancelled(touches: Set<NSObject>!, withEvent event: UIEvent!) {
-        Control.touchesEnded(self, touches: touches as! Set<UITouch>)
+    override func touchesCancelled(touches: Set<UITouch>?, withEvent event: UIEvent?) {
+        Control.touchesEnded(self, touches: touches! as Set<UITouch>)
     }
 
 //teste
@@ -223,12 +223,12 @@ class NewGameScene: SKScene {
 
     func animation(node:SKNode , timeToFade:Double ){
         
-        var pause:SKAction = SKAction.waitForDuration(1)
+        let pause:SKAction = SKAction.waitForDuration(1)
         self.timeToFade = self.timeToFade + 2.0
-        var fadeIn = SKAction.fadeInWithDuration(timeToFade)
-        var fadeAway = SKAction.fadeOutWithDuration(timeToFade)
-        var remove = SKAction.removeFromParent()
-        var moveSequence = SKAction.sequence([fadeIn , pause, fadeAway, remove])
+        let fadeIn = SKAction.fadeInWithDuration(timeToFade)
+        let fadeAway = SKAction.fadeOutWithDuration(timeToFade)
+        let remove = SKAction.removeFromParent()
+        let moveSequence = SKAction.sequence([fadeIn , pause, fadeAway, remove])
         
         node.runAction(moveSequence)
         

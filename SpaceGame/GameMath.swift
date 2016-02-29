@@ -19,7 +19,7 @@ class GameMath: NSObject {
     }
     
     static func currentUP(ship:Ship) -> Int {
-        var shipType = Ships.types[ship.type] as! ShipType
+        let shipType = Ships.types[ship.type] as! ShipType
         
         var totalBaseAtributePoints:Int = 0
         totalBaseAtributePoints += shipType.speed
@@ -55,11 +55,13 @@ class GameMath: NSObject {
     }
     
     static func maxLinearVelocity(speedAtribute:Int) -> CGFloat{
-        return CGFloat((Double(speedAtribute - 10)/90) * (2000 - 100) + 100)
+        let number = (Double(speedAtribute - 10)/90) * (2000 - 100) + 100
+        return CGFloat(number)
     }
     
     static func force(acceleration:Int) -> CGFloat{
-        return CGFloat((Double(acceleration - 10)/90) * (1000 - 100) + 100)
+        let number = (Double(acceleration - 10)/90) * (1000 - 100) + 100
+        return CGFloat(number)
     }
     
     static func lifePoints(armor:Int,level:Int) -> CGFloat{
@@ -80,21 +82,21 @@ public extension Int {
     }
     /**
     Create a random num Int
-    :param: lower number Int
-    :param: upper number Int
+    - parameter lower: number Int
+    - parameter upper: number Int
     :return: random number Int
     */
-    public static func random(#min: Int, max: Int) -> Int {
+    public static func random(min min: Int, max: Int) -> Int {
         return Int(arc4random_uniform(UInt32(max - min + 1))) + min
     }
     
     /**
     Create a random num Int
-    :param: lower number CGFloat
-    :param: upper number CGFloat
+    - parameter lower: number CGFloat
+    - parameter upper: number CGFloat
     :return: random number Int
     */
-    public static func random(#min: CGFloat, max: CGFloat) -> Int {
+    public static func random(min min: CGFloat, max: CGFloat) -> Int {
         return Int(arc4random_uniform(UInt32(max - min + 1))) + Int(min)
     }
 }
@@ -109,11 +111,11 @@ public extension Double {
     
     /**
     Create a random num Double
-    :param: lower number Double
-    :param: upper number Double
+    - parameter lower: number Double
+    - parameter upper: number Double
     :return: random number Double
     */
-    public static func random(#min: Double, max: Double) -> Double {
+    public static func random(min min: Double, max: Double) -> Double {
         return Double.random() * (max - min) + min
     }
 }
@@ -127,11 +129,11 @@ public extension Float {
     }
     /**
     Create a random num Float
-    :param: lower number Float
-    :param: upper number Float
+    - parameter lower: number Float
+    - parameter upper: number Float
     :return: random number Float
     */
-    public static func random(#min: Float, max: Float) -> Float {
+    public static func random(min min: Float, max: Float) -> Float {
         return Float.random() * (max - min) + min
     }
 }
@@ -143,7 +145,7 @@ public extension CGFloat {
     public static func random() -> CGFloat {
         return CGFloat(Float(arc4random()) / 0xFFFFFFFF)
     }
-    public static func random(#min: CGFloat, max: CGFloat) -> CGFloat {
+    public static func random(min min: CGFloat, max: CGFloat) -> CGFloat {
         return CGFloat.random() * (max - min) + min
     }
 }

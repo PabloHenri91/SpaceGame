@@ -14,8 +14,8 @@ class PlayerShip: Ship {
     var lastNoTouchTime:Double = 0
     var touchesArrayCount: Int = 0
     var lastTouchesArrayCount: Int = 0
-    var firstTouchLocation:CGPoint = CGPoint.zeroPoint
-    var lastTouchLocation:CGPoint = CGPoint.zeroPoint
+    var firstTouchLocation:CGPoint = CGPoint.zero
+    var lastTouchLocation:CGPoint = CGPoint.zero
     
     //Tiros
     var lastFire:Double = 0
@@ -88,7 +88,7 @@ class PlayerShip: Ship {
             
             //Um toque
         case 1:
-            self.firstTouchLocation = (Control.touchesArray[0] as! UITouch).locationInNode(self.parent)
+            self.firstTouchLocation = (Control.touchesArray[0] as! UITouch).locationInNode(self.parent!)
             
             self.setRotationToPoint(self.firstTouchLocation)
             break
@@ -96,8 +96,8 @@ class PlayerShip: Ship {
             //Mais de um toque
         default:
             
-            self.firstTouchLocation = (Control.touchesArray[0] as! UITouch).locationInNode(self.parent)
-            self.lastTouchLocation = (Control.touchesArray.lastObject as! UITouch).locationInNode(self.parent)
+            self.firstTouchLocation = (Control.touchesArray[0] as! UITouch).locationInNode(self.parent!)
+            self.lastTouchLocation = (Control.touchesArray.lastObject as! UITouch).locationInNode(self.parent!)
             
             self.needToMove = true
             self.startMoving = currentTime
@@ -152,8 +152,8 @@ class PlayerShip: Ship {
     }
     
     func updatePlayerDataCurrentPlayerShip() {
-        var currentPlayerShip = GameViewController.memoryCard.playerData.currentPlayerShip
-        var shipType = Ships.types[self.type] as! ShipType
+        let currentPlayerShip = GameViewController.memoryCard.playerData.currentPlayerShip
+        let shipType = Ships.types[self.type] as! ShipType
         
         currentPlayerShip.level = self.level
         

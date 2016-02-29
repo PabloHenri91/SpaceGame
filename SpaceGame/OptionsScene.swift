@@ -54,7 +54,7 @@ class OptionsScene: SKScene {
             switch (self.nextState) {
                 
             case .deleteSavedGame:
-                var messageBox = MessageBox(text: "Are you sure you want to delete?")
+                let messageBox = MessageBox(text: "Are you sure you want to delete?")
                 messageBox.touchesEndedAtButtonOK.addHandler({
                     GameViewController.memoryCard.reset()
                     self.nextState = .options
@@ -75,22 +75,22 @@ class OptionsScene: SKScene {
         }
     }
     
-    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
-        Control.touchesBegan(self, touches: touches as! Set<UITouch>)
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        Control.touchesBegan(self, touches: touches )
     }
     
-    override func touchesMoved(touches: Set<NSObject>, withEvent event: UIEvent) {
+    override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
         Control.touchesMoved(self)
     }
     
-    override func touchesEnded(touches: Set<NSObject>, withEvent event: UIEvent) {
-        Control.touchesEnded(self, touches: touches as! Set<UITouch>)
+    override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        Control.touchesEnded(self, touches: touches )
         
         if (self.state == self.nextState) {
             switch (self.state) {
             case states.options:
                 
-                for touch in (touches as! Set<UITouch>) {
+                for touch in (touches ) {
                     let location = touch.locationInNode(self)
                     
                     if (self.childNodeWithName("buttonDeleteSavedGame")!.containsPoint(location)) {
@@ -113,7 +113,7 @@ class OptionsScene: SKScene {
         }
     }
     
-    override func touchesCancelled(touches: Set<NSObject>!, withEvent event: UIEvent!) {
-        Control.touchesEnded(self, touches: touches as! Set<UITouch>)
+    override func touchesCancelled(touches: Set<UITouch>?, withEvent event: UIEvent?) {
+        Control.touchesEnded(self, touches: touches! as Set<UITouch>)
     }
 }

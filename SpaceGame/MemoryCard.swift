@@ -16,8 +16,8 @@ class MemoryCard: NSObject {
     var playerData:PlayerData!
     
     func newGame(shipIndex:Int) {
-        println("Creating new game...")
-        var playerShipData = NSEntityDescription.insertNewObjectForEntityForName("PlayerShipData", inManagedObjectContext: self.managedObjectContext!) as! PlayerShipData
+        print("Creating new game...")
+        let playerShipData = NSEntityDescription.insertNewObjectForEntityForName("PlayerShipData", inManagedObjectContext: self.managedObjectContext!) as! PlayerShipData
         playerShipData.shopIndex = shipIndex
         playerShipData.level = 1
         
@@ -28,13 +28,13 @@ class MemoryCard: NSObject {
         
         self.autoSave = true
         
-        var firstWeapon = NSEntityDescription.insertNewObjectForEntityForName("WeaponData", inManagedObjectContext: self.managedObjectContext!) as! WeaponData
+        let firstWeapon = NSEntityDescription.insertNewObjectForEntityForName("WeaponData", inManagedObjectContext: self.managedObjectContext!) as! WeaponData
         firstWeapon.bonusAmmoPerMag = 0
         firstWeapon.bonusDemage = 0
         firstWeapon.bonusReloadTime = 0
         firstWeapon.shopIndex = 0
         
-        var hardPointL1 = NSEntityDescription.insertNewObjectForEntityForName("HardPointData", inManagedObjectContext: self.managedObjectContext!) as! HardPointData
+        let hardPointL1 = NSEntityDescription.insertNewObjectForEntityForName("HardPointData", inManagedObjectContext: self.managedObjectContext!) as! HardPointData
         hardPointL1.locked = NSNumber(bool: false)
         hardPointL1.weapon = firstWeapon
         hardPointL1.postion = positions.centerFront.hashValue
@@ -49,7 +49,7 @@ class MemoryCard: NSObject {
     
     func saveGame() {
         if(self.autoSave){
-            println("Saving game...")
+            print("Saving game...")
             self.saveContext()
         }
     }
@@ -57,13 +57,13 @@ class MemoryCard: NSObject {
     func loadGame() -> Bool {
         
         if let playerData = playerData {
-            println("Game already loaded.")
+            print("Game already loaded.")
             return true
         } else {
             let fetchRequestData:NSArray = getPlayerData()
             
             if(fetchRequestData.count > 0){
-                println("Loading game...")
+                print("Loading game...")
                 self.playerData = (fetchRequestData.lastObject as! PlayerData)
                 self.autoSave = true
                 return true
@@ -74,7 +74,7 @@ class MemoryCard: NSObject {
     }
     
     func reset(){
-        println("MemoryCard.reset()")
+        print("MemoryCard.reset()")
         
         let fetchRequestData:NSArray = getPlayerData()
         
@@ -89,7 +89,7 @@ class MemoryCard: NSObject {
     
     func getPlayerData() -> NSArray{
         let fetchRequest = self.managedObjectModel.fetchRequestTemplateForName("getPlayerData")!
-        let fetchRequestData: NSArray! = self.managedObjectContext!.executeFetchRequest(fetchRequest, error: nil)
+        let fetchRequestData: NSArray! = try? self.managedObjectContext!.executeFetchRequest(fetchRequest)
         return fetchRequestData
     }
     
@@ -98,7 +98,7 @@ class MemoryCard: NSObject {
     lazy var applicationDocumentsDirectory: NSURL = {
         // The directory the application uses to store the Core Data store file. This code uses a directory named "PabloHenri91.SpaceGame" in the application's documents Application Support directory.
         let urls = NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)
-        return urls[urls.count-1] as! NSURL
+        return urls[urls.count-1] 
         }()
     
     lazy var managedObjectModel: NSManagedObjectModel = {
@@ -114,7 +114,10 @@ class MemoryCard: NSObject {
         let url = self.applicationDocumentsDirectory.URLByAppendingPathComponent("SpaceGame.sqlite")
         var error: NSError? = nil
         var failureReason = "There was an error creating or loading the application's saved data."
-        if coordinator!.addPersistentStoreWithType(NSSQLiteStoreType, configuration: nil, URL: url, options: nil, error: &error) == nil {
+        do {
+            try coordinator!.addPersistentStoreWithType(NSSQLiteStoreType, configuration: nil, URL: url, options: nil)
+        } catch var error1 as NSError {
+            error = error1
             coordinator = nil
             // Report any error we got.
             var dict = [String: AnyObject]()
@@ -126,6 +129,8 @@ class MemoryCard: NSObject {
             // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
             NSLog("Unresolved error \(error), \(error!.userInfo)")
             abort()// Deletar o app e testar de novo. =}
+        } catch {
+            fatalError()
         }
         
         return coordinator
@@ -147,11 +152,16 @@ class MemoryCard: NSObject {
     func saveContext () {
         if let moc = self.managedObjectContext {
             var error: NSError? = nil
-            if moc.hasChanges && !moc.save(&error) {
-                // Replace this implementation with code to handle the error appropriately.
-                // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                NSLog("Unresolved error \(error), \(error!.userInfo)")
-                abort()
+            if moc.hasChanges {
+                do {
+                    try moc.save()
+                } catch let error1 as NSError {
+                    error = error1
+                    // Replace this implementation with code to handle the error appropriately.
+                    // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+                    NSLog("Unresolved error \(error), \(error!.userInfo)")
+                    abort()
+                }
             }
         }
     }

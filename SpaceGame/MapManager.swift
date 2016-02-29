@@ -52,7 +52,7 @@ class MapManager: SKNode {
         
         //Preload de fisica dos meteoros.
         for (var i = 0; i < MapManager.meteorTypeCount; i++) {
-            var texture = SKTexture(imageNamed: "meteor\(i)")
+            let texture = SKTexture(imageNamed: "meteor\(i)")
             MapManager.bodies.append(SKPhysicsBody(texture: texture, alphaThreshold: 0.7,  size: texture.size()))
         }
     }
@@ -86,8 +86,8 @@ class MapManager: SKNode {
     
     func updatePlayerRegion(position:CGPoint) {
         
-        var positionX = position.x
-        var positionY = position.y
+        let positionX = position.x
+        let positionY = position.y
         
         self.playerRegionX = (Int)(positionX / Config.chunkSize)
         self.playerRegionY = (Int)(positionY / Config.chunkSize)

@@ -59,7 +59,7 @@ class SpaceScene: SKScene {
         (label.childNodeWithName("labelDistance") as! SKLabelNode).horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.Left
         self.addChild(label)
         
-        self.physicsWorld.gravity = CGVector.zeroVector
+        self.physicsWorld.gravity = CGVector.zero
     }
     
     override func update(currentTime: NSTimeInterval) {
@@ -67,7 +67,7 @@ class SpaceScene: SKScene {
         player.update(currentTime)
         
         NSArray(array: player.parent!.children).enumerateObjectsUsingBlock({ object, index, stop in
-            var node = object as! SKNode
+            let node = object as! SKNode
             
             if let name = node.name
             {
@@ -85,7 +85,7 @@ class SpaceScene: SKScene {
          })
         
         let mapManager = (self.childNodeWithName("//mapManager")! as! MapManager)
-        var distance = Int(sqrt(player.position.x * player.position.x + player.position.y * player.position.y))
+        let distance = Int(sqrt(player.position.x * player.position.x + player.position.y * player.position.y))
         mapManager.update(currentTime, playerShip:player, region:distance/10000)
         
         
@@ -112,17 +112,17 @@ class SpaceScene: SKScene {
         node.parent!.position = CGPoint(x: node.parent!.position.x - cameraPositionInScene.x, y: node.parent!.position.y - cameraPositionInScene.y)
     }
     
-    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
-        Control.touchesBegan(self, touches: touches as! Set<UITouch>)
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        Control.touchesBegan(self, touches: touches )
     }
     
-    override func touchesMoved(touches: Set<NSObject>, withEvent event: UIEvent) {
+    override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
         Control.touchesMoved(self)
     }
     
-    override func touchesEnded(touches: Set<NSObject>, withEvent event: UIEvent) {
-        Control.touchesEnded(self, touches: touches as! Set<UITouch>)
-        for touch in (touches as! Set<UITouch>) {
+    override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        Control.touchesEnded(self, touches: touches )
+        for touch in (touches ) {
             let location = touch.locationInNode(self)
             
             if (self.childNodeWithName("buttonBack")!.containsPoint(location)) {
@@ -132,7 +132,7 @@ class SpaceScene: SKScene {
         }
     }
     
-    override func touchesCancelled(touches: Set<NSObject>!, withEvent event: UIEvent!) {
-        Control.touchesEnded(self.scene!, touches: touches as! Set<UITouch>)
+    override func touchesCancelled(touches: Set<UITouch>?, withEvent event: UIEvent?) {
+        Control.touchesEnded(self.scene!, touches: touches! as Set<UITouch>)
     }
 }

@@ -22,7 +22,7 @@ class Audio{
         
         let path = NSBundle.mainBundle().pathForResource(name, ofType: "mp3")
         let fileURL = NSURL(fileURLWithPath: path!)
-        Audio.sound = AVAudioPlayer(contentsOfURL: fileURL, error: nil)
+        Audio.sound = try? AVAudioPlayer(contentsOfURL: fileURL)
         Audio.sound.prepareToPlay()
         Audio.sound.numberOfLoops = -1
         Audio.sound.volume = 1
@@ -34,7 +34,7 @@ class Audio{
         
         let path = NSBundle.mainBundle().pathForResource(name, ofType: "mp3")
         let fileURL = NSURL(fileURLWithPath: path!)
-        Audio.sound = AVAudioPlayer(contentsOfURL: fileURL, error: nil)
+        Audio.sound = try? AVAudioPlayer(contentsOfURL: fileURL)
         Audio.sound.stop()
     
     }

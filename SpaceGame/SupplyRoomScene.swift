@@ -107,17 +107,17 @@ class SupplyRoomScene: SKScene {
         (self.childNodeWithName("buttonLeftShips") as! Button).hidden = pagina == 0
     }
     
-    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
-        Control.touchesBegan(self, touches: touches as! Set<UITouch>)
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        Control.touchesBegan(self, touches: touches )
     }
     
-    override func touchesMoved(touches: Set<NSObject>, withEvent event: UIEvent) {
+    override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
         Control.touchesMoved(self)
     }
     
-    override func touchesEnded(touches: Set<NSObject>, withEvent event: UIEvent) {
-        Control.touchesEnded(self, touches: touches as! Set<UITouch>)
-        for touch in (touches as! Set<UITouch>) {
+    override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        Control.touchesEnded(self, touches: touches )
+        for touch in (touches ) {
             let location = touch.locationInNode(self)
             
             if (self.childNodeWithName("buttonBack")!.containsPoint(location)) {
@@ -302,8 +302,8 @@ class SupplyRoomScene: SKScene {
         }
     }
     
-    override func touchesCancelled(touches: Set<NSObject>!, withEvent event: UIEvent!) {
-        Control.touchesEnded(self.scene!, touches: touches as! Set<UITouch>)
+    override func touchesCancelled(touches: Set<UITouch>?, withEvent event: UIEvent?) {
+        Control.touchesEnded(self.scene!, touches: touches! as Set<UITouch>)
     }
     
     
@@ -322,7 +322,7 @@ class SupplyRoomScene: SKScene {
         
         
         // Cria uma nova instancia do objeto a ser inserido no core data
-        var playerShipData = NSEntityDescription.insertNewObjectForEntityForName("PlayerShipData", inManagedObjectContext: GameViewController.memoryCard.managedObjectContext!) as! PlayerShipData
+        let playerShipData = NSEntityDescription.insertNewObjectForEntityForName("PlayerShipData", inManagedObjectContext: GameViewController.memoryCard.managedObjectContext!) as! PlayerShipData
         
         
         // Define os atributos do objeto a ser inserido

@@ -32,14 +32,14 @@ class Label: Control {
     }
     
     class func resetLabels(scene: SKScene) {
-        scene.enumerateChildNodesWithName("label*", usingBlock: { (node:SKNode!, stop:UnsafeMutablePointer<ObjCBool>) -> Void in
+        scene.enumerateChildNodesWithName("label*", usingBlock: { (node:SKNode, stop:UnsafeMutablePointer<ObjCBool>) -> Void in
             (node as! Label).resetPosition()
         })
     }
     
     func getText()->NSString{
         let label = self.childNodeWithName(self.name!) as! SKLabelNode
-        return label.text
+        return label.text!
     }
     
     func setText(text:String){

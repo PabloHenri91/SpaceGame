@@ -84,7 +84,7 @@ class Control: SKNode {
         self.zPosition = Config.HUDZPosition/2
         
         let texture = SKTexture(imageNamed: textureName)
-        let spriteNode = SKSpriteNode(texture: texture, color: nil, size: texture.size())
+        let spriteNode = SKSpriteNode(texture: texture, color: UIColor.clearColor(), size: texture.size())
         spriteNode.anchorPoint = CGPoint(x: 0, y: 1)
         spriteNode.name = name
         self.addChild(spriteNode)

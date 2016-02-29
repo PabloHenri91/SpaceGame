@@ -22,7 +22,7 @@ class Ship: Control {
     
     //Movimentação
     var needToMove:Bool = false
-    var destination:CGPoint = CGPoint.zeroPoint
+    var destination:CGPoint = CGPoint.zero
     var rotation:CGFloat = 0
     var totalRotation:CGFloat = 0
     var startMoving:Double = 0
@@ -79,7 +79,7 @@ class Ship: Control {
         self.zPosition = Config.HUDZPosition
         
         let texture = SKTexture(imageNamed: "ship" + index.description)
-        let spriteNode = SKSpriteNode(texture: texture, color: nil, size: texture.size())
+        let spriteNode = SKSpriteNode(texture: texture, color: UIColor.clearColor(), size: texture.size())
         spriteNode.name = "ship"
         
         if(loadPhysics){
@@ -108,7 +108,7 @@ class Ship: Control {
         (self.childNodeWithName("ship"))!.removeFromParent()
         
         let texture = SKTexture(imageNamed: "ship" + index.description)
-        let spriteNode = SKSpriteNode(texture: texture, color: nil, size: texture.size())
+        let spriteNode = SKSpriteNode(texture: texture, color: UIColor.clearColor(), size: texture.size())
         spriteNode.name = "ship"
         spriteNode.zPosition = Config.HUDZPosition/2
         self.addChild(spriteNode)

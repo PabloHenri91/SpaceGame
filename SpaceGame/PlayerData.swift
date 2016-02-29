@@ -22,7 +22,7 @@ class PlayerData: NSManagedObject {
 
 extension PlayerData {
     func addPlayerShipObject(value: PlayerShipData) {
-        var items = self.mutableSetValueForKey("playerShips");
+        let items = self.mutableSetValueForKey("playerShips");
         items.addObject(value)
     }
 }

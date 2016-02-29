@@ -25,7 +25,6 @@
 		13C13B911B0CB01A00E6AC5E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13C13B8F1B0CB01A00E6AC5E /* Main.storyboard */; };
 		13C13B931B0CB01A00E6AC5E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13C13B921B0CB01A00E6AC5E /* Images.xcassets */; };
 		13C13B961B0CB01A00E6AC5E /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13C13B941B0CB01A00E6AC5E /* LaunchScreen.xib */; };
-		13C13BA21B0CB01A00E6AC5E /* SpaceGameTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C13BA11B0CB01A00E6AC5E /* SpaceGameTests.swift */; };
 		13CA5A4C1B3ACC6B007EFDAF /* Chunk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13CA5A4B1B3ACC6B007EFDAF /* Chunk.swift */; };
 		13CA5A4E1B3ACCE8007EFDAF /* MapManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13CA5A4D1B3ACCE8007EFDAF /* MapManager.swift */; };
 		13CA5A501B3ACD55007EFDAF /* Meteor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13CA5A4F1B3ACD55007EFDAF /* Meteor.swift */; };
@@ -41,13 +40,6 @@
 		13E265FE1B4B1B460059FD53 /* Weapon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E265FD1B4B1B460059FD53 /* Weapon.swift */; };
 		13E539021B29F61200F0C573 /* GameMath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E539011B29F61200F0C573 /* GameMath.swift */; };
 		13E539041B2A003900F0C573 /* GameColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E539031B2A003900F0C573 /* GameColors.swift */; };
-		3A5A06891B38484F00F001D8 /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5A06881B38484F00F001D8 /* InterfaceController.swift */; };
-		3A5A068B1B38484F00F001D8 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5A068A1B38484F00F001D8 /* NotificationController.swift */; };
-		3A5A068D1B38484F00F001D8 /* GlanceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5A068C1B38484F00F001D8 /* GlanceController.swift */; };
-		3A5A068F1B38484F00F001D8 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A5A068E1B38484F00F001D8 /* Images.xcassets */; };
-		3A5A06931B38484F00F001D8 /* SpaceGame WatchKit App.app in Resources */ = {isa = PBXBuildFile; fileRef = 3A5A06921B38484F00F001D8 /* SpaceGame WatchKit App.app */; };
-		3A5A069B1B38484F00F001D8 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A5A06991B38484F00F001D8 /* Interface.storyboard */; };
-		3A5A069D1B38484F00F001D8 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A5A069C1B38484F00F001D8 /* Images.xcassets */; };
 		3A9857581B4180FC0073EE2A /* EnemyShip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A9857551B4180FC0073EE2A /* EnemyShip.swift */; };
 		3A9857591B4180FC0073EE2A /* PlayerShip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A9857561B4180FC0073EE2A /* PlayerShip.swift */; };
 		3A98575A1B4180FC0073EE2A /* Ship.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A9857571B4180FC0073EE2A /* Ship.swift */; };
@@ -71,44 +63,8 @@
 		A4625D2A1B3AD39200411D80 /* SocialScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4625D291B3AD39200411D80 /* SocialScene.swift */; };
 		A4625D2C1B3ADD6C00411D80 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4625D2B1B3ADD6C00411D80 /* Reachability.swift */; };
 		A4625D2E1B3AE2C100411D80 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4625D2D1B3AE2C100411D80 /* Alert.swift */; };
-		A4B239CF1B3993C700D693EC /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4B239CE1B3993C700D693EC /* AudioToolbox.framework */; };
-		A4B239D11B3993D000D693EC /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4B239D01B3993D000D693EC /* SystemConfiguration.framework */; };
-		A4B239D31B3993DB00D693EC /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4B239D21B3993DB00D693EC /* MobileCoreServices.framework */; };
-		A4B239D51B3993E700D693EC /* libstdc++.6.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A4B239D41B3993E700D693EC /* libstdc++.6.dylib */; };
-		A4B239D71B3993F100D693EC /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A4B239D61B3993F100D693EC /* libsqlite3.dylib */; };
-		A4B239E21B399E7900D693EC /* SpaceGame WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 3A5A06831B38484F00F001D8 /* SpaceGame WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		A4B239EC1B39A72300D693EC /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4B239E61B39A72200D693EC /* Bolts.framework */; };
-		A4B239ED1B39A72300D693EC /* ParseCrashReporting.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4B239E71B39A72200D693EC /* ParseCrashReporting.framework */; };
-		A4B239EE1B39A72300D693EC /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4B239E81B39A72200D693EC /* Parse.framework */; };
-		A4B239EF1B39A72300D693EC /* ParseFacebookUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4B239E91B39A72300D693EC /* ParseFacebookUtils.framework */; };
-		A4B239F01B39A72300D693EC /* ParseFacebookUtilsV4.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4B239EA1B39A72300D693EC /* ParseFacebookUtilsV4.framework */; };
-		A4B239F11B39A72300D693EC /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4B239EB1B39A72300D693EC /* ParseUI.framework */; };
 		A4D348E61B460ADE008AE036 /* MenuSocial.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D348E51B460ADE008AE036 /* MenuSocial.swift */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		13C13B9C1B0CB01A00E6AC5E /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 13C13B7A1B0CB01A00E6AC5E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 13C13B811B0CB01A00E6AC5E;
-			remoteInfo = SpaceGame;
-		};
-		3A5A06941B38484F00F001D8 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 13C13B7A1B0CB01A00E6AC5E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 3A5A06911B38484F00F001D8;
-			remoteInfo = "SpaceGame WatchKit App";
-		};
-		A4B239E31B399E7900D693EC /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 13C13B7A1B0CB01A00E6AC5E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 3A5A06821B38484F00F001D8;
-			remoteInfo = "SpaceGame WatchKit Extension";
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		A4B239E51B399E7A00D693EC /* Embed App Extensions */ = {
@@ -117,7 +73,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				A4B239E21B399E7900D693EC /* SpaceGame WatchKit Extension.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -145,9 +100,6 @@
 		13C13B901B0CB01A00E6AC5E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		13C13B921B0CB01A00E6AC5E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		13C13B951B0CB01A00E6AC5E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		13C13B9B1B0CB01A00E6AC5E /* SpaceGameTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpaceGameTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		13C13BA01B0CB01A00E6AC5E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		13C13BA11B0CB01A00E6AC5E /* SpaceGameTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceGameTests.swift; sourceTree = "<group>"; };
 		13CA5A4B1B3ACC6B007EFDAF /* Chunk.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Chunk.swift; sourceTree = "<group>"; };
 		13CA5A4D1B3ACCE8007EFDAF /* MapManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapManager.swift; sourceTree = "<group>"; };
 		13CA5A4F1B3ACD55007EFDAF /* Meteor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Meteor.swift; sourceTree = "<group>"; };
@@ -163,17 +115,6 @@
 		13E265FD1B4B1B460059FD53 /* Weapon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Weapon.swift; sourceTree = "<group>"; };
 		13E539011B29F61200F0C573 /* GameMath.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameMath.swift; sourceTree = "<group>"; };
 		13E539031B2A003900F0C573 /* GameColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameColors.swift; sourceTree = "<group>"; };
-		3A5A06831B38484F00F001D8 /* SpaceGame WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "SpaceGame WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
-		3A5A06861B38484F00F001D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3A5A06871B38484F00F001D8 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
-		3A5A06881B38484F00F001D8 /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
-		3A5A068A1B38484F00F001D8 /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
-		3A5A068C1B38484F00F001D8 /* GlanceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlanceController.swift; sourceTree = "<group>"; };
-		3A5A068E1B38484F00F001D8 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		3A5A06921B38484F00F001D8 /* SpaceGame WatchKit App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SpaceGame WatchKit App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		3A5A06981B38484F00F001D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3A5A069A1B38484F00F001D8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
-		3A5A069C1B38484F00F001D8 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		3A9857551B4180FC0073EE2A /* EnemyShip.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnemyShip.swift; sourceTree = "<group>"; };
 		3A9857561B4180FC0073EE2A /* PlayerShip.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerShip.swift; sourceTree = "<group>"; };
 		3A9857571B4180FC0073EE2A /* Ship.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ship.swift; sourceTree = "<group>"; };
@@ -197,48 +138,12 @@
 		A4625D291B3AD39200411D80 /* SocialScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocialScene.swift; sourceTree = "<group>"; };
 		A4625D2B1B3ADD6C00411D80 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		A4625D2D1B3AE2C100411D80 /* Alert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
-		A4B239CE1B3993C700D693EC /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
-		A4B239D01B3993D000D693EC /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		A4B239D21B3993DB00D693EC /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
-		A4B239D41B3993E700D693EC /* libstdc++.6.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.6.dylib"; path = "usr/lib/libstdc++.6.dylib"; sourceTree = SDKROOT; };
-		A4B239D61B3993F100D693EC /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		A4B239D91B3994FF00D693EC /* ParseStarterProject-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ParseStarterProject-Bridging-Header.h"; sourceTree = "<group>"; };
-		A4B239E61B39A72200D693EC /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
-		A4B239E71B39A72200D693EC /* ParseCrashReporting.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseCrashReporting.framework; sourceTree = "<group>"; };
-		A4B239E81B39A72200D693EC /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
-		A4B239E91B39A72300D693EC /* ParseFacebookUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseFacebookUtils.framework; sourceTree = "<group>"; };
-		A4B239EA1B39A72300D693EC /* ParseFacebookUtilsV4.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseFacebookUtilsV4.framework; sourceTree = "<group>"; };
-		A4B239EB1B39A72300D693EC /* ParseUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseUI.framework; sourceTree = "<group>"; };
 		A4D348E51B460ADE008AE036 /* MenuSocial.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuSocial.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		13C13B7F1B0CB01A00E6AC5E /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				A4B239F11B39A72300D693EC /* ParseUI.framework in Frameworks */,
-				A4B239D71B3993F100D693EC /* libsqlite3.dylib in Frameworks */,
-				A4B239D51B3993E700D693EC /* libstdc++.6.dylib in Frameworks */,
-				A4B239EF1B39A72300D693EC /* ParseFacebookUtils.framework in Frameworks */,
-				A4B239D31B3993DB00D693EC /* MobileCoreServices.framework in Frameworks */,
-				A4B239F01B39A72300D693EC /* ParseFacebookUtilsV4.framework in Frameworks */,
-				A4B239EC1B39A72300D693EC /* Bolts.framework in Frameworks */,
-				A4B239D11B3993D000D693EC /* SystemConfiguration.framework in Frameworks */,
-				A4B239ED1B39A72300D693EC /* ParseCrashReporting.framework in Frameworks */,
-				A4B239EE1B39A72300D693EC /* Parse.framework in Frameworks */,
-				A4B239CF1B3993C700D693EC /* AudioToolbox.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		13C13B981B0CB01A00E6AC5E /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		3A5A06801B38484F00F001D8 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -265,9 +170,6 @@
 			isa = PBXGroup;
 			children = (
 				13C13B841B0CB01A00E6AC5E /* SpaceGame */,
-				13C13B9E1B0CB01A00E6AC5E /* SpaceGameTests */,
-				3A5A06841B38484F00F001D8 /* SpaceGame WatchKit Extension */,
-				3A5A06961B38484F00F001D8 /* SpaceGame WatchKit App */,
 				13C13B831B0CB01A00E6AC5E /* Products */,
 			);
 			sourceTree = "<group>";
@@ -276,9 +178,6 @@
 			isa = PBXGroup;
 			children = (
 				13C13B821B0CB01A00E6AC5E /* SpaceGame.app */,
-				13C13B9B1B0CB01A00E6AC5E /* SpaceGameTests.xctest */,
-				3A5A06831B38484F00F001D8 /* SpaceGame WatchKit Extension.appex */,
-				3A5A06921B38484F00F001D8 /* SpaceGame WatchKit App.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -287,7 +186,6 @@
 			isa = PBXGroup;
 			children = (
 				5CCFA6E21B42B96A00BB0E2A /* Sounds */,
-				A4B239C11B39934200D693EC /* Framework */,
 				13843C0F1B27503A00F67EA3 /* CoreData */,
 				13D1BCE41B0E5EAE003E596F /* src */,
 				13D1BCE31B0E5EA1003E596F /* Scenes */,
@@ -306,23 +204,6 @@
 			children = (
 				13C13B861B0CB01A00E6AC5E /* Info.plist */,
 				A4B239D91B3994FF00D693EC /* ParseStarterProject-Bridging-Header.h */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		13C13B9E1B0CB01A00E6AC5E /* SpaceGameTests */ = {
-			isa = PBXGroup;
-			children = (
-				13C13BA11B0CB01A00E6AC5E /* SpaceGameTests.swift */,
-				13C13B9F1B0CB01A00E6AC5E /* Supporting Files */,
-			);
-			path = SpaceGameTests;
-			sourceTree = "<group>";
-		};
-		13C13B9F1B0CB01A00E6AC5E /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				13C13BA01B0CB01A00E6AC5E /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -372,45 +253,6 @@
 			name = src;
 			sourceTree = "<group>";
 		};
-		3A5A06841B38484F00F001D8 /* SpaceGame WatchKit Extension */ = {
-			isa = PBXGroup;
-			children = (
-				3A5A06881B38484F00F001D8 /* InterfaceController.swift */,
-				3A5A068A1B38484F00F001D8 /* NotificationController.swift */,
-				3A5A068C1B38484F00F001D8 /* GlanceController.swift */,
-				3A5A068E1B38484F00F001D8 /* Images.xcassets */,
-				3A5A06851B38484F00F001D8 /* Supporting Files */,
-			);
-			path = "SpaceGame WatchKit Extension";
-			sourceTree = "<group>";
-		};
-		3A5A06851B38484F00F001D8 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				3A5A06861B38484F00F001D8 /* Info.plist */,
-				3A5A06871B38484F00F001D8 /* PushNotificationPayload.apns */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		3A5A06961B38484F00F001D8 /* SpaceGame WatchKit App */ = {
-			isa = PBXGroup;
-			children = (
-				3A5A06991B38484F00F001D8 /* Interface.storyboard */,
-				3A5A069C1B38484F00F001D8 /* Images.xcassets */,
-				3A5A06971B38484F00F001D8 /* Supporting Files */,
-			);
-			path = "SpaceGame WatchKit App";
-			sourceTree = "<group>";
-		};
-		3A5A06971B38484F00F001D8 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				3A5A06981B38484F00F001D8 /* Info.plist */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
 		5CCFA6E21B42B96A00BB0E2A /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
@@ -433,24 +275,6 @@
 			name = Sounds;
 			sourceTree = "<group>";
 		};
-		A4B239C11B39934200D693EC /* Framework */ = {
-			isa = PBXGroup;
-			children = (
-				A4B239D61B3993F100D693EC /* libsqlite3.dylib */,
-				A4B239E61B39A72200D693EC /* Bolts.framework */,
-				A4B239E71B39A72200D693EC /* ParseCrashReporting.framework */,
-				A4B239E81B39A72200D693EC /* Parse.framework */,
-				A4B239E91B39A72300D693EC /* ParseFacebookUtils.framework */,
-				A4B239EA1B39A72300D693EC /* ParseFacebookUtilsV4.framework */,
-				A4B239EB1B39A72300D693EC /* ParseUI.framework */,
-				A4B239D41B3993E700D693EC /* libstdc++.6.dylib */,
-				A4B239D21B3993DB00D693EC /* MobileCoreServices.framework */,
-				A4B239D01B3993D000D693EC /* SystemConfiguration.framework */,
-				A4B239CE1B3993C700D693EC /* AudioToolbox.framework */,
-			);
-			name = Framework;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -466,63 +290,11 @@
 			buildRules = (
 			);
 			dependencies = (
-				A4B239E41B399E7900D693EC /* PBXTargetDependency */,
 			);
 			name = SpaceGame;
 			productName = SpaceGame;
 			productReference = 13C13B821B0CB01A00E6AC5E /* SpaceGame.app */;
 			productType = "com.apple.product-type.application";
-		};
-		13C13B9A1B0CB01A00E6AC5E /* SpaceGameTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 13C13BA81B0CB01A00E6AC5E /* Build configuration list for PBXNativeTarget "SpaceGameTests" */;
-			buildPhases = (
-				13C13B971B0CB01A00E6AC5E /* Sources */,
-				13C13B981B0CB01A00E6AC5E /* Frameworks */,
-				13C13B991B0CB01A00E6AC5E /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				13C13B9D1B0CB01A00E6AC5E /* PBXTargetDependency */,
-			);
-			name = SpaceGameTests;
-			productName = SpaceGameTests;
-			productReference = 13C13B9B1B0CB01A00E6AC5E /* SpaceGameTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		3A5A06821B38484F00F001D8 /* SpaceGame WatchKit Extension */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 3A5A06A61B38484F00F001D8 /* Build configuration list for PBXNativeTarget "SpaceGame WatchKit Extension" */;
-			buildPhases = (
-				3A5A067F1B38484F00F001D8 /* Sources */,
-				3A5A06801B38484F00F001D8 /* Frameworks */,
-				3A5A06811B38484F00F001D8 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				3A5A06951B38484F00F001D8 /* PBXTargetDependency */,
-			);
-			name = "SpaceGame WatchKit Extension";
-			productName = "SpaceGame WatchKit Extension";
-			productReference = 3A5A06831B38484F00F001D8 /* SpaceGame WatchKit Extension.appex */;
-			productType = "com.apple.product-type.watchkit-extension";
-		};
-		3A5A06911B38484F00F001D8 /* SpaceGame WatchKit App */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 3A5A06A51B38484F00F001D8 /* Build configuration list for PBXNativeTarget "SpaceGame WatchKit App" */;
-			buildPhases = (
-				3A5A06901B38484F00F001D8 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "SpaceGame WatchKit App";
-			productName = "SpaceGame WatchKit App";
-			productReference = 3A5A06921B38484F00F001D8 /* SpaceGame WatchKit App.app */;
-			productType = "com.apple.product-type.application.watchapp";
 		};
 /* End PBXNativeTarget section */
 
@@ -530,6 +302,8 @@
 		13C13B7A1B0CB01A00E6AC5E /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftMigration = 0720;
+				LastSwiftUpdateCheck = 0720;
 				LastUpgradeCheck = 0630;
 				ORGANIZATIONNAME = WTFGames;
 				TargetAttributes = {
@@ -540,16 +314,6 @@
 								enabled = 0;
 							};
 						};
-					};
-					13C13B9A1B0CB01A00E6AC5E = {
-						CreatedOnToolsVersion = 6.3.2;
-						TestTargetID = 13C13B811B0CB01A00E6AC5E;
-					};
-					3A5A06821B38484F00F001D8 = {
-						CreatedOnToolsVersion = 6.3.1;
-					};
-					3A5A06911B38484F00F001D8 = {
-						DevelopmentTeam = JZ3J7RVLD7;
 					};
 				};
 			};
@@ -567,9 +331,6 @@
 			projectRoot = "";
 			targets = (
 				13C13B811B0CB01A00E6AC5E /* SpaceGame */,
-				13C13B9A1B0CB01A00E6AC5E /* SpaceGameTests */,
-				3A5A06821B38484F00F001D8 /* SpaceGame WatchKit Extension */,
-				3A5A06911B38484F00F001D8 /* SpaceGame WatchKit App */,
 			);
 		};
 /* End PBXProject section */
@@ -597,31 +358,6 @@
 				5CCFA6F41B42C3A200BB0E2A /* misseleCoolDownOverSOund.mp3 in Resources */,
 				13C13B911B0CB01A00E6AC5E /* Main.storyboard in Resources */,
 				5CCFA6F61B42C3A200BB0E2A /* buySound.mp3 in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		13C13B991B0CB01A00E6AC5E /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		3A5A06811B38484F00F001D8 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				3A5A068F1B38484F00F001D8 /* Images.xcassets in Resources */,
-				3A5A06931B38484F00F001D8 /* SpaceGame WatchKit App.app in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		3A5A06901B38484F00F001D8 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				3A5A069B1B38484F00F001D8 /* Interface.storyboard in Resources */,
-				3A5A069D1B38484F00F001D8 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -674,43 +410,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		13C13B971B0CB01A00E6AC5E /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				13C13BA21B0CB01A00E6AC5E /* SpaceGameTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		3A5A067F1B38484F00F001D8 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				3A5A068B1B38484F00F001D8 /* NotificationController.swift in Sources */,
-				3A5A06891B38484F00F001D8 /* InterfaceController.swift in Sources */,
-				3A5A068D1B38484F00F001D8 /* GlanceController.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		13C13B9D1B0CB01A00E6AC5E /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 13C13B811B0CB01A00E6AC5E /* SpaceGame */;
-			targetProxy = 13C13B9C1B0CB01A00E6AC5E /* PBXContainerItemProxy */;
-		};
-		3A5A06951B38484F00F001D8 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 3A5A06911B38484F00F001D8 /* SpaceGame WatchKit App */;
-			targetProxy = 3A5A06941B38484F00F001D8 /* PBXContainerItemProxy */;
-		};
-		A4B239E41B399E7900D693EC /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 3A5A06821B38484F00F001D8 /* SpaceGame WatchKit Extension */;
-			targetProxy = A4B239E31B399E7900D693EC /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		13C13B8F1B0CB01A00E6AC5E /* Main.storyboard */ = {
@@ -727,14 +427,6 @@
 				13C13B951B0CB01A00E6AC5E /* Base */,
 			);
 			name = LaunchScreen.xib;
-			sourceTree = "<group>";
-		};
-		3A5A06991B38484F00F001D8 /* Interface.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				3A5A069A1B38484F00F001D8 /* Base */,
-			);
-			name = Interface.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -776,7 +468,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -815,7 +507,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -834,7 +526,6 @@
 					"$(PROJECT_DIR)/SpaceGame",
 				);
 				INFOPLIST_FILE = SpaceGame/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -852,108 +543,9 @@
 					"$(PROJECT_DIR)/SpaceGame",
 				);
 				INFOPLIST_FILE = SpaceGame/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-			};
-			name = Release;
-		};
-		13C13BA91B0CB01A00E6AC5E /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = SpaceGameTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SpaceGame.app/SpaceGame";
-			};
-			name = Debug;
-		};
-		13C13BAA1B0CB01A00E6AC5E /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = SpaceGameTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SpaceGame.app/SpaceGame";
-			};
-			name = Release;
-		};
-		3A5A06A11B38484F00F001D8 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "SpaceGame WatchKit Extension/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_NAME = "${TARGET_NAME}";
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
-		};
-		3A5A06A21B38484F00F001D8 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				INFOPLIST_FILE = "SpaceGame WatchKit Extension/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_NAME = "${TARGET_NAME}";
-				SKIP_INSTALL = YES;
-			};
-			name = Release;
-		};
-		3A5A06A31B38484F00F001D8 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				IBSC_MODULE = SpaceGame_WatchKit_Extension;
-				INFOPLIST_FILE = "SpaceGame WatchKit App/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = 4;
-				"TARGETED_DEVICE_FAMILY[sdk=iphonesimulator*]" = "1,4";
-			};
-			name = Debug;
-		};
-		3A5A06A41B38484F00F001D8 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				IBSC_MODULE = SpaceGame_WatchKit_Extension;
-				INFOPLIST_FILE = "SpaceGame WatchKit App/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = 4;
-				"TARGETED_DEVICE_FAMILY[sdk=iphonesimulator*]" = "1,4";
 			};
 			name = Release;
 		};
@@ -974,33 +566,6 @@
 			buildConfigurations = (
 				13C13BA61B0CB01A00E6AC5E /* Debug */,
 				13C13BA71B0CB01A00E6AC5E /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		13C13BA81B0CB01A00E6AC5E /* Build configuration list for PBXNativeTarget "SpaceGameTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				13C13BA91B0CB01A00E6AC5E /* Debug */,
-				13C13BAA1B0CB01A00E6AC5E /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		3A5A06A51B38484F00F001D8 /* Build configuration list for PBXNativeTarget "SpaceGame WatchKit App" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				3A5A06A31B38484F00F001D8 /* Debug */,
-				3A5A06A41B38484F00F001D8 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		3A5A06A61B38484F00F001D8 /* Build configuration list for PBXNativeTarget "SpaceGame WatchKit Extension" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				3A5A06A11B38484F00F001D8 /* Debug */,
-				3A5A06A21B38484F00F001D8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
